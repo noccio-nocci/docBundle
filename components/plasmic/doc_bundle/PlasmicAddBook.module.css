@@ -1,0 +1,32 @@
+.root {
+  display: flex;
+  width: 200px;
+  height: 160px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--token-ciK1HCzcW);
+  position: relative;
+  transition-property: all;
+  transition-duration: 0.15s;
+  cursor: pointer;
+  border-radius: 6px;
+  padding: 8px;
+  border: 1px dashed var(--token-390KIGu4P);
+}
+.root:hover {
+  background: var(--token-d6__AIq36);
+}
+.svg {
+  position: relative;
+  object-fit: cover;
+  left: auto;
+  top: auto;
+  width: 120px;
+  height: 120px;
+  color: var(--token-7ZpyL6PxU);
+  flex-shrink: 0;
+}
+.root:hover .svg {
+  color: var(--token-390KIGu4P);
+}

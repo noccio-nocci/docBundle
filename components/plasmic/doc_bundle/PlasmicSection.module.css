@@ -1,0 +1,80 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  position: relative;
+  min-width: 0;
+  padding: 0px;
+}
+.rootglobal_loggedIn__true {
+  display: flex;
+}
+.freeBox {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-between;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  cursor: pointer;
+  min-width: 0;
+  padding: 0px;
+  border-bottom: 1px solid var(--token-7ZpyL6PxU);
+  border-left: 6px solid var(--token-390KIGu4P);
+}
+.text {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 800px;
+  color: var(--token-rBjq1hUEq);
+  font-size: 20px;
+  margin-left: 6px;
+  transition-property: all;
+  transition-duration: 1s;
+  min-width: 0;
+  padding: 6px 0px;
+}
+.svg {
+  position: relative;
+  object-fit: cover;
+  max-width: 100%;
+  align-self: center;
+  color: var(--token-390KIGu4P);
+  transition-property: transform;
+  transition-duration: 1s;
+  transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  width: 1em;
+  flex-shrink: 0;
+  height: 1em;
+}
+.svgclose {
+  transform: rotateX(0deg) rotateY(0deg) rotateZ(-180deg);
+}
+.childSection {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  transition-property: all;
+  transition-duration: 1s;
+  overflow: hidden;
+  max-height: 100vh;
+  min-width: 0;
+  padding: 0px 0px 0px 16px;
+}
+.childSectionclose {
+  height: auto;
+  transform: none;
+  max-height: 0vh;
+}
