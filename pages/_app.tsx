@@ -1,28 +1,44 @@
 import "../styles/globals.css";
 import { PlasmicRootProvider } from "@plasmicapp/react-web";
 import type { AppProps } from "next/app";
-import { auth, db, provider, storage } from "../firebase";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
-import { useAuthState } from "react-firebase-hooks/auth";
-import firebase from "firebase/app";
 import Head from "next/head";
+
+import { PlasmicLogin } from "../components/plasmic/doc_bundle/PlasmicLogin";
+import { useAuthState } from "../hooks/useAuthState";
+import { signIn, signOut } from "../utils/firebase/auth";
+
 function MyApp({ Component, pageProps }: AppProps) {
-    const [user, loggedin] = useAuthState(auth);
+    const { isSignedIn, isLoading } = useAuthState();
+
+/*
+    const [authUser, isLoading, error] = useAuthState(auth);
     const router = useRouter();
     
     useEffect(() => {
-        if (!loggedin && !user && router.asPath !== "/login") {
-            router.push("/login");
+        if (!isLoading && !authUser && router.asPath !== "/") {
+            router.push("/");
         }
-        }, [user, router, loggedin]);
+        }, [authUser, isLoading, router]);
 
+*/
     return (
         <>
             <Head>
                 <title>docBundle</title>
             </Head>
-            <Component {...pageProps} />
+            {isLoading ? (
+                <></>
+            ):!isSignedIn ? (
+                <PlasmicLogin
+                    loginWithGoogle={{
+                        props: { onClick: () => signIn()}
+                    }}
+                />
+            ):(
+                <Component {...pageProps} />
+            )}
         </>
     );
 }

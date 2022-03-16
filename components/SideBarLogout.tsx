@@ -6,6 +6,8 @@ import {
   DefaultSideBarLogoutProps
 } from "./plasmic/doc_bundle/PlasmicSideBarLogout";
 import { HTMLElementRefOf } from "@plasmicapp/react-web";
+import { signIn, signOut } from "../utils/firebase/auth";
+
 
 // Your component props start with props for variants and slots you defined
 // in Plasmic, but you can add more here, like event handlers that you can
@@ -41,7 +43,13 @@ function SideBarLogout_(
   // By default, we are just piping all SideBarLogoutProps here, but feel free
   // to do whatever works for you.
 
-  return <PlasmicSideBarLogout root={{ ref }} {...props} />;
+  return (
+    <PlasmicSideBarLogout 
+      root={{ ref }}
+      onClick = {() => signOut()}
+      {...props} 
+    />
+  );
 }
 
 const SideBarLogout = React.forwardRef(SideBarLogout_);

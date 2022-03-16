@@ -13,11 +13,12 @@
     "@plasmicapp/loader-nextjs": "^1.0.78",
     "@plasmicapp/react-web": "^0.2.91",
     "@plasmicpkgs/plasmic-basic-components": "^0.0.25",
-    "firebase": "^8.10.0",
+    "firebase": "^9.6.0",
     "next": "12.1.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-firebase-hooks": "^3.0.4"
+    "react-firebase-hooks": "^3.0.4",
+    "recoil": "^0.6.1"
   },
   "devDependencies": {
     "@types/node": "17.0.21",
