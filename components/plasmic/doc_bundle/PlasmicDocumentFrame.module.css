@@ -7,6 +7,3 @@
   min-height: 0;
   display: none;
 }
-.rootglobal_loggedIn__true:global(.__wab_instance) {
-  display: flex;
-}

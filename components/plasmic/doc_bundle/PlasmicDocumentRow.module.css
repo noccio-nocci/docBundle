@@ -33,9 +33,6 @@
   border-radius: 100px;
   padding: 0px;
 }
-.dotglobal_loggedIn__true {
-  background: var(--token-XtQCtoY3H);
-}
 .text {
   position: relative;
   width: 100%;

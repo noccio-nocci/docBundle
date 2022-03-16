@@ -36,8 +36,6 @@ import {
 } from "@plasmicapp/react-web";
 import { Iframe } from "@plasmicpkgs/plasmic-basic-components"; // plasmic-import: CMDBvOhaI4s/codeComponent
 
-import { LoggedInValue, useLoggedIn } from "./PlasmicGlobalVariant__LoggedIn"; // plasmic-import: VsyhYsfbuU/globalVariant
-
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import projectcss from "./plasmic_doc_bundle.module.css"; // plasmic-import: jRkyHyW5xUgunu5SjYQV4L/projectcss
@@ -70,24 +68,14 @@ function PlasmicDocumentFrame__RenderFunc(props: {
 }) {
   const { variants, args, overrides, forNode } = props;
 
-  const globalVariants = ensureGlobalVariants({
-    loggedIn: useLoggedIn()
-  });
-
   return (
-    (hasVariant(globalVariants, "loggedIn", "_true") ? true : true) ? (
+    true ? (
       <Iframe
         data-plasmic-name={"root"}
         data-plasmic-override={overrides.root}
         data-plasmic-root={true}
         data-plasmic-for-node={forNode}
-        className={classNames("__wab_instance", sty.root, {
-          [sty.rootglobal_loggedIn__true]: hasVariant(
-            globalVariants,
-            "loggedIn",
-            "_true"
-          )
-        })}
+        className={classNames("__wab_instance", sty.root)}
         src={"https://www.example.com" as const}
       />
     ) : null

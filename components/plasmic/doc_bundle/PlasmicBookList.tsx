@@ -35,8 +35,6 @@ import {
   ensureGlobalVariants
 } from "@plasmicapp/react-web";
 
-import { LoggedInValue, useLoggedIn } from "./PlasmicGlobalVariant__LoggedIn"; // plasmic-import: VsyhYsfbuU/globalVariant
-
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import projectcss from "./plasmic_doc_bundle.module.css"; // plasmic-import: jRkyHyW5xUgunu5SjYQV4L/projectcss
@@ -84,10 +82,6 @@ function PlasmicBookList__RenderFunc(props: {
 }) {
   const { variants, args, overrides, forNode } = props;
 
-  const globalVariants = ensureGlobalVariants({
-    loggedIn: useLoggedIn()
-  });
-
   return (
     <p.Stack
       as={"div"}
@@ -101,19 +95,7 @@ function PlasmicBookList__RenderFunc(props: {
         projectcss.root_reset,
         projectcss.plasmic_default_styles,
         projectcss.plasmic_tokens,
-        sty.root,
-        {
-          [projectcss.global_loggedIn__true]: hasVariant(
-            globalVariants,
-            "loggedIn",
-            "_true"
-          ),
-          [sty.rootglobal_loggedIn__true]: hasVariant(
-            globalVariants,
-            "loggedIn",
-            "_true"
-          )
-        }
+        sty.root
       )}
     >
       <p.Stack
@@ -132,25 +114,11 @@ function PlasmicBookList__RenderFunc(props: {
           value: args.icon
         })}
 
-        <div
-          className={classNames(projectcss.all, sty.freeBox__vCqA1, {
-            [sty.freeBoxglobal_loggedIn__true__vCqA1TQxEk]: hasVariant(
-              globalVariants,
-              "loggedIn",
-              "_true"
-            )
-          })}
-        >
+        <div className={classNames(projectcss.all, sty.freeBox__vCqA1)}>
           {p.renderPlasmicSlot({
             defaultContents: "すべてのブック",
             value: args.title,
-            className: classNames(sty.slotTargetTitle, {
-              [sty.slotTargetTitleglobal_loggedIn__true]: hasVariant(
-                globalVariants,
-                "loggedIn",
-                "_true"
-              )
-            })
+            className: classNames(sty.slotTargetTitle)
           })}
         </div>
       </p.Stack>
@@ -160,13 +128,7 @@ function PlasmicBookList__RenderFunc(props: {
         data-plasmic-name={"list"}
         data-plasmic-override={overrides.list}
         hasGap={true}
-        className={classNames(projectcss.all, sty.list, {
-          [sty.listglobal_loggedIn__true]: hasVariant(
-            globalVariants,
-            "loggedIn",
-            "_true"
-          )
-        })}
+        className={classNames(projectcss.all, sty.list)}
       >
         {p.renderPlasmicSlot({
           defaultContents: null,

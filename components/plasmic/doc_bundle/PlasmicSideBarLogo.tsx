@@ -35,8 +35,6 @@ import {
   ensureGlobalVariants
 } from "@plasmicapp/react-web";
 
-import { LoggedInValue, useLoggedIn } from "./PlasmicGlobalVariant__LoggedIn"; // plasmic-import: VsyhYsfbuU/globalVariant
-
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import projectcss from "./plasmic_doc_bundle.module.css"; // plasmic-import: jRkyHyW5xUgunu5SjYQV4L/projectcss
@@ -71,10 +69,6 @@ function PlasmicSideBarLogo__RenderFunc(props: {
 }) {
   const { variants, args, overrides, forNode } = props;
 
-  const globalVariants = ensureGlobalVariants({
-    loggedIn: useLoggedIn()
-  });
-
   return (
     true ? (
       <p.Stack
@@ -89,41 +83,20 @@ function PlasmicSideBarLogo__RenderFunc(props: {
           projectcss.root_reset,
           projectcss.plasmic_default_styles,
           projectcss.plasmic_tokens,
-          sty.root,
-          {
-            [sty.rootglobal_loggedIn__true]: hasVariant(
-              globalVariants,
-              "loggedIn",
-              "_true"
-            )
-          }
+          sty.root
         )}
       >
         <p.PlasmicImg
           data-plasmic-name={"img"}
           data-plasmic-override={overrides.img}
           alt={""}
-          className={classNames(sty.img, {
-            [sty.imgglobal_loggedIn__true]: hasVariant(
-              globalVariants,
-              "loggedIn",
-              "_true"
-            )
-          })}
-          displayHeight={
-            hasVariant(globalVariants, "loggedIn", "_true")
-              ? ("32px" as const)
-              : ("24px" as const)
-          }
+          className={classNames(sty.img)}
+          displayHeight={"32px" as const}
           displayMaxHeight={"none" as const}
           displayMaxWidth={"100%" as const}
           displayMinHeight={"0" as const}
           displayMinWidth={"0" as const}
-          displayWidth={
-            hasVariant(globalVariants, "loggedIn", "_true")
-              ? ("32px" as const)
-              : ("24px" as const)
-          }
+          displayWidth={"32px" as const}
           loading={"lazy" as const}
           src={{
             src: "/plasmic/doc_bundle/images/scrapDocs.svg",
@@ -139,19 +112,10 @@ function PlasmicSideBarLogo__RenderFunc(props: {
           className={classNames(
             projectcss.all,
             projectcss.__wab_text,
-            sty.text,
-            {
-              [sty.textglobal_loggedIn__true]: hasVariant(
-                globalVariants,
-                "loggedIn",
-                "_true"
-              )
-            }
+            sty.text
           )}
         >
-          {hasVariant(globalVariants, "loggedIn", "_true")
-            ? "docBundle"
-            : "DocStack"}
+          {"docBundle"}
         </div>
       </p.Stack>
     ) : null

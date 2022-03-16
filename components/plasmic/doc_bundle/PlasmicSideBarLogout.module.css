@@ -13,9 +13,6 @@
   padding: 0px;
   border-top: 1px solid var(--token-7ZpyL6PxU);
 }
-.rootglobal_loggedIn__true {
-  cursor: pointer;
-}
 .root:hover {
   background: var(--token-d6__AIq36);
 }

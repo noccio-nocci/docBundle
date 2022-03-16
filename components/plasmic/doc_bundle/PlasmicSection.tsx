@@ -35,8 +35,6 @@ import {
   ensureGlobalVariants
 } from "@plasmicapp/react-web";
 
-import { LoggedInValue, useLoggedIn } from "./PlasmicGlobalVariant__LoggedIn"; // plasmic-import: VsyhYsfbuU/globalVariant
-
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import projectcss from "./plasmic_doc_bundle.module.css"; // plasmic-import: jRkyHyW5xUgunu5SjYQV4L/projectcss
@@ -81,77 +79,59 @@ function PlasmicSection__RenderFunc(props: {
 }) {
   const { variants, args, overrides, forNode } = props;
 
-  const globalVariants = ensureGlobalVariants({
-    loggedIn: useLoggedIn()
-  });
-
   return (
-    (hasVariant(globalVariants, "loggedIn", "_true") ? true : true) ? (
+    <div
+      data-plasmic-name={"root"}
+      data-plasmic-override={overrides.root}
+      data-plasmic-root={true}
+      data-plasmic-for-node={forNode}
+      className={classNames(
+        projectcss.all,
+        projectcss.root_reset,
+        projectcss.plasmic_default_styles,
+        projectcss.plasmic_tokens,
+        sty.root,
+        { [sty.rootclose]: hasVariant(variants, "close", "close") }
+      )}
+    >
       <div
-        data-plasmic-name={"root"}
-        data-plasmic-override={overrides.root}
-        data-plasmic-root={true}
-        data-plasmic-for-node={forNode}
-        className={classNames(
-          projectcss.all,
-          projectcss.root_reset,
-          projectcss.plasmic_default_styles,
-          projectcss.plasmic_tokens,
-          sty.root,
-          {
-            [projectcss.global_loggedIn__true]: hasVariant(
-              globalVariants,
-              "loggedIn",
-              "_true"
-            ),
-            [sty.rootclose]: hasVariant(variants, "close", "close"),
-            [sty.rootglobal_loggedIn__true]: hasVariant(
-              globalVariants,
-              "loggedIn",
-              "_true"
-            )
-          }
-        )}
+        data-plasmic-name={"freeBox"}
+        data-plasmic-override={overrides.freeBox}
+        className={classNames(projectcss.all, sty.freeBox, {
+          [sty.freeBoxclose]: hasVariant(variants, "close", "close")
+        })}
       >
         <div
-          data-plasmic-name={"freeBox"}
-          data-plasmic-override={overrides.freeBox}
-          className={classNames(projectcss.all, sty.freeBox, {
-            [sty.freeBoxclose]: hasVariant(variants, "close", "close")
-          })}
+          data-plasmic-name={"text"}
+          data-plasmic-override={overrides.text}
+          className={classNames(
+            projectcss.all,
+            projectcss.__wab_text,
+            sty.text,
+            { [sty.textclose]: hasVariant(variants, "close", "close") }
+          )}
         >
-          <div
-            data-plasmic-name={"text"}
-            data-plasmic-override={overrides.text}
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text,
-              { [sty.textclose]: hasVariant(variants, "close", "close") }
-            )}
-          >
-            {"Section Title"}
-          </div>
-
-          <SectionFlapIcon
-            data-plasmic-name={"svg"}
-            data-plasmic-override={overrides.svg}
-            className={classNames(projectcss.all, sty.svg, {
-              [sty.svgclose]: hasVariant(variants, "close", "close")
-            })}
-            role={"img"}
-          />
+          {"Section Title"}
         </div>
 
-        <div
-          data-plasmic-name={"childSection"}
-          data-plasmic-override={overrides.childSection}
-          className={classNames(projectcss.all, sty.childSection, {
-            [sty.childSectionclose]: hasVariant(variants, "close", "close")
+        <SectionFlapIcon
+          data-plasmic-name={"svg"}
+          data-plasmic-override={overrides.svg}
+          className={classNames(projectcss.all, sty.svg, {
+            [sty.svgclose]: hasVariant(variants, "close", "close")
           })}
+          role={"img"}
         />
       </div>
-    ) : null
+
+      <div
+        data-plasmic-name={"childSection"}
+        data-plasmic-override={overrides.childSection}
+        className={classNames(projectcss.all, sty.childSection, {
+          [sty.childSectionclose]: hasVariant(variants, "close", "close")
+        })}
+      />
+    </div>
   ) as React.ReactElement | null;
 }
 

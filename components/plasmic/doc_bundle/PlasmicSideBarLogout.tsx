@@ -35,8 +35,6 @@ import {
   ensureGlobalVariants
 } from "@plasmicapp/react-web";
 
-import { LoggedInValue, useLoggedIn } from "./PlasmicGlobalVariant__LoggedIn"; // plasmic-import: VsyhYsfbuU/globalVariant
-
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import projectcss from "./plasmic_doc_bundle.module.css"; // plasmic-import: jRkyHyW5xUgunu5SjYQV4L/projectcss
@@ -73,10 +71,6 @@ function PlasmicSideBarLogout__RenderFunc(props: {
 }) {
   const { variants, args, overrides, forNode } = props;
 
-  const globalVariants = ensureGlobalVariants({
-    loggedIn: useLoggedIn()
-  });
-
   return (
     <div
       data-plasmic-name={"root"}
@@ -88,19 +82,7 @@ function PlasmicSideBarLogout__RenderFunc(props: {
         projectcss.root_reset,
         projectcss.plasmic_default_styles,
         projectcss.plasmic_tokens,
-        sty.root,
-        {
-          [projectcss.global_loggedIn__true]: hasVariant(
-            globalVariants,
-            "loggedIn",
-            "_true"
-          ),
-          [sty.rootglobal_loggedIn__true]: hasVariant(
-            globalVariants,
-            "loggedIn",
-            "_true"
-          )
-        }
+        sty.root
       )}
     >
       <LogoutIcon

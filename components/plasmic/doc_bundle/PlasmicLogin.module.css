@@ -22,21 +22,23 @@
 .root > :global(.__wab_flex-container) > :global(.__wab_slot) > picture > img {
   margin-top: 16px;
 }
-.freeBox___2Nyxn {
+.loginWithGoogle:global(.__wab_instance) {
+  position: relative;
+  margin-right: 0px;
+}
+.freeBox__nsoH {
   display: flex;
   position: relative;
   flex-direction: row;
   align-items: stretch;
   justify-content: flex-start;
   width: 100%;
-  height: 100%;
+  height: auto;
   max-width: 100%;
   min-width: 0;
-  min-height: 0;
-  padding: 0px;
+  padding: 8px;
 }
-.freeBox__liMl0 {
-  display: flex;
+.freeBox__pPuou {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
@@ -46,6 +48,7 @@
   max-height: 100vh;
   flex-shrink: 0;
   min-height: 0;
+  display: none;
   padding: 8px 0px 0px;
   margin: 0px;
   border-right: 1px solid var(--token-7ZpyL6PxU);
@@ -56,7 +59,6 @@
 }
 .bundleList {
   flex-direction: column;
-  display: flex;
   position: relative;
   width: 100%;
   height: 100%;
@@ -65,6 +67,7 @@
   overflow-y: auto;
   min-width: 0;
   min-height: 0;
+  display: none;
   padding: 0px 8px;
   margin: 18px 0px 70px;
 }
@@ -89,10 +92,8 @@
 }
 .addStock:global(.__wab_instance) {
   position: relative;
-  display: flex;
 }
-.freeBox___1AlMz {
-  display: flex;
+.freeBox__rPtGk {
   position: relative;
   flex-direction: column;
   align-items: flex-start;
@@ -104,6 +105,7 @@
   top: auto;
   bottom: auto;
   min-width: 0;
+  display: none;
   padding: 0px;
   margin: auto;
 }
@@ -114,13 +116,13 @@
 }
 .stackerList {
   flex-direction: column;
-  display: flex;
   position: relative;
   width: 100%;
   height: 100%;
   max-width: 100%;
   min-width: 0;
   min-height: 0;
+  display: none;
   padding: 32px;
 }
 .stackerList > :global(.__wab_flex-container) {
@@ -142,20 +144,20 @@
   > img {
   margin-top: 16px;
 }
-.bookList___6KS3:global(.__wab_instance) {
+.bookList___8JznP:global(.__wab_instance) {
   position: relative;
 }
-.svg__f21T {
+.svg__w6Mvl {
   position: relative;
   object-fit: cover;
   max-width: 100%;
   width: 32px;
   height: 32px;
 }
-.bookList__tEi:global(.__wab_instance) {
+.bookList__fcNPi:global(.__wab_instance) {
   position: relative;
 }
-.svg__frQy8 {
+.svg__cldws {
   position: relative;
   object-fit: cover;
   max-width: 100%;
@@ -166,10 +168,10 @@
   max-width: 100%;
   position: relative;
 }
-.bookList__vMVpS:global(.__wab_instance) {
+.bookList__hBj4P:global(.__wab_instance) {
   position: relative;
 }
-.svg__wPTaP {
+.svg__fwVbJ {
   position: relative;
   object-fit: cover;
   max-width: 100%;

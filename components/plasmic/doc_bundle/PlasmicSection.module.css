@@ -10,9 +10,6 @@
   min-width: 0;
   padding: 0px;
 }
-.rootglobal_loggedIn__true {
-  display: flex;
-}
 .freeBox {
   display: flex;
   position: relative;
