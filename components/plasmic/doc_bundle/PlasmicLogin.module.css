@@ -22,7 +22,7 @@
 .root > :global(.__wab_flex-container) > :global(.__wab_slot) > picture > img {
   margin-top: 16px;
 }
-.loginWithGoogle:global(.__wab_instance) {
+.loginForm:global(.__wab_instance) {
   position: relative;
   margin-right: 0px;
 }

@@ -34,7 +34,7 @@ import {
   deriveRenderOpts,
   ensureGlobalVariants
 } from "@plasmicapp/react-web";
-import LoginWithGoogle from "../../LoginWithGoogle"; // plasmic-import: lyekaetmXI/component
+import LoginForm from "../../LoginForm"; // plasmic-import: lyekaetmXI/component
 import SideBarLogo from "../../SideBarLogo"; // plasmic-import: QxLaN1qoTo/component
 import AddStock from "../../AddStock"; // plasmic-import: -k3H9wKgmJ/component
 import SideBarLogout from "../../SideBarLogout"; // plasmic-import: 1WJG8XuDtI/component
@@ -63,7 +63,7 @@ export const PlasmicLogin__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicLogin__OverridesType = {
   root?: p.Flex<"div">;
-  loginWithGoogle?: p.Flex<typeof LoginWithGoogle>;
+  loginForm?: p.Flex<typeof LoginForm>;
   sideBarLogo?: p.Flex<typeof SideBarLogo>;
   bundleList?: p.Flex<"div">;
   addStock?: p.Flex<typeof AddStock>;
@@ -114,10 +114,10 @@ function PlasmicLogin__RenderFunc(props: {
           )}
         >
           {true ? (
-            <LoginWithGoogle
-              data-plasmic-name={"loginWithGoogle"}
-              data-plasmic-override={overrides.loginWithGoogle}
-              className={classNames("__wab_instance", sty.loginWithGoogle)}
+            <LoginForm
+              data-plasmic-name={"loginForm"}
+              data-plasmic-override={overrides.loginForm}
+              className={classNames("__wab_instance", sty.loginForm)}
             />
           ) : null}
           {true ? (
@@ -249,7 +249,7 @@ function PlasmicLogin__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
-    "loginWithGoogle",
+    "loginForm",
     "sideBarLogo",
     "bundleList",
     "addStock",
@@ -259,7 +259,7 @@ const PlasmicDescendants = {
     "text",
     "documentFrame"
   ],
-  loginWithGoogle: ["loginWithGoogle"],
+  loginForm: ["loginForm"],
   sideBarLogo: ["sideBarLogo"],
   bundleList: ["bundleList", "addStock"],
   addStock: ["addStock"],
@@ -274,7 +274,7 @@ type DescendantsType<T extends NodeNameType> =
   typeof PlasmicDescendants[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  loginWithGoogle: typeof LoginWithGoogle;
+  loginForm: typeof LoginForm;
   sideBarLogo: typeof SideBarLogo;
   bundleList: "div";
   addStock: typeof AddStock;
@@ -342,7 +342,7 @@ export const PlasmicLogin = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    loginWithGoogle: makeNodeComponent("loginWithGoogle"),
+    loginForm: makeNodeComponent("loginForm"),
     sideBarLogo: makeNodeComponent("sideBarLogo"),
     bundleList: makeNodeComponent("bundleList"),
     addStock: makeNodeComponent("addStock"),

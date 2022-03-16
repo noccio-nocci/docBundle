@@ -104,19 +104,6 @@
           "componentType": "component"
         },
         {
-          "id": "lyekaetmXI",
-          "name": "LoginWithGoogle",
-          "type": "managed",
-          "projectId": "jRkyHyW5xUgunu5SjYQV4L",
-          "renderModuleFilePath": "plasmic/doc_bundle/PlasmicLoginWithGoogle.tsx",
-          "importSpec": {
-            "modulePath": "LoginWithGoogle.tsx"
-          },
-          "cssFilePath": "plasmic/doc_bundle/PlasmicLoginWithGoogle.module.css",
-          "scheme": "blackbox",
-          "componentType": "component"
-        },
-        {
           "id": "QxLaN1qoTo",
           "name": "SideBarLogo",
           "type": "managed",
@@ -230,6 +217,19 @@
             "modulePath": "BookList.tsx"
           },
           "cssFilePath": "plasmic/doc_bundle/PlasmicBookList.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "lyekaetmXI",
+          "name": "LoginForm",
+          "type": "managed",
+          "projectId": "jRkyHyW5xUgunu5SjYQV4L",
+          "renderModuleFilePath": "plasmic/doc_bundle/PlasmicLoginForm.tsx",
+          "importSpec": {
+            "modulePath": "LoginForm.tsx"
+          },
+          "cssFilePath": "plasmic/doc_bundle/PlasmicLoginForm.module.css",
           "scheme": "blackbox",
           "componentType": "component"
         },
