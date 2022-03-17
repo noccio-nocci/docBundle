@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
 
-import { PlasmicLogin } from "../components/plasmic/doc_bundle/PlasmicLogin";
+import SigninForm from "../components/SigninForm";
 import { useAuthState } from "../hooks/useAuthState";
 import { signIn, signOut } from "../utils/firebase/auth";
 
@@ -31,8 +31,8 @@ function MyApp({ Component, pageProps }: AppProps) {
             {isLoading ? (
                 <></>
             ):!isSignedIn ? (
-                <PlasmicLogin
-                    loginWithGoogle={{
+                <SigninForm
+                    signinWithGoogleButton={{
                         props: { onClick: () => signIn()}
                     }}
                 />

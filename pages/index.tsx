@@ -10,7 +10,11 @@ import { PlasmicHomepage } from "../components/plasmic/doc_bundle/PlasmicHomepag
 function Homepage() {
   return (
     <>
-      <PlasmicHomepage />
+      <PlasmicHomepage 
+        docs={{
+          render: () => null
+        }}
+      />
     </>
   );
 }
