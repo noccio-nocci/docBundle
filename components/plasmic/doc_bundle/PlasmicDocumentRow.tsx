@@ -85,11 +85,13 @@ function PlasmicDocumentRow__RenderFunc(props: {
         sty.root
       )}
     >
-      <div
-        data-plasmic-name={"dot"}
-        data-plasmic-override={overrides.dot}
-        className={classNames(projectcss.all, sty.dot)}
-      />
+      {true ? (
+        <div
+          data-plasmic-name={"dot"}
+          data-plasmic-override={overrides.dot}
+          className={classNames(projectcss.all, sty.dot)}
+        />
+      ) : null}
 
       <div
         data-plasmic-name={"text"}

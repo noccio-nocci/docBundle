@@ -40,7 +40,6 @@ import AddStock from "../../AddStock"; // plasmic-import: -k3H9wKgmJ/component
 import SideBarLogout from "../../SideBarLogout"; // plasmic-import: 1WJG8XuDtI/component
 import BookList from "../../BookList"; // plasmic-import: JSMOwwEprH/component
 import AddBook from "../../AddBook"; // plasmic-import: OGD7Ufmsky/component
-import DocumentFrame from "../../DocumentFrame"; // plasmic-import: CWMxFnAAun/component
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -68,10 +67,10 @@ export type PlasmicHomepage__OverridesType = {
   sideBarBookTitle?: p.Flex<typeof SideBarBookTitle>;
   addStock?: p.Flex<typeof AddStock>;
   sideBarLogout?: p.Flex<typeof SideBarLogout>;
+  rightPane?: p.Flex<"div">;
   bundlesList?: p.Flex<"div">;
   addBook?: p.Flex<typeof AddBook>;
   text?: p.Flex<"div">;
-  documentFrame?: p.Flex<typeof DocumentFrame>;
 };
 
 export interface DefaultHomepageProps {}
@@ -181,78 +180,94 @@ function PlasmicHomepage__RenderFunc(props: {
                 </div>
               ) : null}
               {true ? (
-                <p.Stack
-                  as={"div"}
-                  data-plasmic-name={"bundlesList"}
-                  data-plasmic-override={overrides.bundlesList}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.bundlesList)}
+                <div
+                  data-plasmic-name={"rightPane"}
+                  data-plasmic-override={overrides.rightPane}
+                  className={classNames(projectcss.all, sty.rightPane)}
                 >
-                  <BookList
-                    className={classNames(
-                      "__wab_instance",
-                      sty.bookList___6KS3
-                    )}
-                    icon={
-                      <StarIcon
-                        className={classNames(projectcss.all, sty.svg__f21T)}
-                        role={"img"}
-                      />
-                    }
-                    title={"スター付き"}
-                  />
-
-                  <BookList
-                    className={classNames("__wab_instance", sty.bookList__tEi)}
-                    icon={
-                      <MyBookIcon
-                        className={classNames(projectcss.all, sty.svg__frQy8)}
-                        role={"img"}
-                      />
-                    }
-                    list={
-                      <AddBook
-                        data-plasmic-name={"addBook"}
-                        data-plasmic-override={overrides.addBook}
-                        className={classNames("__wab_instance", sty.addBook)}
-                      />
-                    }
-                    title={"自分のバンドル"}
-                  />
-
-                  <BookList
-                    className={classNames(
-                      "__wab_instance",
-                      sty.bookList__vMVpS
-                    )}
-                    icon={
-                      <BookshelfIcon
-                        className={classNames(projectcss.all, sty.svg__wPTaP)}
-                        role={"img"}
-                      />
-                    }
-                    title={
-                      <div
-                        data-plasmic-name={"text"}
-                        data-plasmic-override={overrides.text}
+                  {true ? (
+                    <p.Stack
+                      as={"div"}
+                      data-plasmic-name={"bundlesList"}
+                      data-plasmic-override={overrides.bundlesList}
+                      hasGap={true}
+                      className={classNames(projectcss.all, sty.bundlesList)}
+                    >
+                      <BookList
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text
+                          "__wab_instance",
+                          sty.bookList___6KS3
                         )}
-                      >
-                        {"すべてのバンドル"}
-                      </div>
-                    }
-                  />
-                </p.Stack>
-              ) : null}
-              {true ? (
-                <DocumentFrame
-                  data-plasmic-name={"documentFrame"}
-                  data-plasmic-override={overrides.documentFrame}
-                  className={classNames("__wab_instance", sty.documentFrame)}
-                />
+                        icon={
+                          <StarIcon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg__f21T
+                            )}
+                            role={"img"}
+                          />
+                        }
+                        title={"スター付き"}
+                      />
+
+                      <BookList
+                        className={classNames(
+                          "__wab_instance",
+                          sty.bookList__tEi
+                        )}
+                        icon={
+                          <MyBookIcon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg__frQy8
+                            )}
+                            role={"img"}
+                          />
+                        }
+                        list={
+                          <AddBook
+                            data-plasmic-name={"addBook"}
+                            data-plasmic-override={overrides.addBook}
+                            className={classNames(
+                              "__wab_instance",
+                              sty.addBook
+                            )}
+                          />
+                        }
+                        title={"自分のバンドル"}
+                      />
+
+                      <BookList
+                        className={classNames(
+                          "__wab_instance",
+                          sty.bookList__vMVpS
+                        )}
+                        icon={
+                          <BookshelfIcon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg__wPTaP
+                            )}
+                            role={"img"}
+                          />
+                        }
+                        title={
+                          <div
+                            data-plasmic-name={"text"}
+                            data-plasmic-override={overrides.text}
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text
+                            )}
+                          >
+                            {"すべてのバンドル"}
+                          </div>
+                        }
+                      />
+                    </p.Stack>
+                  ) : null}
+                </div>
               ) : null}
             </div>
           ) : null}
@@ -270,20 +285,20 @@ const PlasmicDescendants = {
     "sideBarBookTitle",
     "addStock",
     "sideBarLogout",
+    "rightPane",
     "bundlesList",
     "addBook",
-    "text",
-    "documentFrame"
+    "text"
   ],
   sideBarLogo: ["sideBarLogo"],
   docs: ["docs", "sideBarBookTitle", "addStock"],
   sideBarBookTitle: ["sideBarBookTitle"],
   addStock: ["addStock"],
   sideBarLogout: ["sideBarLogout"],
+  rightPane: ["rightPane", "bundlesList", "addBook", "text"],
   bundlesList: ["bundlesList", "addBook", "text"],
   addBook: ["addBook"],
-  text: ["text"],
-  documentFrame: ["documentFrame"]
+  text: ["text"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -295,10 +310,10 @@ type NodeDefaultElementType = {
   sideBarBookTitle: typeof SideBarBookTitle;
   addStock: typeof AddStock;
   sideBarLogout: typeof SideBarLogout;
+  rightPane: "div";
   bundlesList: "div";
   addBook: typeof AddBook;
   text: "div";
-  documentFrame: typeof DocumentFrame;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -363,10 +378,10 @@ export const PlasmicHomepage = Object.assign(
     sideBarBookTitle: makeNodeComponent("sideBarBookTitle"),
     addStock: makeNodeComponent("addStock"),
     sideBarLogout: makeNodeComponent("sideBarLogout"),
+    rightPane: makeNodeComponent("rightPane"),
     bundlesList: makeNodeComponent("bundlesList"),
     addBook: makeNodeComponent("addBook"),
     text: makeNodeComponent("text"),
-    documentFrame: makeNodeComponent("documentFrame"),
 
     // Metadata about props expected for PlasmicHomepage
     internalVariantProps: PlasmicHomepage__VariantProps,

@@ -125,10 +125,21 @@
   left: auto;
   top: auto;
 }
+.rightPane {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 0px;
+}
 .bundlesList {
   flex-direction: column;
   display: flex;
-  position: relative;
   width: 100%;
   height: 100%;
   max-width: 100%;
@@ -191,7 +202,4 @@
 }
 .text {
   height: auto;
-}
-.documentFrame:global(.__wab_instance):global(.__wab_instance) {
-  position: relative;
 }
