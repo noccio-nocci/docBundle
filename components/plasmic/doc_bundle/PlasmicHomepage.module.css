@@ -54,7 +54,7 @@
   max-width: 100%;
   position: relative;
 }
-.bundleList {
+.docs {
   flex-direction: column;
   display: flex;
   position: relative;
@@ -68,7 +68,7 @@
   padding: 0px 8px;
   margin: 18px 0px 70px;
 }
-.bundleList > :global(.__wab_flex-container) {
+.docs > :global(.__wab_flex-container) {
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
@@ -77,14 +77,10 @@
   margin-top: calc(0px - 8px);
   height: calc(100% + 8px);
 }
-.bundleList > :global(.__wab_flex-container) > *,
-.bundleList > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.bundleList > :global(.__wab_flex-container) > picture > img,
-.bundleList
-  > :global(.__wab_flex-container)
-  > :global(.__wab_slot)
-  > picture
-  > img {
+.docs > :global(.__wab_flex-container) > *,
+.docs > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.docs > :global(.__wab_flex-container) > picture > img,
+.docs > :global(.__wab_flex-container) > :global(.__wab_slot) > picture > img {
   margin-top: 8px;
 }
 .addStock:global(.__wab_instance) {
@@ -112,7 +108,7 @@
   left: auto;
   top: auto;
 }
-.bundleList2 {
+.bundlesList {
   flex-direction: column;
   display: flex;
   position: relative;
@@ -123,7 +119,7 @@
   min-height: 0;
   padding: 32px;
 }
-.bundleList2 > :global(.__wab_flex-container) {
+.bundlesList > :global(.__wab_flex-container) {
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
@@ -132,10 +128,10 @@
   margin-top: calc(0px - 16px);
   height: calc(100% + 16px);
 }
-.bundleList2 > :global(.__wab_flex-container) > *,
-.bundleList2 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.bundleList2 > :global(.__wab_flex-container) > picture > img,
-.bundleList2
+.bundlesList > :global(.__wab_flex-container) > *,
+.bundlesList > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.bundlesList > :global(.__wab_flex-container) > picture > img,
+.bundlesList
   > :global(.__wab_flex-container)
   > :global(.__wab_slot)
   > picture

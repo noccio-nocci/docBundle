@@ -63,10 +63,10 @@ export const PlasmicHomepage__ArgProps = new Array<ArgPropType>();
 export type PlasmicHomepage__OverridesType = {
   root?: p.Flex<"div">;
   sideBarLogo?: p.Flex<typeof SideBarLogo>;
-  bundleList?: p.Flex<"div">;
+  docs?: p.Flex<"div">;
   addStock?: p.Flex<typeof AddStock>;
   sideBarLogout?: p.Flex<typeof SideBarLogout>;
-  bundleList2?: p.Flex<"div">;
+  bundlesList?: p.Flex<"div">;
   addBook?: p.Flex<typeof AddBook>;
   text?: p.Flex<"div">;
   documentFrame?: p.Flex<typeof DocumentFrame>;
@@ -124,10 +124,10 @@ function PlasmicHomepage__RenderFunc(props: {
                   {true ? (
                     <p.Stack
                       as={"div"}
-                      data-plasmic-name={"bundleList"}
-                      data-plasmic-override={overrides.bundleList}
+                      data-plasmic-name={"docs"}
+                      data-plasmic-override={overrides.docs}
                       hasGap={true}
-                      className={classNames(projectcss.all, sty.bundleList)}
+                      className={classNames(projectcss.all, sty.docs)}
                     >
                       {true ? (
                         <AddStock
@@ -160,10 +160,10 @@ function PlasmicHomepage__RenderFunc(props: {
               {true ? (
                 <p.Stack
                   as={"div"}
-                  data-plasmic-name={"bundleList2"}
-                  data-plasmic-override={overrides.bundleList2}
+                  data-plasmic-name={"bundlesList"}
+                  data-plasmic-override={overrides.bundlesList}
                   hasGap={true}
-                  className={classNames(projectcss.all, sty.bundleList2)}
+                  className={classNames(projectcss.all, sty.bundlesList)}
                 >
                   <BookList
                     className={classNames(
@@ -243,19 +243,19 @@ const PlasmicDescendants = {
   root: [
     "root",
     "sideBarLogo",
-    "bundleList",
+    "docs",
     "addStock",
     "sideBarLogout",
-    "bundleList2",
+    "bundlesList",
     "addBook",
     "text",
     "documentFrame"
   ],
   sideBarLogo: ["sideBarLogo"],
-  bundleList: ["bundleList", "addStock"],
+  docs: ["docs", "addStock"],
   addStock: ["addStock"],
   sideBarLogout: ["sideBarLogout"],
-  bundleList2: ["bundleList2", "addBook", "text"],
+  bundlesList: ["bundlesList", "addBook", "text"],
   addBook: ["addBook"],
   text: ["text"],
   documentFrame: ["documentFrame"]
@@ -266,10 +266,10 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   sideBarLogo: typeof SideBarLogo;
-  bundleList: "div";
+  docs: "div";
   addStock: typeof AddStock;
   sideBarLogout: typeof SideBarLogout;
-  bundleList2: "div";
+  bundlesList: "div";
   addBook: typeof AddBook;
   text: "div";
   documentFrame: typeof DocumentFrame;
@@ -333,10 +333,10 @@ export const PlasmicHomepage = Object.assign(
   {
     // Helper components rendering sub-elements
     sideBarLogo: makeNodeComponent("sideBarLogo"),
-    bundleList: makeNodeComponent("bundleList"),
+    docs: makeNodeComponent("docs"),
     addStock: makeNodeComponent("addStock"),
     sideBarLogout: makeNodeComponent("sideBarLogout"),
-    bundleList2: makeNodeComponent("bundleList2"),
+    bundlesList: makeNodeComponent("bundlesList"),
     addBook: makeNodeComponent("addBook"),
     text: makeNodeComponent("text"),
     documentFrame: makeNodeComponent("documentFrame"),
