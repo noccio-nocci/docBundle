@@ -49,17 +49,23 @@ type VariantPropType = keyof PlasmicSideBarBookTitle__VariantsArgs;
 export const PlasmicSideBarBookTitle__VariantProps =
   new Array<VariantPropType>();
 
-export type PlasmicSideBarBookTitle__ArgsType = {};
+export type PlasmicSideBarBookTitle__ArgsType = {
+  bundleTitle?: React.ReactNode;
+};
+
 type ArgPropType = keyof PlasmicSideBarBookTitle__ArgsType;
-export const PlasmicSideBarBookTitle__ArgProps = new Array<ArgPropType>();
+export const PlasmicSideBarBookTitle__ArgProps = new Array<ArgPropType>(
+  "bundleTitle"
+);
 
 export type PlasmicSideBarBookTitle__OverridesType = {
   root?: p.Flex<"div">;
   svg?: p.Flex<"svg">;
-  text?: p.Flex<"div">;
+  freeBox?: p.Flex<"div">;
 };
 
 export interface DefaultSideBarBookTitleProps {
+  bundleTitle?: React.ReactNode;
   className?: string;
 }
 
@@ -96,20 +102,24 @@ function PlasmicSideBarBookTitle__RenderFunc(props: {
       />
 
       <div
-        data-plasmic-name={"text"}
-        data-plasmic-override={overrides.text}
-        className={classNames(projectcss.all, projectcss.__wab_text, sty.text)}
+        data-plasmic-name={"freeBox"}
+        data-plasmic-override={overrides.freeBox}
+        className={classNames(projectcss.all, sty.freeBox)}
       >
-        {""}
+        {p.renderPlasmicSlot({
+          defaultContents: "",
+          value: args.bundleTitle,
+          className: classNames(sty.slotTargetBundleTitle)
+        })}
       </div>
     </p.Stack>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "svg", "text"],
+  root: ["root", "svg", "freeBox"],
   svg: ["svg"],
-  text: ["text"]
+  freeBox: ["freeBox"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -117,7 +127,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   svg: "svg";
-  text: "div";
+  freeBox: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -178,7 +188,7 @@ export const PlasmicSideBarBookTitle = Object.assign(
   {
     // Helper components rendering sub-elements
     svg: makeNodeComponent("svg"),
-    text: makeNodeComponent("text"),
+    freeBox: makeNodeComponent("freeBox"),
 
     // Metadata about props expected for PlasmicSideBarBookTitle
     internalVariantProps: PlasmicSideBarBookTitle__VariantProps,
