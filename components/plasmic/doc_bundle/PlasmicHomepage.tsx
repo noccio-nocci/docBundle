@@ -66,7 +66,7 @@ export type PlasmicHomepage__OverridesType = {
   bundleList?: p.Flex<"div">;
   addStock?: p.Flex<typeof AddStock>;
   sideBarLogout?: p.Flex<typeof SideBarLogout>;
-  stackerList?: p.Flex<"div">;
+  bundleList2?: p.Flex<"div">;
   addBook?: p.Flex<typeof AddBook>;
   text?: p.Flex<"div">;
   documentFrame?: p.Flex<typeof DocumentFrame>;
@@ -160,10 +160,10 @@ function PlasmicHomepage__RenderFunc(props: {
               {true ? (
                 <p.Stack
                   as={"div"}
-                  data-plasmic-name={"stackerList"}
-                  data-plasmic-override={overrides.stackerList}
+                  data-plasmic-name={"bundleList2"}
+                  data-plasmic-override={overrides.bundleList2}
                   hasGap={true}
-                  className={classNames(projectcss.all, sty.stackerList)}
+                  className={classNames(projectcss.all, sty.bundleList2)}
                 >
                   <BookList
                     className={classNames(
@@ -246,7 +246,7 @@ const PlasmicDescendants = {
     "bundleList",
     "addStock",
     "sideBarLogout",
-    "stackerList",
+    "bundleList2",
     "addBook",
     "text",
     "documentFrame"
@@ -255,7 +255,7 @@ const PlasmicDescendants = {
   bundleList: ["bundleList", "addStock"],
   addStock: ["addStock"],
   sideBarLogout: ["sideBarLogout"],
-  stackerList: ["stackerList", "addBook", "text"],
+  bundleList2: ["bundleList2", "addBook", "text"],
   addBook: ["addBook"],
   text: ["text"],
   documentFrame: ["documentFrame"]
@@ -269,7 +269,7 @@ type NodeDefaultElementType = {
   bundleList: "div";
   addStock: typeof AddStock;
   sideBarLogout: typeof SideBarLogout;
-  stackerList: "div";
+  bundleList2: "div";
   addBook: typeof AddBook;
   text: "div";
   documentFrame: typeof DocumentFrame;
@@ -336,7 +336,7 @@ export const PlasmicHomepage = Object.assign(
     bundleList: makeNodeComponent("bundleList"),
     addStock: makeNodeComponent("addStock"),
     sideBarLogout: makeNodeComponent("sideBarLogout"),
-    stackerList: makeNodeComponent("stackerList"),
+    bundleList2: makeNodeComponent("bundleList2"),
     addBook: makeNodeComponent("addBook"),
     text: makeNodeComponent("text"),
     documentFrame: makeNodeComponent("documentFrame"),

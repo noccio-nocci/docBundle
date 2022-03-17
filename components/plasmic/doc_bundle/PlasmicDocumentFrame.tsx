@@ -76,7 +76,10 @@ function PlasmicDocumentFrame__RenderFunc(props: {
         data-plasmic-root={true}
         data-plasmic-for-node={forNode}
         className={classNames("__wab_instance", sty.root)}
-        src={"https://www.example.com" as const}
+        preview={true}
+        src={
+          "https://docs.google.com/document/d/1SbHw9hZ-_K50q0VJsPW-MsVqdfRmSZRnkb2OtZKX3dY/edit?usp=sharing" as const
+        }
       />
     ) : null
   ) as React.ReactElement | null;

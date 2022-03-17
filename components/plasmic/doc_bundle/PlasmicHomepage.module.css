@@ -112,7 +112,7 @@
   left: auto;
   top: auto;
 }
-.stackerList {
+.bundleList2 {
   flex-direction: column;
   display: flex;
   position: relative;
@@ -123,7 +123,7 @@
   min-height: 0;
   padding: 32px;
 }
-.stackerList > :global(.__wab_flex-container) {
+.bundleList2 > :global(.__wab_flex-container) {
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
@@ -132,10 +132,10 @@
   margin-top: calc(0px - 16px);
   height: calc(100% + 16px);
 }
-.stackerList > :global(.__wab_flex-container) > *,
-.stackerList > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.stackerList > :global(.__wab_flex-container) > picture > img,
-.stackerList
+.bundleList2 > :global(.__wab_flex-container) > *,
+.bundleList2 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.bundleList2 > :global(.__wab_flex-container) > picture > img,
+.bundleList2
   > :global(.__wab_flex-container)
   > :global(.__wab_slot)
   > picture

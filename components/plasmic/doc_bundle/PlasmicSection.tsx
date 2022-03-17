@@ -34,6 +34,7 @@ import {
   deriveRenderOpts,
   ensureGlobalVariants
 } from "@plasmicapp/react-web";
+import DocumentRow from "../../DocumentRow"; // plasmic-import: Re5_tLOhF_/component
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -130,7 +131,23 @@ function PlasmicSection__RenderFunc(props: {
         className={classNames(projectcss.all, sty.childSection, {
           [sty.childSectionclose]: hasVariant(variants, "close", "close")
         })}
-      />
+      >
+        <DocumentRow
+          className={classNames("__wab_instance", sty.documentRow__iMHfT)}
+        />
+
+        <DocumentRow
+          className={classNames("__wab_instance", sty.documentRow__cFnPg)}
+        />
+
+        <DocumentRow
+          className={classNames("__wab_instance", sty.documentRow__bR7Z7)}
+        />
+
+        <DocumentRow
+          className={classNames("__wab_instance", sty.documentRow__wlIUa)}
+        />
+      </div>
     </div>
   ) as React.ReactElement | null;
 }

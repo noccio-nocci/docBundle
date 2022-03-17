@@ -222,29 +222,16 @@
         },
         {
           "id": "lyekaetmXI",
-          "name": "LoginForm",
+          "name": "SigninForm",
           "type": "managed",
           "projectId": "jRkyHyW5xUgunu5SjYQV4L",
-          "renderModuleFilePath": "plasmic/doc_bundle/PlasmicLoginForm.tsx",
+          "renderModuleFilePath": "plasmic/doc_bundle/PlasmicSigninForm.tsx",
           "importSpec": {
-            "modulePath": "LoginForm.tsx"
+            "modulePath": "SigninForm.tsx"
           },
-          "cssFilePath": "plasmic/doc_bundle/PlasmicLoginForm.module.css",
+          "cssFilePath": "plasmic/doc_bundle/PlasmicSigninForm.module.css",
           "scheme": "blackbox",
           "componentType": "component"
-        },
-        {
-          "id": "K3ARz1sXPFg",
-          "name": "Login",
-          "type": "managed",
-          "projectId": "jRkyHyW5xUgunu5SjYQV4L",
-          "renderModuleFilePath": "plasmic/doc_bundle/PlasmicLogin.tsx",
-          "importSpec": {
-            "modulePath": "../pages/login.tsx"
-          },
-          "cssFilePath": "plasmic/doc_bundle/PlasmicLogin.module.css",
-          "scheme": "blackbox",
-          "componentType": "page"
         }
       ],
       "icons": [
