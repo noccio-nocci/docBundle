@@ -100,7 +100,7 @@ function PlasmicSideBarBookTitle__RenderFunc(props: {
         data-plasmic-override={overrides.text}
         className={classNames(projectcss.all, projectcss.__wab_text, sty.text)}
       >
-        {"VPoE02b JPYC Apps \nクレカ決済導入インシデント全般"}
+        {""}
       </div>
     </p.Stack>
   ) as React.ReactElement | null;

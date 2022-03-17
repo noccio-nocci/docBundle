@@ -2,7 +2,7 @@
   flex-direction: row;
   display: flex;
   width: 100%;
-  height: auto;
+  height: 43px;
   max-width: 100%;
   position: relative;
   cursor: pointer;

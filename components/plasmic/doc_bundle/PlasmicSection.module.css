@@ -17,10 +17,11 @@
   align-items: stretch;
   justify-content: space-between;
   width: 100%;
-  height: auto;
+  height: 43px;
   max-width: 100%;
   cursor: pointer;
   min-width: 0;
+  flex-shrink: 0;
   padding: 0px;
   border-bottom: 1px solid var(--token-7ZpyL6PxU);
   border-left: 6px solid var(--token-390KIGu4P);
@@ -28,7 +29,6 @@
 .text {
   position: relative;
   width: 100%;
-  height: auto;
   max-width: 800px;
   color: var(--token-rBjq1hUEq);
   font-size: 20px;
@@ -55,11 +55,9 @@
   transform: rotateX(0deg) rotateY(0deg) rotateZ(-180deg);
 }
 .childSection {
+  flex-direction: column;
   display: flex;
   position: relative;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
   width: 100%;
   height: auto;
   max-width: 100%;
@@ -70,6 +68,24 @@
   min-width: 0;
   padding: 0px 0px 0px 16px;
 }
+.childSection > :global(.__wab_flex-container) {
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  min-width: 0;
+  margin-top: calc(0px - 4px);
+  height: calc(100% + 4px);
+}
+.childSection > :global(.__wab_flex-container) > *,
+.childSection > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.childSection > :global(.__wab_flex-container) > picture > img,
+.childSection
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 4px;
+}
 .childSectionclose {
   height: auto;
   transform: none;
@@ -78,16 +94,20 @@
 .documentRow__iMHfT:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
+  flex-shrink: 0;
 }
 .documentRow__cFnPg:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
+  flex-shrink: 0;
 }
 .documentRow__bR7Z7:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
+  flex-shrink: 0;
 }
 .documentRow__wlIUa:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
+  flex-shrink: 0;
 }

@@ -124,30 +124,42 @@ function PlasmicHomepage__RenderFunc(props: {
                   />
 
                   {true ? (
-                    <p.Stack
-                      as={"div"}
-                      data-plasmic-name={"docs"}
-                      data-plasmic-override={overrides.docs}
-                      hasGap={true}
-                      className={classNames(projectcss.all, sty.docs)}
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox___3LwNx
+                      )}
                     >
-                      <SideBarBookTitle
-                        data-plasmic-name={"sideBarBookTitle"}
-                        data-plasmic-override={overrides.sideBarBookTitle}
-                        className={classNames(
-                          "__wab_instance",
-                          sty.sideBarBookTitle
-                        )}
-                      />
-
                       {true ? (
-                        <AddStock
-                          data-plasmic-name={"addStock"}
-                          data-plasmic-override={overrides.addStock}
-                          className={classNames("__wab_instance", sty.addStock)}
-                        />
+                        <p.Stack
+                          as={"div"}
+                          data-plasmic-name={"docs"}
+                          data-plasmic-override={overrides.docs}
+                          hasGap={true}
+                          className={classNames(projectcss.all, sty.docs)}
+                        >
+                          <SideBarBookTitle
+                            data-plasmic-name={"sideBarBookTitle"}
+                            data-plasmic-override={overrides.sideBarBookTitle}
+                            className={classNames(
+                              "__wab_instance",
+                              sty.sideBarBookTitle
+                            )}
+                          />
+
+                          {true ? (
+                            <AddStock
+                              data-plasmic-name={"addStock"}
+                              data-plasmic-override={overrides.addStock}
+                              className={classNames(
+                                "__wab_instance",
+                                sty.addStock
+                              )}
+                            />
+                          ) : null}
+                        </p.Stack>
                       ) : null}
-                    </p.Stack>
+                    </div>
                   ) : null}
                   {true ? (
                     <div

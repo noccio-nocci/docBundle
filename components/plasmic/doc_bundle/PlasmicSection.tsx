@@ -125,9 +125,11 @@ function PlasmicSection__RenderFunc(props: {
         />
       </div>
 
-      <div
+      <p.Stack
+        as={"div"}
         data-plasmic-name={"childSection"}
         data-plasmic-override={overrides.childSection}
+        hasGap={true}
         className={classNames(projectcss.all, sty.childSection, {
           [sty.childSectionclose]: hasVariant(variants, "close", "close")
         })}
@@ -147,7 +149,7 @@ function PlasmicSection__RenderFunc(props: {
         <DocumentRow
           className={classNames("__wab_instance", sty.documentRow__wlIUa)}
         />
-      </div>
+      </p.Stack>
     </div>
   ) as React.ReactElement | null;
 }
