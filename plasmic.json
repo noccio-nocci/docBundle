@@ -232,6 +232,19 @@
           "cssFilePath": "plasmic/doc_bundle/PlasmicSigninForm.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "cpDlPT0ZyV",
+          "name": "SideBarBookTitle",
+          "type": "managed",
+          "projectId": "jRkyHyW5xUgunu5SjYQV4L",
+          "renderModuleFilePath": "plasmic/doc_bundle/PlasmicSideBarBookTitle.tsx",
+          "importSpec": {
+            "modulePath": "SideBarBookTitle.tsx"
+          },
+          "cssFilePath": "plasmic/doc_bundle/PlasmicSideBarBookTitle.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [

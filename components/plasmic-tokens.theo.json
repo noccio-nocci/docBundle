@@ -31,6 +31,16 @@
       }
     },
     {
+      "name": "book/1",
+      "type": "color",
+      "value": "#0D89B833",
+      "category": "color",
+      "meta": {
+        "projectId": "jRkyHyW5xUgunu5SjYQV4L",
+        "id": "sFgQ8U32E"
+      }
+    },
+    {
       "name": "d3",
       "type": "color",
       "value": "#D3D3D3",

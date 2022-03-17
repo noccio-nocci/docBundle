@@ -35,6 +35,7 @@ import {
   ensureGlobalVariants
 } from "@plasmicapp/react-web";
 import SideBarLogo from "../../SideBarLogo"; // plasmic-import: QxLaN1qoTo/component
+import SideBarBookTitle from "../../SideBarBookTitle"; // plasmic-import: cpDlPT0ZyV/component
 import AddStock from "../../AddStock"; // plasmic-import: -k3H9wKgmJ/component
 import SideBarLogout from "../../SideBarLogout"; // plasmic-import: 1WJG8XuDtI/component
 import BookList from "../../BookList"; // plasmic-import: JSMOwwEprH/component
@@ -64,6 +65,7 @@ export type PlasmicHomepage__OverridesType = {
   root?: p.Flex<"div">;
   sideBarLogo?: p.Flex<typeof SideBarLogo>;
   docs?: p.Flex<"div">;
+  sideBarBookTitle?: p.Flex<typeof SideBarBookTitle>;
   addStock?: p.Flex<typeof AddStock>;
   sideBarLogout?: p.Flex<typeof SideBarLogout>;
   bundlesList?: p.Flex<"div">;
@@ -129,6 +131,15 @@ function PlasmicHomepage__RenderFunc(props: {
                       hasGap={true}
                       className={classNames(projectcss.all, sty.docs)}
                     >
+                      <SideBarBookTitle
+                        data-plasmic-name={"sideBarBookTitle"}
+                        data-plasmic-override={overrides.sideBarBookTitle}
+                        className={classNames(
+                          "__wab_instance",
+                          sty.sideBarBookTitle
+                        )}
+                      />
+
                       {true ? (
                         <AddStock
                           data-plasmic-name={"addStock"}
@@ -244,6 +255,7 @@ const PlasmicDescendants = {
     "root",
     "sideBarLogo",
     "docs",
+    "sideBarBookTitle",
     "addStock",
     "sideBarLogout",
     "bundlesList",
@@ -252,7 +264,8 @@ const PlasmicDescendants = {
     "documentFrame"
   ],
   sideBarLogo: ["sideBarLogo"],
-  docs: ["docs", "addStock"],
+  docs: ["docs", "sideBarBookTitle", "addStock"],
+  sideBarBookTitle: ["sideBarBookTitle"],
   addStock: ["addStock"],
   sideBarLogout: ["sideBarLogout"],
   bundlesList: ["bundlesList", "addBook", "text"],
@@ -267,6 +280,7 @@ type NodeDefaultElementType = {
   root: "div";
   sideBarLogo: typeof SideBarLogo;
   docs: "div";
+  sideBarBookTitle: typeof SideBarBookTitle;
   addStock: typeof AddStock;
   sideBarLogout: typeof SideBarLogout;
   bundlesList: "div";
@@ -334,6 +348,7 @@ export const PlasmicHomepage = Object.assign(
     // Helper components rendering sub-elements
     sideBarLogo: makeNodeComponent("sideBarLogo"),
     docs: makeNodeComponent("docs"),
+    sideBarBookTitle: makeNodeComponent("sideBarBookTitle"),
     addStock: makeNodeComponent("addStock"),
     sideBarLogout: makeNodeComponent("sideBarLogout"),
     bundlesList: makeNodeComponent("bundlesList"),

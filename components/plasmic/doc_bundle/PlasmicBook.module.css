@@ -53,7 +53,7 @@
   top: auto;
   width: 120px;
   height: 120px;
-  color: #0d89b833;
+  color: var(--token-sFgQ8U32E);
   flex-shrink: 0;
 }
 .freeBox__qAn4H {
