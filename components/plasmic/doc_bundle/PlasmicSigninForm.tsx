@@ -57,6 +57,7 @@ export const PlasmicSigninForm__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicSigninForm__OverridesType = {
   root?: p.Flex<"div">;
+  freeBox?: p.Flex<"div">;
   logo?: p.Flex<typeof Logo>;
   signinWithGoogleButton?: p.Flex<typeof Button>;
   svg?: p.Flex<"svg">;
@@ -78,13 +79,11 @@ function PlasmicSigninForm__RenderFunc(props: {
 
   return (
     true ? (
-      <p.Stack
-        as={"div"}
+      <div
         data-plasmic-name={"root"}
         data-plasmic-override={overrides.root}
         data-plasmic-root={true}
         data-plasmic-for-node={forNode}
-        hasGap={true}
         className={classNames(
           projectcss.all,
           projectcss.root_reset,
@@ -94,48 +93,62 @@ function PlasmicSigninForm__RenderFunc(props: {
         )}
       >
         {true ? (
-          <Logo
-            data-plasmic-name={"logo"}
-            data-plasmic-override={overrides.logo}
-            className={classNames("__wab_instance", sty.logo)}
-          />
-        ) : null}
-        {true ? (
-          <Button
-            data-plasmic-name={"signinWithGoogleButton"}
-            data-plasmic-override={overrides.signinWithGoogleButton}
-            className={classNames("__wab_instance", sty.signinWithGoogleButton)}
-            color={"white" as const}
-            showStartIcon={true}
-            startIcon={
-              <GoogleLogoIcon
-                data-plasmic-name={"svg"}
-                data-plasmic-override={overrides.svg}
-                className={classNames(projectcss.all, sty.svg)}
-                role={"img"}
-              />
-            }
+          <p.Stack
+            as={"div"}
+            data-plasmic-name={"freeBox"}
+            data-plasmic-override={overrides.freeBox}
+            hasGap={true}
+            className={classNames(projectcss.all, sty.freeBox)}
           >
-            <div
-              data-plasmic-name={"text"}
-              data-plasmic-override={overrides.text}
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text
-              )}
-            >
-              {"Login with Google"}
-            </div>
-          </Button>
+            {true ? (
+              <Logo
+                data-plasmic-name={"logo"}
+                data-plasmic-override={overrides.logo}
+                className={classNames("__wab_instance", sty.logo)}
+              />
+            ) : null}
+            {true ? (
+              <Button
+                data-plasmic-name={"signinWithGoogleButton"}
+                data-plasmic-override={overrides.signinWithGoogleButton}
+                className={classNames(
+                  "__wab_instance",
+                  sty.signinWithGoogleButton
+                )}
+                color={"white" as const}
+                showStartIcon={true}
+                startIcon={
+                  <GoogleLogoIcon
+                    data-plasmic-name={"svg"}
+                    data-plasmic-override={overrides.svg}
+                    className={classNames(projectcss.all, sty.svg)}
+                    role={"img"}
+                  />
+                }
+              >
+                <div
+                  data-plasmic-name={"text"}
+                  data-plasmic-override={overrides.text}
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text
+                  )}
+                >
+                  {"Login with Google"}
+                </div>
+              </Button>
+            ) : null}
+          </p.Stack>
         ) : null}
-      </p.Stack>
+      </div>
     ) : null
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "logo", "signinWithGoogleButton", "svg", "text"],
+  root: ["root", "freeBox", "logo", "signinWithGoogleButton", "svg", "text"],
+  freeBox: ["freeBox", "logo", "signinWithGoogleButton", "svg", "text"],
   logo: ["logo"],
   signinWithGoogleButton: ["signinWithGoogleButton", "svg", "text"],
   svg: ["svg"],
@@ -146,6 +159,7 @@ type DescendantsType<T extends NodeNameType> =
   typeof PlasmicDescendants[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  freeBox: "div";
   logo: typeof Logo;
   signinWithGoogleButton: typeof Button;
   svg: "svg";
@@ -209,6 +223,7 @@ export const PlasmicSigninForm = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    freeBox: makeNodeComponent("freeBox"),
     logo: makeNodeComponent("logo"),
     signinWithGoogleButton: makeNodeComponent("signinWithGoogleButton"),
     svg: makeNodeComponent("svg"),
