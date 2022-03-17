@@ -128,7 +128,7 @@
 .rightPane {
   display: flex;
   position: relative;
-  flex-direction: row;
+  flex-direction: column;
   align-items: stretch;
   justify-content: flex-start;
   width: 100%;
