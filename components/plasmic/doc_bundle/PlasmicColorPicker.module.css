@@ -1,0 +1,43 @@
+.root {
+  flex-direction: row;
+  display: inline-flex;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  position: relative;
+  padding: 8px;
+}
+.root > :global(.__wab_flex-container) {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  margin-left: calc(0px - 12px);
+  width: calc(100% + 12px);
+}
+.root > :global(.__wab_flex-container) > *,
+.root > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.root > :global(.__wab_flex-container) > picture > img,
+.root > :global(.__wab_flex-container) > :global(.__wab_slot) > picture > img {
+  margin-left: 12px;
+}
+.colorPickerDot__bErDn:global(.__wab_instance) {
+  position: relative;
+}
+.colorPickerDot__g0Oe1:global(.__wab_instance) {
+  position: relative;
+}
+.colorPickerDot___5V6O:global(.__wab_instance) {
+  position: relative;
+}
+.colorPickerDot__l25G:global(.__wab_instance) {
+  position: relative;
+}
+.colorPickerDot__sCpx5:global(.__wab_instance) {
+  position: relative;
+}
+.colorPickerDot__oOeJp:global(.__wab_instance) {
+  position: relative;
+}
+.colorPickerDot___4YuJ:global(.__wab_instance) {
+  position: relative;
+}

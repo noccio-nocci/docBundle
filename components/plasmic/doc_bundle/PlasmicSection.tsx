@@ -34,7 +34,6 @@ import {
   deriveRenderOpts,
   ensureGlobalVariants
 } from "@plasmicapp/react-web";
-import DocumentRow from "../../DocumentRow"; // plasmic-import: Re5_tLOhF_/component
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -44,30 +43,39 @@ import sty from "./PlasmicSection.module.css"; // plasmic-import: xjiy3g2Skn/css
 import SectionFlapIcon from "./icons/PlasmicIcon__SectionFlap"; // plasmic-import: U1mSvVSj2/icon
 
 export type PlasmicSection__VariantMembers = {
-  close: "close";
+  isClose: "isClose";
+  color: "_1" | "_2" | "_3" | "_4" | "_5" | "_6" | "_7";
 };
 
 export type PlasmicSection__VariantsArgs = {
-  close?: SingleBooleanChoiceArg<"close">;
+  isClose?: SingleBooleanChoiceArg<"isClose">;
+  color?: SingleChoiceArg<"_1" | "_2" | "_3" | "_4" | "_5" | "_6" | "_7">;
 };
 
 type VariantPropType = keyof PlasmicSection__VariantsArgs;
-export const PlasmicSection__VariantProps = new Array<VariantPropType>("close");
+export const PlasmicSection__VariantProps = new Array<VariantPropType>(
+  "isClose",
+  "color"
+);
 
-export type PlasmicSection__ArgsType = {};
+export type PlasmicSection__ArgsType = {
+  childSection?: React.ReactNode;
+};
+
 type ArgPropType = keyof PlasmicSection__ArgsType;
-export const PlasmicSection__ArgProps = new Array<ArgPropType>();
+export const PlasmicSection__ArgProps = new Array<ArgPropType>("childSection");
 
 export type PlasmicSection__OverridesType = {
   root?: p.Flex<"div">;
-  freeBox?: p.Flex<"div">;
   text?: p.Flex<"div">;
   svg?: p.Flex<"svg">;
   childSection?: p.Flex<"div">;
 };
 
 export interface DefaultSectionProps {
-  close?: SingleBooleanChoiceArg<"close">;
+  childSection?: React.ReactNode;
+  isClose?: SingleBooleanChoiceArg<"isClose">;
+  color?: SingleChoiceArg<"_1" | "_2" | "_3" | "_4" | "_5" | "_6" | "_7">;
   className?: string;
 }
 
@@ -92,38 +100,85 @@ function PlasmicSection__RenderFunc(props: {
         projectcss.plasmic_default_styles,
         projectcss.plasmic_tokens,
         sty.root,
-        { [sty.rootclose]: hasVariant(variants, "close", "close") }
+        { [sty.rootisClose]: hasVariant(variants, "isClose", "isClose") }
       )}
     >
-      <div
-        data-plasmic-name={"freeBox"}
-        data-plasmic-override={overrides.freeBox}
-        className={classNames(projectcss.all, sty.freeBox, {
-          [sty.freeBoxclose]: hasVariant(variants, "close", "close")
-        })}
-      >
+      {true ? (
         <div
-          data-plasmic-name={"text"}
-          data-plasmic-override={overrides.text}
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text,
-            { [sty.textclose]: hasVariant(variants, "close", "close") }
-          )}
-        >
-          {"Section Title"}
-        </div>
-
-        <SectionFlapIcon
-          data-plasmic-name={"svg"}
-          data-plasmic-override={overrides.svg}
-          className={classNames(projectcss.all, sty.svg, {
-            [sty.svgclose]: hasVariant(variants, "close", "close")
+          className={classNames(projectcss.all, sty.freeBox__v9Out, {
+            [sty.freeBoxcolor__2__v9OutVps5I]: hasVariant(
+              variants,
+              "color",
+              "_2"
+            ),
+            [sty.freeBoxcolor__3__v9OutnRxbF]: hasVariant(
+              variants,
+              "color",
+              "_3"
+            ),
+            [sty.freeBoxcolor__4__v9Out7YaJ]: hasVariant(
+              variants,
+              "color",
+              "_4"
+            ),
+            [sty.freeBoxcolor__5__v9OuttNbLi]: hasVariant(
+              variants,
+              "color",
+              "_5"
+            ),
+            [sty.freeBoxcolor__6__v9OuTk8PHy]: hasVariant(
+              variants,
+              "color",
+              "_6"
+            ),
+            [sty.freeBoxcolor__7__v9OutPls6A]: hasVariant(
+              variants,
+              "color",
+              "_7"
+            )
           })}
-          role={"img"}
-        />
-      </div>
+        >
+          <div
+            className={classNames(projectcss.all, sty.freeBox__jhOvc, {
+              [sty.freeBoxcolor__6__jhOvck8PHy]: hasVariant(
+                variants,
+                "color",
+                "_6"
+              ),
+              [sty.freeBoxisClose__jhOvcewf9R]: hasVariant(
+                variants,
+                "isClose",
+                "isClose"
+              )
+            })}
+          >
+            <div
+              data-plasmic-name={"text"}
+              data-plasmic-override={overrides.text}
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text,
+                {
+                  [sty.textcolor__2]: hasVariant(variants, "color", "_2"),
+                  [sty.textisClose]: hasVariant(variants, "isClose", "isClose")
+                }
+              )}
+            >
+              {"Section Title"}
+            </div>
+
+            <SectionFlapIcon
+              data-plasmic-name={"svg"}
+              data-plasmic-override={overrides.svg}
+              className={classNames(projectcss.all, sty.svg, {
+                [sty.svgisClose]: hasVariant(variants, "isClose", "isClose")
+              })}
+              role={"img"}
+            />
+          </div>
+        </div>
+      ) : null}
 
       <p.Stack
         as={"div"}
@@ -131,32 +186,20 @@ function PlasmicSection__RenderFunc(props: {
         data-plasmic-override={overrides.childSection}
         hasGap={true}
         className={classNames(projectcss.all, sty.childSection, {
-          [sty.childSectionclose]: hasVariant(variants, "close", "close")
+          [sty.childSectionisClose]: hasVariant(variants, "isClose", "isClose")
         })}
       >
-        <DocumentRow
-          className={classNames("__wab_instance", sty.documentRow__iMHfT)}
-        />
-
-        <DocumentRow
-          className={classNames("__wab_instance", sty.documentRow__cFnPg)}
-        />
-
-        <DocumentRow
-          className={classNames("__wab_instance", sty.documentRow__bR7Z7)}
-        />
-
-        <DocumentRow
-          className={classNames("__wab_instance", sty.documentRow__wlIUa)}
-        />
+        {p.renderPlasmicSlot({
+          defaultContents: null,
+          value: args.childSection
+        })}
       </p.Stack>
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "freeBox", "text", "svg", "childSection"],
-  freeBox: ["freeBox", "text", "svg"],
+  root: ["root", "text", "svg", "childSection"],
   text: ["text"],
   svg: ["svg"],
   childSection: ["childSection"]
@@ -166,7 +209,6 @@ type DescendantsType<T extends NodeNameType> =
   typeof PlasmicDescendants[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  freeBox: "div";
   text: "div";
   svg: "svg";
   childSection: "div";
@@ -229,7 +271,6 @@ export const PlasmicSection = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    freeBox: makeNodeComponent("freeBox"),
     text: makeNodeComponent("text"),
     svg: makeNodeComponent("svg"),
     childSection: makeNodeComponent("childSection"),

@@ -45,14 +45,19 @@ import FolderIcon from "./icons/PlasmicIcon__Folder"; // plasmic-import: BYuADTF
 
 export type PlasmicBook__VariantMembers = {
   locked: "locked";
+  color: "_1" | "_2" | "_3" | "_4" | "_5" | "_6" | "_7";
 };
 
 export type PlasmicBook__VariantsArgs = {
   locked?: SingleBooleanChoiceArg<"locked">;
+  color?: MultiChoiceArg<"_1" | "_2" | "_3" | "_4" | "_5" | "_6" | "_7">;
 };
 
 type VariantPropType = keyof PlasmicBook__VariantsArgs;
-export const PlasmicBook__VariantProps = new Array<VariantPropType>("locked");
+export const PlasmicBook__VariantProps = new Array<VariantPropType>(
+  "locked",
+  "color"
+);
 
 export type PlasmicBook__ArgsType = {
   children?: React.ReactNode;
@@ -68,6 +73,7 @@ export type PlasmicBook__OverridesType = {
 export interface DefaultBookProps {
   children?: React.ReactNode;
   locked?: SingleBooleanChoiceArg<"locked">;
+  color?: MultiChoiceArg<"_1" | "_2" | "_3" | "_4" | "_5" | "_6" | "_7">;
   className?: string;
 }
 
@@ -113,14 +119,20 @@ function PlasmicBook__RenderFunc(props: {
       ) : null}
 
       <FolderIcon
-        className={classNames(projectcss.all, sty.svg___0Znkj)}
+        className={classNames(projectcss.all, sty.svg___0Znkj, {
+          [sty.svgcolor__2___0ZnkJfqH7Y]: hasVariant(variants, "color", "_2"),
+          [sty.svgcolor__3___0ZnkJcoWHj]: hasVariant(variants, "color", "_3"),
+          [sty.svgcolor__4___0Znkjee4Cp]: hasVariant(variants, "color", "_4"),
+          [sty.svgcolor__5___0ZnkjpATr]: hasVariant(variants, "color", "_5"),
+          [sty.svgcolor__6___0ZnkjWmOj]: hasVariant(variants, "color", "_6"),
+          [sty.svgcolor__7___0ZnkjiqpIq]: hasVariant(variants, "color", "_7")
+        })}
         role={"img"}
       />
 
       <div className={classNames(projectcss.all, sty.freeBox__qAn4H)}>
         {p.renderPlasmicSlot({
-          defaultContents:
-            "VPoE02b JPYC Apps \nクレカ決済導入\nインシデント全般",
+          defaultContents: "",
           value: args.children,
           className: classNames(sty.slotTargetChildren)
         })}

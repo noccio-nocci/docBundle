@@ -1,0 +1,62 @@
+.root {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  padding: 0px;
+}
+.rootisSection {
+  align-items: center;
+  justify-content: center;
+  padding: 0px 4px;
+}
+.freeBox {
+  display: block;
+  width: 16px;
+  height: 16px;
+  max-width: 100%;
+  background: var(--token-XtQCtoY3H);
+  flex-shrink: 0;
+  border-radius: 8px;
+}
+.freeBoxselected {
+  width: 16px;
+  height: 16px;
+  max-width: 100%;
+  background: var(--token-sFgQ8U32E);
+  box-shadow: 0px 0px 0px 3px var(--token-ciK1HCzcW),
+    0px 0px 0px 5px var(--token-hzFGlUXWY);
+  flex-shrink: 0;
+  border-radius: 8px;
+}
+.freeBoxcolor__2 {
+  background: var(--token-tvPf78A1o);
+}
+.freeBoxcolor__3 {
+  background: var(--token-9Ln8EiLXO);
+}
+.freeBoxcolor__4 {
+  background: var(--token-FSPpBff3B);
+}
+.freeBoxcolor__5 {
+  background: var(--token-soBKF9_0w);
+}
+.freeBoxcolor__6 {
+  background: var(--token-BZjrPZlQN);
+}
+.freeBoxcolor__7 {
+  background: var(--token-q-bRXcYK6);
+}
+.freeBoxisSection {
+  width: 8px;
+  flex-shrink: 0;
+  border-radius: 1px;
+}
+.root:hover .freeBox {
+  box-shadow: 0px 0px 0px 3px var(--token-ciK1HCzcW),
+    0px 0px 0px 5px var(--token-hzFGlUXWY);
+}

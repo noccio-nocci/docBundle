@@ -245,6 +245,151 @@
           "cssFilePath": "plasmic/doc_bundle/PlasmicSideBarBookTitle.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "o5Ls4w0zR6f",
+          "name": "TextInput",
+          "type": "managed",
+          "projectId": "jRkyHyW5xUgunu5SjYQV4L",
+          "renderModuleFilePath": "plasmic/doc_bundle/PlasmicTextInput.tsx",
+          "importSpec": {
+            "modulePath": "TextInput.tsx"
+          },
+          "cssFilePath": "plasmic/doc_bundle/PlasmicTextInput.module.css",
+          "scheme": "blackbox",
+          "componentType": "component",
+          "plumeType": "text-input"
+        },
+        {
+          "id": "_WwHrFAavc_",
+          "name": "Switch",
+          "type": "managed",
+          "projectId": "jRkyHyW5xUgunu5SjYQV4L",
+          "renderModuleFilePath": "plasmic/doc_bundle/PlasmicSwitch.tsx",
+          "importSpec": {
+            "modulePath": "Switch.tsx"
+          },
+          "cssFilePath": "plasmic/doc_bundle/PlasmicSwitch.module.css",
+          "scheme": "blackbox",
+          "componentType": "component",
+          "plumeType": "switch"
+        },
+        {
+          "id": "qBVjqzeCH3",
+          "name": "ColorPickerDot",
+          "type": "managed",
+          "projectId": "jRkyHyW5xUgunu5SjYQV4L",
+          "renderModuleFilePath": "plasmic/doc_bundle/PlasmicColorPickerDot.tsx",
+          "importSpec": {
+            "modulePath": "ColorPickerDot.tsx"
+          },
+          "cssFilePath": "plasmic/doc_bundle/PlasmicColorPickerDot.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "zBFHKM6h0o",
+          "name": "BookIconOnly",
+          "type": "managed",
+          "projectId": "jRkyHyW5xUgunu5SjYQV4L",
+          "renderModuleFilePath": "plasmic/doc_bundle/PlasmicBookIconOnly.tsx",
+          "importSpec": {
+            "modulePath": "BookIconOnly.tsx"
+          },
+          "cssFilePath": "plasmic/doc_bundle/PlasmicBookIconOnly.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "CiaLAP-GDH",
+          "name": "ColorPicker",
+          "type": "managed",
+          "projectId": "jRkyHyW5xUgunu5SjYQV4L",
+          "renderModuleFilePath": "plasmic/doc_bundle/PlasmicColorPicker.tsx",
+          "importSpec": {
+            "modulePath": "ColorPicker.tsx"
+          },
+          "cssFilePath": "plasmic/doc_bundle/PlasmicColorPicker.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "gV8AL87UaM",
+          "name": "BookInfoModal",
+          "type": "managed",
+          "projectId": "jRkyHyW5xUgunu5SjYQV4L",
+          "renderModuleFilePath": "plasmic/doc_bundle/PlasmicBookInfoModal.tsx",
+          "importSpec": {
+            "modulePath": "BookInfoModal.tsx"
+          },
+          "cssFilePath": "plasmic/doc_bundle/PlasmicBookInfoModal.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "elLQBcgJLt",
+          "name": "Overlay",
+          "type": "managed",
+          "projectId": "jRkyHyW5xUgunu5SjYQV4L",
+          "renderModuleFilePath": "plasmic/doc_bundle/PlasmicOverlay.tsx",
+          "importSpec": {
+            "modulePath": "Overlay.tsx"
+          },
+          "cssFilePath": "plasmic/doc_bundle/PlasmicOverlay.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "8wqo5dR4Ju",
+          "name": "CloseButton",
+          "type": "managed",
+          "projectId": "jRkyHyW5xUgunu5SjYQV4L",
+          "renderModuleFilePath": "plasmic/doc_bundle/PlasmicCloseButton.tsx",
+          "importSpec": {
+            "modulePath": "CloseButton.tsx"
+          },
+          "cssFilePath": "plasmic/doc_bundle/PlasmicCloseButton.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "MI7mn027y9",
+          "name": "DoumentRowDot",
+          "type": "managed",
+          "projectId": "jRkyHyW5xUgunu5SjYQV4L",
+          "renderModuleFilePath": "plasmic/doc_bundle/PlasmicDoumentRowDot.tsx",
+          "importSpec": {
+            "modulePath": "DoumentRowDot.tsx"
+          },
+          "cssFilePath": "plasmic/doc_bundle/PlasmicDoumentRowDot.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "IV-WZpF1r4d",
+          "name": "DocInfoModal",
+          "type": "managed",
+          "projectId": "jRkyHyW5xUgunu5SjYQV4L",
+          "renderModuleFilePath": "plasmic/doc_bundle/PlasmicDocInfoModal.tsx",
+          "importSpec": {
+            "modulePath": "DocInfoModal.tsx"
+          },
+          "cssFilePath": "plasmic/doc_bundle/PlasmicDocInfoModal.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "7Rffnmy82g",
+          "name": "ConfirmationModal",
+          "type": "managed",
+          "projectId": "jRkyHyW5xUgunu5SjYQV4L",
+          "renderModuleFilePath": "plasmic/doc_bundle/PlasmicConfirmationModal.tsx",
+          "importSpec": {
+            "modulePath": "ConfirmationModal.tsx"
+          },
+          "cssFilePath": "plasmic/doc_bundle/PlasmicConfirmationModal.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -327,6 +472,11 @@
           "id": "R2OFeL2RR",
           "name": "MyBookIcon",
           "moduleFilePath": "plasmic/doc_bundle/icons/PlasmicIcon__MyBook.tsx"
+        },
+        {
+          "id": "46Q3WDqRYdO",
+          "name": "SearchsvgIcon",
+          "moduleFilePath": "plasmic/doc_bundle/icons/PlasmicIcon__Searchsvg.tsx"
         }
       ],
       "images": [

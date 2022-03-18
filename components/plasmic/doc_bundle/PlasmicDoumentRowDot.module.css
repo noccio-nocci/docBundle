@@ -1,0 +1,27 @@
+.root {
+  display: block;
+  width: 10px;
+  height: 10px;
+  background: var(--token-XtQCtoY3H);
+  position: relative;
+  border-radius: 100px;
+  padding: 0px;
+}
+.rootcolor__2 {
+  background: var(--token-tvPf78A1o);
+}
+.rootcolor__3 {
+  background: var(--token-9Ln8EiLXO);
+}
+.rootcolor__4 {
+  background: var(--token-FSPpBff3B);
+}
+.rootcolor__5 {
+  background: var(--token-soBKF9_0w);
+}
+.rootcolor__6 {
+  background: var(--token-BZjrPZlQN);
+}
+.rootcolor__7 {
+  background: var(--token-q-bRXcYK6);
+}

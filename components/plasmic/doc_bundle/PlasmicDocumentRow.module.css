@@ -23,15 +23,9 @@
 .root > :global(.__wab_flex-container) > :global(.__wab_slot) > picture > img {
   margin-left: 4px;
 }
-.dot {
-  display: block;
+.dot:global(.__wab_instance) {
   position: relative;
-  width: 10px;
-  height: 10px;
-  background: var(--token-XtQCtoY3H);
   flex-shrink: 0;
-  border-radius: 100px;
-  padding: 0px;
 }
 .text {
   position: relative;

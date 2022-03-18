@@ -12,13 +12,41 @@
   --token-d6__AIq36: #0000001a;
   --plasmic-token-b-10: var(--token-d6__AIq36);
   --token-ciK1HCzcW: #ffffff;
-  --plasmic-token-pc-1: var(--token-ciK1HCzcW);
+  --plasmic-token-basewhite: var(--token-ciK1HCzcW);
   --token-ciK1HCzcW: #ffffff;
-  --plasmic-token-pc-1: var(--token-ciK1HCzcW);
-  --token-XtQCtoY3H: #6dddfd;
+  --plasmic-token-basewhite: var(--token-ciK1HCzcW);
+  --token-OJ-uPx1nr: #0000000d;
+  --plasmic-token-overlay: var(--token-OJ-uPx1nr);
+  --token-hzFGlUXWY: var(--token-7ZpyL6PxU);
+  --plasmic-token-unnamed-style-token: var(--token-hzFGlUXWY);
+  --token-XtQCtoY3H: #40bcec66;
   --plasmic-token-dot-1: var(--token-XtQCtoY3H);
-  --token-sFgQ8U32E: #0d89b833;
+  --token-tvPf78A1o: #620db866;
+  --plasmic-token-dot-2: var(--token-tvPf78A1o);
+  --token-9Ln8EiLXO: #b80d0d66;
+  --plasmic-token-dot-3: var(--token-9Ln8EiLXO);
+  --token-FSPpBff3B: #b8690d66;
+  --plasmic-token-dot-4: var(--token-FSPpBff3B);
+  --token-soBKF9_0w: #b8ae0d66;
+  --plasmic-token-dot-5: var(--token-soBKF9_0w);
+  --token-BZjrPZlQN: #0db81166;
+  --plasmic-token-dot-6: var(--token-BZjrPZlQN);
+  --token-q-bRXcYK6: #6e6e6e66;
+  --plasmic-token-dot-7: var(--token-q-bRXcYK6);
+  --token-sFgQ8U32E: var(--token-XtQCtoY3H);
   --plasmic-token-book-1: var(--token-sFgQ8U32E);
+  --token-T3GnRo1BU: #620db833;
+  --plasmic-token-book-2: var(--token-T3GnRo1BU);
+  --token-pXO2MC-WG: #b80d0d33;
+  --plasmic-token-book-3: var(--token-pXO2MC-WG);
+  --token-FNB0zy7cz: #b8690d33;
+  --plasmic-token-book-4: var(--token-FNB0zy7cz);
+  --token-wUK8n7raL: #b8ae0d33;
+  --plasmic-token-book-5: var(--token-wUK8n7raL);
+  --token-g4Ej4wu_s: #0db81133;
+  --plasmic-token-book-6: var(--token-g4Ej4wu_s);
+  --token-Rz9qV9Zi2: #6e6e6e33;
+  --plasmic-token-book-7: var(--token-Rz9qV9Zi2);
 }
 
 .plasmic_default_styles {
