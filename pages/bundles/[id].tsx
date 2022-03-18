@@ -8,6 +8,7 @@ import { signIn, signOut } from "../../utils/firebase/auth";
 
 import { PlasmicHomepage } from "../../components/plasmic/doc_bundle/PlasmicHomepage";
 import { PlasmicDocumentFrame} from "../../components/plasmic/doc_bundle/PlasmicDocumentFrame"
+import { PlasmicDocInfoModal } from "../../components/plasmic/doc_bundle/PlasmicDocInfoModal"
 
 function Bundle() {
   const router = useRouter();
@@ -20,12 +21,10 @@ function Bundle() {
           render: () => null
         }}
         sideBarLogo={{
-          props: { onClick: () => router.push('/')}
+          onClick: () => router.push('/')
         }}
         sideBarBookTitle={{
-          props: {
-            bundleTitle: "あいうえおあいうえお\nあいうえおあいう\nえおあいうえおあいうえおあいうえお"
-          }
+          bundleTitle: "あいうえおあいうえお\nあいうえおあいう\nえおあいうえおあいうえおあいうえお"
         }}
         rightPane={{
           wrapChildren: (children) => (
