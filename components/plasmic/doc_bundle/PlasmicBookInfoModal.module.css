@@ -77,7 +77,7 @@
   max-width: 100%;
   padding: 0px;
 }
-._switch:global(.__wab_instance) {
+.isPriv:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
 }

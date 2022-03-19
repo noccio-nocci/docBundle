@@ -53,7 +53,7 @@ type ArgPropType = keyof PlasmicAddStock__ArgsType;
 export const PlasmicAddStock__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicAddStock__OverridesType = {
-  root?: p.Flex<"div">;
+  root?: p.Flex<"button">;
   svg?: p.Flex<"svg">;
   text?: p.Flex<"div">;
 };
@@ -73,7 +73,7 @@ function PlasmicAddStock__RenderFunc(props: {
 
   return (
     <p.Stack
-      as={"div"}
+      as={"button"}
       data-plasmic-name={"root"}
       data-plasmic-override={overrides.root}
       data-plasmic-root={true}
@@ -81,6 +81,7 @@ function PlasmicAddStock__RenderFunc(props: {
       hasGap={true}
       className={classNames(
         projectcss.all,
+        projectcss.button,
         projectcss.root_reset,
         projectcss.plasmic_default_styles,
         projectcss.plasmic_tokens,
@@ -114,7 +115,7 @@ type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   typeof PlasmicDescendants[T][number];
 type NodeDefaultElementType = {
-  root: "div";
+  root: "button";
   svg: "svg";
   text: "div";
 };

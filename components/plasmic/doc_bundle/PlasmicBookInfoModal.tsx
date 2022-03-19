@@ -63,7 +63,7 @@ export type PlasmicBookInfoModal__OverridesType = {
   bookIconOnly?: p.Flex<typeof BookIconOnly>;
   textarea?: p.Flex<"textarea">;
   colorPicker?: p.Flex<typeof ColorPicker>;
-  _switch?: p.Flex<typeof Switch>;
+  isPriv?: p.Flex<typeof Switch>;
   ok?: p.Flex<typeof Button>;
   remove?: p.Flex<typeof Button>;
   closeButton?: p.Flex<typeof CloseButton>;
@@ -119,7 +119,6 @@ function PlasmicBookInfoModal__RenderFunc(props: {
               sty.textarea
             )}
             placeholder={"Input title" as const}
-            value={"" as const}
           />
         </p.Stack>
       ) : null}
@@ -128,14 +127,14 @@ function PlasmicBookInfoModal__RenderFunc(props: {
         data-plasmic-name={"colorPicker"}
         data-plasmic-override={overrides.colorPicker}
         className={classNames("__wab_instance", sty.colorPicker)}
-        color={["_1"]}
+        color={undefined}
       />
 
       <div className={classNames(projectcss.all, sty.freeBox__aScgV)}>
         <Switch
-          data-plasmic-name={"_switch"}
-          data-plasmic-override={overrides._switch}
-          className={classNames("__wab_instance", sty._switch)}
+          data-plasmic-name={"isPriv"}
+          data-plasmic-override={overrides.isPriv}
+          className={classNames("__wab_instance", sty.isPriv)}
           defaultChecked={true}
         >
           {"Priv mode"}
@@ -185,7 +184,7 @@ const PlasmicDescendants = {
     "bookIconOnly",
     "textarea",
     "colorPicker",
-    "_switch",
+    "isPriv",
     "ok",
     "remove",
     "closeButton"
@@ -193,7 +192,7 @@ const PlasmicDescendants = {
   bookIconOnly: ["bookIconOnly"],
   textarea: ["textarea"],
   colorPicker: ["colorPicker"],
-  _switch: ["_switch"],
+  isPriv: ["isPriv"],
   ok: ["ok"],
   remove: ["remove"],
   closeButton: ["closeButton"]
@@ -206,7 +205,7 @@ type NodeDefaultElementType = {
   bookIconOnly: typeof BookIconOnly;
   textarea: "textarea";
   colorPicker: typeof ColorPicker;
-  _switch: typeof Switch;
+  isPriv: typeof Switch;
   ok: typeof Button;
   remove: typeof Button;
   closeButton: typeof CloseButton;
@@ -272,7 +271,7 @@ export const PlasmicBookInfoModal = Object.assign(
     bookIconOnly: makeNodeComponent("bookIconOnly"),
     textarea: makeNodeComponent("textarea"),
     colorPicker: makeNodeComponent("colorPicker"),
-    _switch: makeNodeComponent("_switch"),
+    isPriv: makeNodeComponent("isPriv"),
     ok: makeNodeComponent("ok"),
     remove: makeNodeComponent("remove"),
     closeButton: makeNodeComponent("closeButton"),

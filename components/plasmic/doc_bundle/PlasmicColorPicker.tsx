@@ -47,7 +47,7 @@ export type PlasmicColorPicker__VariantMembers = {
 };
 
 export type PlasmicColorPicker__VariantsArgs = {
-  color?: MultiChoiceArg<"_1" | "_2" | "_3" | "_4" | "_5" | "_6" | "_7">;
+  color?: SingleChoiceArg<"_1" | "_2" | "_3" | "_4" | "_5" | "_6" | "_7">;
   isSection?: SingleBooleanChoiceArg<"isSection">;
 };
 
@@ -63,10 +63,17 @@ export const PlasmicColorPicker__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicColorPicker__OverridesType = {
   root?: p.Flex<"div">;
+  dot1?: p.Flex<typeof ColorPickerDot>;
+  dot2?: p.Flex<typeof ColorPickerDot>;
+  dot3?: p.Flex<typeof ColorPickerDot>;
+  dot4?: p.Flex<typeof ColorPickerDot>;
+  dot5?: p.Flex<typeof ColorPickerDot>;
+  dot6?: p.Flex<typeof ColorPickerDot>;
+  dot7?: p.Flex<typeof ColorPickerDot>;
 };
 
 export interface DefaultColorPickerProps {
-  color?: MultiChoiceArg<"_1" | "_2" | "_3" | "_4" | "_5" | "_6" | "_7">;
+  color?: SingleChoiceArg<"_1" | "_2" | "_3" | "_4" | "_5" | "_6" | "_7">;
   isSection?: SingleBooleanChoiceArg<"isSection">;
   className?: string;
 }
@@ -104,27 +111,13 @@ function PlasmicColorPicker__RenderFunc(props: {
       )}
     >
       <ColorPickerDot
-        className={classNames("__wab_instance", sty.colorPickerDot__bErDn, {
-          [sty.colorPickerDotcolor__1__bErDnGpL7N]: hasVariant(
-            variants,
-            "color",
-            "_1"
-          ),
-          [sty.colorPickerDotcolor__6__bErDnbki3W]: hasVariant(
-            variants,
-            "color",
-            "_6"
-          ),
-          [sty.colorPickerDotcolor__7__bErDnF1Cq9]: hasVariant(
-            variants,
-            "color",
-            "_7"
-          ),
-          [sty.colorPickerDotisSection__bErDnirY3]: hasVariant(
-            variants,
-            "isSection",
-            "isSection"
-          )
+        data-plasmic-name={"dot1"}
+        data-plasmic-override={overrides.dot1}
+        className={classNames("__wab_instance", sty.dot1, {
+          [sty.dot1color__1]: hasVariant(variants, "color", "_1"),
+          [sty.dot1color__6]: hasVariant(variants, "color", "_6"),
+          [sty.dot1color__7]: hasVariant(variants, "color", "_7"),
+          [sty.dot1isSection]: hasVariant(variants, "isSection", "isSection")
         })}
         color={"_1" as const}
         isSection={
@@ -140,17 +133,11 @@ function PlasmicColorPicker__RenderFunc(props: {
       />
 
       <ColorPickerDot
-        className={classNames("__wab_instance", sty.colorPickerDot__g0Oe1, {
-          [sty.colorPickerDotcolor__2__g0Oe1N8QaU]: hasVariant(
-            variants,
-            "color",
-            "_2"
-          ),
-          [sty.colorPickerDotisSection__g0Oe1IrY3]: hasVariant(
-            variants,
-            "isSection",
-            "isSection"
-          )
+        data-plasmic-name={"dot2"}
+        data-plasmic-override={overrides.dot2}
+        className={classNames("__wab_instance", sty.dot2, {
+          [sty.dot2color__2]: hasVariant(variants, "color", "_2"),
+          [sty.dot2isSection]: hasVariant(variants, "isSection", "isSection")
         })}
         color={"_2" as const}
         isSection={
@@ -160,22 +147,12 @@ function PlasmicColorPicker__RenderFunc(props: {
       />
 
       <ColorPickerDot
-        className={classNames("__wab_instance", sty.colorPickerDot___5V6O, {
-          [sty.colorPickerDotcolor__3___5V6OrkY1I]: hasVariant(
-            variants,
-            "color",
-            "_3"
-          ),
-          [sty.colorPickerDotcolor__6___5V6Obki3W]: hasVariant(
-            variants,
-            "color",
-            "_6"
-          ),
-          [sty.colorPickerDotisSection___5V6OirY3]: hasVariant(
-            variants,
-            "isSection",
-            "isSection"
-          )
+        data-plasmic-name={"dot3"}
+        data-plasmic-override={overrides.dot3}
+        className={classNames("__wab_instance", sty.dot3, {
+          [sty.dot3color__3]: hasVariant(variants, "color", "_3"),
+          [sty.dot3color__6]: hasVariant(variants, "color", "_6"),
+          [sty.dot3isSection]: hasVariant(variants, "isSection", "isSection")
         })}
         color={"_3" as const}
         isSection={
@@ -185,17 +162,11 @@ function PlasmicColorPicker__RenderFunc(props: {
       />
 
       <ColorPickerDot
-        className={classNames("__wab_instance", sty.colorPickerDot__l25G, {
-          [sty.colorPickerDotcolor__4__l25GCkod6]: hasVariant(
-            variants,
-            "color",
-            "_4"
-          ),
-          [sty.colorPickerDotisSection__l25GirY3]: hasVariant(
-            variants,
-            "isSection",
-            "isSection"
-          )
+        data-plasmic-name={"dot4"}
+        data-plasmic-override={overrides.dot4}
+        className={classNames("__wab_instance", sty.dot4, {
+          [sty.dot4color__4]: hasVariant(variants, "color", "_4"),
+          [sty.dot4isSection]: hasVariant(variants, "isSection", "isSection")
         })}
         color={"_4" as const}
         isSection={
@@ -205,17 +176,11 @@ function PlasmicColorPicker__RenderFunc(props: {
       />
 
       <ColorPickerDot
-        className={classNames("__wab_instance", sty.colorPickerDot__sCpx5, {
-          [sty.colorPickerDotcolor__5__sCpx5Hqicw]: hasVariant(
-            variants,
-            "color",
-            "_5"
-          ),
-          [sty.colorPickerDotisSection__sCpx5IrY3]: hasVariant(
-            variants,
-            "isSection",
-            "isSection"
-          )
+        data-plasmic-name={"dot5"}
+        data-plasmic-override={overrides.dot5}
+        className={classNames("__wab_instance", sty.dot5, {
+          [sty.dot5color__5]: hasVariant(variants, "color", "_5"),
+          [sty.dot5isSection]: hasVariant(variants, "isSection", "isSection")
         })}
         color={"_5" as const}
         isSection={
@@ -225,17 +190,11 @@ function PlasmicColorPicker__RenderFunc(props: {
       />
 
       <ColorPickerDot
-        className={classNames("__wab_instance", sty.colorPickerDot__oOeJp, {
-          [sty.colorPickerDotcolor__6__oOeJpbki3W]: hasVariant(
-            variants,
-            "color",
-            "_6"
-          ),
-          [sty.colorPickerDotisSection__oOeJpirY3]: hasVariant(
-            variants,
-            "isSection",
-            "isSection"
-          )
+        data-plasmic-name={"dot6"}
+        data-plasmic-override={overrides.dot6}
+        className={classNames("__wab_instance", sty.dot6, {
+          [sty.dot6color__6]: hasVariant(variants, "color", "_6"),
+          [sty.dot6isSection]: hasVariant(variants, "isSection", "isSection")
         })}
         color={"_6" as const}
         isSection={
@@ -245,17 +204,11 @@ function PlasmicColorPicker__RenderFunc(props: {
       />
 
       <ColorPickerDot
-        className={classNames("__wab_instance", sty.colorPickerDot___4YuJ, {
-          [sty.colorPickerDotcolor__7___4YuJf1Cq9]: hasVariant(
-            variants,
-            "color",
-            "_7"
-          ),
-          [sty.colorPickerDotisSection___4YuJirY3]: hasVariant(
-            variants,
-            "isSection",
-            "isSection"
-          )
+        data-plasmic-name={"dot7"}
+        data-plasmic-override={overrides.dot7}
+        className={classNames("__wab_instance", sty.dot7, {
+          [sty.dot7color__7]: hasVariant(variants, "color", "_7"),
+          [sty.dot7isSection]: hasVariant(variants, "isSection", "isSection")
         })}
         color={"_7" as const}
         isSection={
@@ -268,13 +221,27 @@ function PlasmicColorPicker__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root"]
+  root: ["root", "dot1", "dot2", "dot3", "dot4", "dot5", "dot6", "dot7"],
+  dot1: ["dot1"],
+  dot2: ["dot2"],
+  dot3: ["dot3"],
+  dot4: ["dot4"],
+  dot5: ["dot5"],
+  dot6: ["dot6"],
+  dot7: ["dot7"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   typeof PlasmicDescendants[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  dot1: typeof ColorPickerDot;
+  dot2: typeof ColorPickerDot;
+  dot3: typeof ColorPickerDot;
+  dot4: typeof ColorPickerDot;
+  dot5: typeof ColorPickerDot;
+  dot6: typeof ColorPickerDot;
+  dot7: typeof ColorPickerDot;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -334,6 +301,13 @@ export const PlasmicColorPicker = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    dot1: makeNodeComponent("dot1"),
+    dot2: makeNodeComponent("dot2"),
+    dot3: makeNodeComponent("dot3"),
+    dot4: makeNodeComponent("dot4"),
+    dot5: makeNodeComponent("dot5"),
+    dot6: makeNodeComponent("dot6"),
+    dot7: makeNodeComponent("dot7"),
 
     // Metadata about props expected for PlasmicColorPicker
     internalVariantProps: PlasmicColorPicker__VariantProps,

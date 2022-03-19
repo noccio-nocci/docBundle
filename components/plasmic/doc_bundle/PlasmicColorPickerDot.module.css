@@ -8,6 +8,7 @@
   height: auto;
   max-width: 100%;
   padding: 0px;
+  border-width: 0px;
 }
 .rootisSection {
   align-items: center;

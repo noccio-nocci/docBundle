@@ -64,7 +64,7 @@ type ArgPropType = keyof PlasmicColorPickerDot__ArgsType;
 export const PlasmicColorPickerDot__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicColorPickerDot__OverridesType = {
-  root?: p.Flex<"div">;
+  root?: p.Flex<"button">;
   freeBox?: p.Flex<"div">;
 };
 
@@ -86,13 +86,14 @@ function PlasmicColorPickerDot__RenderFunc(props: {
 
   return (
     true ? (
-      <div
+      <button
         data-plasmic-name={"root"}
         data-plasmic-override={overrides.root}
         data-plasmic-root={true}
         data-plasmic-for-node={forNode}
         className={classNames(
           projectcss.all,
+          projectcss.button,
           projectcss.root_reset,
           projectcss.plasmic_default_styles,
           projectcss.plasmic_tokens,
@@ -129,7 +130,7 @@ function PlasmicColorPickerDot__RenderFunc(props: {
             [sty.freeBoxselected]: hasVariant(variants, "selected", "selected")
           })}
         />
-      </div>
+      </button>
     ) : null
   ) as React.ReactElement | null;
 }
@@ -142,7 +143,7 @@ type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   typeof PlasmicDescendants[T][number];
 type NodeDefaultElementType = {
-  root: "div";
+  root: "button";
   freeBox: "div";
 };
 

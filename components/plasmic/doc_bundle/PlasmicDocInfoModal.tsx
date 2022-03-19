@@ -144,7 +144,7 @@ function PlasmicDocInfoModal__RenderFunc(props: {
               "isSection"
             )
           })}
-          color={["_1"]}
+          color={"_1" as const}
           isSection={
             hasVariant(variants, "isSection", "isSection") ? true : undefined
           }
