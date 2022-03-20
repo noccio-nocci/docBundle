@@ -12,7 +12,7 @@ import BookInfoModal from "../components/BookInfoModal"
 
 // model関係はどこにまとめるのがよいのか？　一旦ここに書いておこう
 import { onSnapshot, collection, serverTimestamp, query, where, orderBy, doc, addDoc, updateDoc, deleteDoc } from 'firebase/firestore';
-import Book from "../components/Book";
+import Book, {BookProps} from "../components/Book";
 import { Router, useRouter } from "next/router";
 import AddBook from "../components/AddBook";
 
@@ -20,7 +20,7 @@ export type BookValues = {
   id: string;
   owner: string;
   name: string;
-  color: string;
+  color: BookProps["color"];
   isPriv: boolean;
 }
 const INITIAL_BOOK_VALUE: BookValues = {
@@ -54,7 +54,7 @@ function Homepage() {
         setBooks(querySnapshot.docs.map((doc) => ({...doc.data(), id: doc.id})));
       });
     return () => unSub();
-  }, [isLoading]);
+  }, [domain, isLoading, userId]);
 
   const [book, setBook] = useState<BookValues>(INITIAL_BOOK_VALUE);
 
@@ -127,7 +127,7 @@ function Homepage() {
           list: books?.map((e) => (
             <Book
               key={e.id || "NULL"}
-              children={e.name}
+              title={{wrap: () => e.name}}
               locked={e.isPriv}
               color={e.color}
               onClick={() => router.push('/bundles/' + e.id)}
@@ -136,12 +136,12 @@ function Homepage() {
           ))
         }}
         ownList={{
-          list: books?
+          list: books
             .filter((e) => e.owner === userId)
             .map((e) => (
               <Book
                 key={e.id || "NULL"}
-                children={e.name}
+                title={{wrap: () => e.name}}
                 locked={e.isPriv}
                 color={e.color}
                 onClick={() => router.push('/bundles/' + e.id)}
@@ -151,7 +151,7 @@ function Homepage() {
               <AddBook 
                 key="addbook"
                 onClick={() => openAddBookModal()}
-                onContextMenu={(ev: React.mouse) => {ev.preventDefault(); openAddBookModal();}}
+                onContextMenu={(ev) => {ev.preventDefault(); openAddBookModal();}}
               />            
             ))
         }}

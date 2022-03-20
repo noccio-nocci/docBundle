@@ -22,7 +22,7 @@ import { HTMLElementRefOf } from "@plasmicapp/react-web";
 // total control over the props for your component.
 export interface BookProps extends DefaultBookProps {}
 
-function Book_(props: BookProps, ref: HTMLElementRefOf<"div">) {
+function Book_(props: BookProps, ref: HTMLElementRefOf<"button">) {
   // Use PlasmicBook to render this component as it was
   // designed in Plasmic, by activating the appropriate variants,
   // attaching the appropriate event handlers, etc.  You
