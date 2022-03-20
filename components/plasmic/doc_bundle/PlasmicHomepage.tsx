@@ -69,7 +69,10 @@ export type PlasmicHomepage__OverridesType = {
   sideBarLogout?: p.Flex<typeof SideBarLogout>;
   rightPane?: p.Flex<"div">;
   bundlesList?: p.Flex<"div">;
+  starsList?: p.Flex<typeof BookList>;
+  onwList?: p.Flex<typeof BookList>;
   addBook?: p.Flex<typeof AddBook>;
+  allList?: p.Flex<typeof BookList>;
   text?: p.Flex<"div">;
 };
 
@@ -194,10 +197,9 @@ function PlasmicHomepage__RenderFunc(props: {
                       className={classNames(projectcss.all, sty.bundlesList)}
                     >
                       <BookList
-                        className={classNames(
-                          "__wab_instance",
-                          sty.bookList___6KS3
-                        )}
+                        data-plasmic-name={"starsList"}
+                        data-plasmic-override={overrides.starsList}
+                        className={classNames("__wab_instance", sty.starsList)}
                         icon={
                           <StarIcon
                             className={classNames(
@@ -211,10 +213,9 @@ function PlasmicHomepage__RenderFunc(props: {
                       />
 
                       <BookList
-                        className={classNames(
-                          "__wab_instance",
-                          sty.bookList__tEi
-                        )}
+                        data-plasmic-name={"onwList"}
+                        data-plasmic-override={overrides.onwList}
+                        className={classNames("__wab_instance", sty.onwList)}
                         icon={
                           <MyBookIcon
                             className={classNames(
@@ -238,10 +239,9 @@ function PlasmicHomepage__RenderFunc(props: {
                       />
 
                       <BookList
-                        className={classNames(
-                          "__wab_instance",
-                          sty.bookList__vMVpS
-                        )}
+                        data-plasmic-name={"allList"}
+                        data-plasmic-override={overrides.allList}
+                        className={classNames("__wab_instance", sty.allList)}
                         icon={
                           <BookshelfIcon
                             className={classNames(
@@ -287,7 +287,10 @@ const PlasmicDescendants = {
     "sideBarLogout",
     "rightPane",
     "bundlesList",
+    "starsList",
+    "onwList",
     "addBook",
+    "allList",
     "text"
   ],
   sideBarLogo: ["sideBarLogo"],
@@ -295,9 +298,27 @@ const PlasmicDescendants = {
   sideBarBookTitle: ["sideBarBookTitle"],
   addStock: ["addStock"],
   sideBarLogout: ["sideBarLogout"],
-  rightPane: ["rightPane", "bundlesList", "addBook", "text"],
-  bundlesList: ["bundlesList", "addBook", "text"],
+  rightPane: [
+    "rightPane",
+    "bundlesList",
+    "starsList",
+    "onwList",
+    "addBook",
+    "allList",
+    "text"
+  ],
+  bundlesList: [
+    "bundlesList",
+    "starsList",
+    "onwList",
+    "addBook",
+    "allList",
+    "text"
+  ],
+  starsList: ["starsList"],
+  onwList: ["onwList", "addBook"],
   addBook: ["addBook"],
+  allList: ["allList", "text"],
   text: ["text"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -312,7 +333,10 @@ type NodeDefaultElementType = {
   sideBarLogout: typeof SideBarLogout;
   rightPane: "div";
   bundlesList: "div";
+  starsList: typeof BookList;
+  onwList: typeof BookList;
   addBook: typeof AddBook;
+  allList: typeof BookList;
   text: "div";
 };
 
@@ -380,7 +404,10 @@ export const PlasmicHomepage = Object.assign(
     sideBarLogout: makeNodeComponent("sideBarLogout"),
     rightPane: makeNodeComponent("rightPane"),
     bundlesList: makeNodeComponent("bundlesList"),
+    starsList: makeNodeComponent("starsList"),
+    onwList: makeNodeComponent("onwList"),
     addBook: makeNodeComponent("addBook"),
+    allList: makeNodeComponent("allList"),
     text: makeNodeComponent("text"),
 
     // Metadata about props expected for PlasmicHomepage

@@ -15,7 +15,7 @@
   justify-content: center;
   padding: 0px 4px;
 }
-.freeBox {
+.button {
   display: block;
   width: 16px;
   height: 16px;
@@ -24,7 +24,7 @@
   flex-shrink: 0;
   border-radius: 8px;
 }
-.freeBoxselected {
+.buttonselected {
   width: 16px;
   height: 16px;
   max-width: 100%;
@@ -34,30 +34,30 @@
   flex-shrink: 0;
   border-radius: 8px;
 }
-.freeBoxcolor__2 {
+.buttoncolor__2 {
   background: var(--token-tvPf78A1o);
 }
-.freeBoxcolor__3 {
+.buttoncolor__3 {
   background: var(--token-9Ln8EiLXO);
 }
-.freeBoxcolor__4 {
+.buttoncolor__4 {
   background: var(--token-FSPpBff3B);
 }
-.freeBoxcolor__5 {
+.buttoncolor__5 {
   background: var(--token-soBKF9_0w);
 }
-.freeBoxcolor__6 {
+.buttoncolor__6 {
   background: var(--token-BZjrPZlQN);
 }
-.freeBoxcolor__7 {
+.buttoncolor__7 {
   background: var(--token-q-bRXcYK6);
 }
-.freeBoxisSection {
+.buttonisSection {
   width: 8px;
   flex-shrink: 0;
   border-radius: 1px;
 }
-.root:hover .freeBox {
+.root:hover .button {
   box-shadow: 0px 0px 0px 3px var(--token-ciK1HCzcW),
     0px 0px 0px 5px var(--token-hzFGlUXWY);
 }

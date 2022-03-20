@@ -65,7 +65,7 @@ export const PlasmicColorPickerDot__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicColorPickerDot__OverridesType = {
   root?: p.Flex<"button">;
-  freeBox?: p.Flex<"div">;
+  button?: p.Flex<"button">;
 };
 
 export interface DefaultColorPickerDotProps {
@@ -111,23 +111,23 @@ function PlasmicColorPickerDot__RenderFunc(props: {
           }
         )}
       >
-        <div
-          data-plasmic-name={"freeBox"}
-          data-plasmic-override={overrides.freeBox}
-          className={classNames(projectcss.all, sty.freeBox, {
-            [sty.freeBoxcolor__1]: hasVariant(variants, "color", "_1"),
-            [sty.freeBoxcolor__2]: hasVariant(variants, "color", "_2"),
-            [sty.freeBoxcolor__3]: hasVariant(variants, "color", "_3"),
-            [sty.freeBoxcolor__4]: hasVariant(variants, "color", "_4"),
-            [sty.freeBoxcolor__5]: hasVariant(variants, "color", "_5"),
-            [sty.freeBoxcolor__6]: hasVariant(variants, "color", "_6"),
-            [sty.freeBoxcolor__7]: hasVariant(variants, "color", "_7"),
-            [sty.freeBoxisSection]: hasVariant(
+        <button
+          data-plasmic-name={"button"}
+          data-plasmic-override={overrides.button}
+          className={classNames(projectcss.all, projectcss.button, sty.button, {
+            [sty.buttoncolor__1]: hasVariant(variants, "color", "_1"),
+            [sty.buttoncolor__2]: hasVariant(variants, "color", "_2"),
+            [sty.buttoncolor__3]: hasVariant(variants, "color", "_3"),
+            [sty.buttoncolor__4]: hasVariant(variants, "color", "_4"),
+            [sty.buttoncolor__5]: hasVariant(variants, "color", "_5"),
+            [sty.buttoncolor__6]: hasVariant(variants, "color", "_6"),
+            [sty.buttoncolor__7]: hasVariant(variants, "color", "_7"),
+            [sty.buttonisSection]: hasVariant(
               variants,
               "isSection",
               "isSection"
             ),
-            [sty.freeBoxselected]: hasVariant(variants, "selected", "selected")
+            [sty.buttonselected]: hasVariant(variants, "selected", "selected")
           })}
         />
       </button>
@@ -136,15 +136,15 @@ function PlasmicColorPickerDot__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "freeBox"],
-  freeBox: ["freeBox"]
+  root: ["root", "button"],
+  button: ["button"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   typeof PlasmicDescendants[T][number];
 type NodeDefaultElementType = {
   root: "button";
-  freeBox: "div";
+  button: "button";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -204,7 +204,7 @@ export const PlasmicColorPickerDot = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    freeBox: makeNodeComponent("freeBox"),
+    button: makeNodeComponent("button"),
 
     // Metadata about props expected for PlasmicColorPickerDot
     internalVariantProps: PlasmicColorPickerDot__VariantProps,
