@@ -39,7 +39,6 @@ import SideBarBookTitle from "../../SideBarBookTitle"; // plasmic-import: cpDlPT
 import AddStock from "../../AddStock"; // plasmic-import: -k3H9wKgmJ/component
 import SideBarLogout from "../../SideBarLogout"; // plasmic-import: 1WJG8XuDtI/component
 import BookList from "../../BookList"; // plasmic-import: JSMOwwEprH/component
-import AddBook from "../../AddBook"; // plasmic-import: OGD7Ufmsky/component
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -71,7 +70,6 @@ export type PlasmicHomepage__OverridesType = {
   bundlesList?: p.Flex<"div">;
   starsList?: p.Flex<typeof BookList>;
   ownList?: p.Flex<typeof BookList>;
-  addBook?: p.Flex<typeof AddBook>;
   allList?: p.Flex<typeof BookList>;
   text?: p.Flex<"div">;
 };
@@ -225,16 +223,7 @@ function PlasmicHomepage__RenderFunc(props: {
                             role={"img"}
                           />
                         }
-                        list={
-                          <AddBook
-                            data-plasmic-name={"addBook"}
-                            data-plasmic-override={overrides.addBook}
-                            className={classNames(
-                              "__wab_instance",
-                              sty.addBook
-                            )}
-                          />
-                        }
+                        list={null}
                         title={"自分のバンドル"}
                       />
 
@@ -289,7 +278,6 @@ const PlasmicDescendants = {
     "bundlesList",
     "starsList",
     "ownList",
-    "addBook",
     "allList",
     "text"
   ],
@@ -303,21 +291,12 @@ const PlasmicDescendants = {
     "bundlesList",
     "starsList",
     "ownList",
-    "addBook",
     "allList",
     "text"
   ],
-  bundlesList: [
-    "bundlesList",
-    "starsList",
-    "ownList",
-    "addBook",
-    "allList",
-    "text"
-  ],
+  bundlesList: ["bundlesList", "starsList", "ownList", "allList", "text"],
   starsList: ["starsList"],
-  ownList: ["ownList", "addBook"],
-  addBook: ["addBook"],
+  ownList: ["ownList"],
   allList: ["allList", "text"],
   text: ["text"]
 } as const;
@@ -335,7 +314,6 @@ type NodeDefaultElementType = {
   bundlesList: "div";
   starsList: typeof BookList;
   ownList: typeof BookList;
-  addBook: typeof AddBook;
   allList: typeof BookList;
   text: "div";
 };
@@ -406,7 +384,6 @@ export const PlasmicHomepage = Object.assign(
     bundlesList: makeNodeComponent("bundlesList"),
     starsList: makeNodeComponent("starsList"),
     ownList: makeNodeComponent("ownList"),
-    addBook: makeNodeComponent("addBook"),
     allList: makeNodeComponent("allList"),
     text: makeNodeComponent("text"),
 

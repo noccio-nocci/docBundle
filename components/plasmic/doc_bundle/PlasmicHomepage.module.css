@@ -186,10 +186,6 @@
   width: 32px;
   height: 32px;
 }
-.addBook:global(.__wab_instance) {
-  max-width: 100%;
-  position: relative;
-}
 .allList:global(.__wab_instance) {
   position: relative;
 }
