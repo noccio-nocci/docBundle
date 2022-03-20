@@ -59,19 +59,16 @@ export const PlasmicBook__VariantProps = new Array<VariantPropType>(
   "color"
 );
 
-export type PlasmicBook__ArgsType = {
-  children?: React.ReactNode;
-};
-
+export type PlasmicBook__ArgsType = {};
 type ArgPropType = keyof PlasmicBook__ArgsType;
-export const PlasmicBook__ArgProps = new Array<ArgPropType>("children");
+export const PlasmicBook__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicBook__OverridesType = {
-  root?: p.Flex<"div">;
+  root?: p.Flex<"button">;
+  title?: p.Flex<"div">;
 };
 
 export interface DefaultBookProps {
-  children?: React.ReactNode;
   locked?: SingleBooleanChoiceArg<"locked">;
   color?: MultiChoiceArg<"_1" | "_2" | "_3" | "_4" | "_5" | "_6" | "_7">;
   className?: string;
@@ -87,13 +84,14 @@ function PlasmicBook__RenderFunc(props: {
   const { variants, args, overrides, forNode } = props;
 
   return (
-    <div
+    <button
       data-plasmic-name={"root"}
       data-plasmic-override={overrides.root}
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
         projectcss.all,
+        projectcss.button,
         projectcss.root_reset,
         projectcss.plasmic_default_styles,
         projectcss.plasmic_tokens,
@@ -131,24 +129,32 @@ function PlasmicBook__RenderFunc(props: {
       />
 
       <div className={classNames(projectcss.all, sty.freeBox__qAn4H)}>
-        {p.renderPlasmicSlot({
-          defaultContents: "",
-          value: args.children,
-          className: classNames(sty.slotTargetChildren)
-        })}
+        <div
+          data-plasmic-name={"title"}
+          data-plasmic-override={overrides.title}
+          className={classNames(
+            projectcss.all,
+            projectcss.__wab_text,
+            sty.title
+          )}
+        >
+          {""}
+        </div>
       </div>
-    </div>
+    </button>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root"]
+  root: ["root", "title"],
+  title: ["title"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   typeof PlasmicDescendants[T][number];
 type NodeDefaultElementType = {
-  root: "div";
+  root: "button";
+  title: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -208,6 +214,7 @@ export const PlasmicBook = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    title: makeNodeComponent("title"),
 
     // Metadata about props expected for PlasmicBook
     internalVariantProps: PlasmicBook__VariantProps,
