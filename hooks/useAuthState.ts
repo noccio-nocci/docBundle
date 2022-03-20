@@ -12,6 +12,8 @@ export type AuthState = {
   userId: string | undefined
   userName: string | undefined
   avatarUrl: string | undefined
+  email: string | undefined
+  domain: string | undefined
 }
 
 /**
@@ -24,6 +26,8 @@ const INITIAL_AUTH_STATE: AuthState = {
   userId: undefined,
   userName: undefined,
   avatarUrl: undefined,
+  email: undefined,
+  domain: undefined
 }
 
 /**
@@ -34,7 +38,7 @@ export function useAuthState(): AuthState {
 
   // サインイン状態の変化を監視する
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(getAuth(), (user) => {
+    const unSub = onAuthStateChanged(getAuth(), (user) => {
       if (user) {
         setAuthState({
           isSignedIn: true,
@@ -42,6 +46,8 @@ export function useAuthState(): AuthState {
           userId: user.uid,
           userName: user.displayName || undefined,
           avatarUrl: user.photoURL || undefined,
+          email: user.email || undefined,
+          domain: user.email?.split("@")[1]
         })
       } else {
         setAuthState({ ...INITIAL_AUTH_STATE, isLoading: false })
@@ -49,8 +55,8 @@ export function useAuthState(): AuthState {
     })
 
     // ページ遷移時にサインイン状態の監視を解除
-    return () => unsubscribe()
-  }, [])
+    return () => unSub()
+  }, []);
 
-  return authState
+  return authState;
 }

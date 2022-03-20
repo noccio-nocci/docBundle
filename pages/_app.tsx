@@ -11,18 +11,7 @@ import { signIn, signOut } from "../utils/firebase/auth";
 
 function MyApp({ Component, pageProps }: AppProps) {
     const { isSignedIn, isLoading } = useAuthState();
-
-/*
-    const [authUser, isLoading, error] = useAuthState(auth);
-    const router = useRouter();
-    
-    useEffect(() => {
-        if (!isLoading && !authUser && router.asPath !== "/") {
-            router.push("/");
-        }
-        }, [authUser, isLoading, router]);
-
-*/
+      
     return (
         <>
             <Head>
@@ -31,13 +20,17 @@ function MyApp({ Component, pageProps }: AppProps) {
             {isLoading ? (
                 <></>
             ):!isSignedIn ? (
-                <SigninForm
-                    signinWithGoogleButton={{
-                        props: { onClick: () => signIn()}
-                    }}
-                />
+                <PlasmicRootProvider>
+                    <SigninForm
+                        signinWithGoogleButton={{
+                            props: { onClick: () => signIn()}
+                        }}
+                    />
+                </PlasmicRootProvider>
             ):(
-                <Component {...pageProps} />
+                <PlasmicRootProvider>
+                    <Component {...pageProps} />
+                </PlasmicRootProvider>
             )}
         </>
     );

@@ -24,7 +24,7 @@ export interface ColorPickerDotProps extends DefaultColorPickerDotProps {}
 
 function ColorPickerDot_(
   props: ColorPickerDotProps,
-  ref: HTMLElementRefOf<"div">
+  ref: HTMLElementRefOf<"button">
 ) {
   // Use PlasmicColorPickerDot to render this component as it was
   // designed in Plasmic, by activating the appropriate variants,

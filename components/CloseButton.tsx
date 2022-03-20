@@ -22,7 +22,7 @@ import { HTMLElementRefOf } from "@plasmicapp/react-web";
 // total control over the props for your component.
 export interface CloseButtonProps extends DefaultCloseButtonProps {}
 
-function CloseButton_(props: CloseButtonProps, ref: HTMLElementRefOf<"div">) {
+function CloseButton_(props: CloseButtonProps, ref: HTMLElementRefOf<"button">) {
   // Use PlasmicCloseButton to render this component as it was
   // designed in Plasmic, by activating the appropriate variants,
   // attaching the appropriate event handlers, etc.  You
