@@ -22,7 +22,7 @@ import { HTMLElementRefOf } from "@plasmicapp/react-web";
 // total control over the props for your component.
 export interface AddStockProps extends DefaultAddStockProps {}
 
-function AddStock_(props: AddStockProps, ref: HTMLElementRefOf<"div">) {
+function AddStock_(props: AddStockProps, ref: HTMLElementRefOf<"button">) {
   // Use PlasmicAddStock to render this component as it was
   // designed in Plasmic, by activating the appropriate variants,
   // attaching the appropriate event handlers, etc.  You
