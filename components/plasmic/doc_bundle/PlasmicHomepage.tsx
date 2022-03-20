@@ -70,7 +70,7 @@ export type PlasmicHomepage__OverridesType = {
   rightPane?: p.Flex<"div">;
   bundlesList?: p.Flex<"div">;
   starsList?: p.Flex<typeof BookList>;
-  onwList?: p.Flex<typeof BookList>;
+  ownList?: p.Flex<typeof BookList>;
   addBook?: p.Flex<typeof AddBook>;
   allList?: p.Flex<typeof BookList>;
   text?: p.Flex<"div">;
@@ -213,9 +213,9 @@ function PlasmicHomepage__RenderFunc(props: {
                       />
 
                       <BookList
-                        data-plasmic-name={"onwList"}
-                        data-plasmic-override={overrides.onwList}
-                        className={classNames("__wab_instance", sty.onwList)}
+                        data-plasmic-name={"ownList"}
+                        data-plasmic-override={overrides.ownList}
+                        className={classNames("__wab_instance", sty.ownList)}
                         icon={
                           <MyBookIcon
                             className={classNames(
@@ -288,7 +288,7 @@ const PlasmicDescendants = {
     "rightPane",
     "bundlesList",
     "starsList",
-    "onwList",
+    "ownList",
     "addBook",
     "allList",
     "text"
@@ -302,7 +302,7 @@ const PlasmicDescendants = {
     "rightPane",
     "bundlesList",
     "starsList",
-    "onwList",
+    "ownList",
     "addBook",
     "allList",
     "text"
@@ -310,13 +310,13 @@ const PlasmicDescendants = {
   bundlesList: [
     "bundlesList",
     "starsList",
-    "onwList",
+    "ownList",
     "addBook",
     "allList",
     "text"
   ],
   starsList: ["starsList"],
-  onwList: ["onwList", "addBook"],
+  ownList: ["ownList", "addBook"],
   addBook: ["addBook"],
   allList: ["allList", "text"],
   text: ["text"]
@@ -334,7 +334,7 @@ type NodeDefaultElementType = {
   rightPane: "div";
   bundlesList: "div";
   starsList: typeof BookList;
-  onwList: typeof BookList;
+  ownList: typeof BookList;
   addBook: typeof AddBook;
   allList: typeof BookList;
   text: "div";
@@ -405,7 +405,7 @@ export const PlasmicHomepage = Object.assign(
     rightPane: makeNodeComponent("rightPane"),
     bundlesList: makeNodeComponent("bundlesList"),
     starsList: makeNodeComponent("starsList"),
-    onwList: makeNodeComponent("onwList"),
+    ownList: makeNodeComponent("ownList"),
     addBook: makeNodeComponent("addBook"),
     allList: makeNodeComponent("allList"),
     text: makeNodeComponent("text"),
