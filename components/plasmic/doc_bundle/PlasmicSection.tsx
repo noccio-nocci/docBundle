@@ -59,21 +59,21 @@ export const PlasmicSection__VariantProps = new Array<VariantPropType>(
 );
 
 export type PlasmicSection__ArgsType = {
-  childSection?: React.ReactNode;
+  list?: React.ReactNode;
 };
 
 type ArgPropType = keyof PlasmicSection__ArgsType;
-export const PlasmicSection__ArgProps = new Array<ArgPropType>("childSection");
+export const PlasmicSection__ArgProps = new Array<ArgPropType>("list");
 
 export type PlasmicSection__OverridesType = {
   root?: p.Flex<"div">;
-  text?: p.Flex<"div">;
-  svg?: p.Flex<"svg">;
+  name?: p.Flex<"div">;
+  sectionToggle?: p.Flex<"svg">;
   childSection?: p.Flex<"div">;
 };
 
 export interface DefaultSectionProps {
-  childSection?: React.ReactNode;
+  list?: React.ReactNode;
   isClose?: SingleBooleanChoiceArg<"isClose">;
   color?: SingleChoiceArg<"_1" | "_2" | "_3" | "_4" | "_5" | "_6" | "_7">;
   className?: string;
@@ -153,15 +153,15 @@ function PlasmicSection__RenderFunc(props: {
             })}
           >
             <div
-              data-plasmic-name={"text"}
-              data-plasmic-override={overrides.text}
+              data-plasmic-name={"name"}
+              data-plasmic-override={overrides.name}
               className={classNames(
                 projectcss.all,
                 projectcss.__wab_text,
-                sty.text,
+                sty.name,
                 {
-                  [sty.textcolor__2]: hasVariant(variants, "color", "_2"),
-                  [sty.textisClose]: hasVariant(variants, "isClose", "isClose")
+                  [sty.namecolor__2]: hasVariant(variants, "color", "_2"),
+                  [sty.nameisClose]: hasVariant(variants, "isClose", "isClose")
                 }
               )}
             >
@@ -169,10 +169,14 @@ function PlasmicSection__RenderFunc(props: {
             </div>
 
             <SectionFlapIcon
-              data-plasmic-name={"svg"}
-              data-plasmic-override={overrides.svg}
-              className={classNames(projectcss.all, sty.svg, {
-                [sty.svgisClose]: hasVariant(variants, "isClose", "isClose")
+              data-plasmic-name={"sectionToggle"}
+              data-plasmic-override={overrides.sectionToggle}
+              className={classNames(projectcss.all, sty.sectionToggle, {
+                [sty.sectionToggleisClose]: hasVariant(
+                  variants,
+                  "isClose",
+                  "isClose"
+                )
               })}
               role={"img"}
             />
@@ -191,7 +195,7 @@ function PlasmicSection__RenderFunc(props: {
       >
         {p.renderPlasmicSlot({
           defaultContents: null,
-          value: args.childSection
+          value: args.list
         })}
       </p.Stack>
     </div>
@@ -199,9 +203,9 @@ function PlasmicSection__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "text", "svg", "childSection"],
-  text: ["text"],
-  svg: ["svg"],
+  root: ["root", "name", "sectionToggle", "childSection"],
+  name: ["name"],
+  sectionToggle: ["sectionToggle"],
   childSection: ["childSection"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -209,8 +213,8 @@ type DescendantsType<T extends NodeNameType> =
   typeof PlasmicDescendants[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  text: "div";
-  svg: "svg";
+  name: "div";
+  sectionToggle: "svg";
   childSection: "div";
 };
 
@@ -271,8 +275,8 @@ export const PlasmicSection = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    text: makeNodeComponent("text"),
-    svg: makeNodeComponent("svg"),
+    _name: makeNodeComponent("name"),
+    sectionToggle: makeNodeComponent("sectionToggle"),
     childSection: makeNodeComponent("childSection"),
 
     // Metadata about props expected for PlasmicSection

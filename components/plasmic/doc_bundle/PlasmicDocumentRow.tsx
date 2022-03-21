@@ -54,7 +54,7 @@ export const PlasmicDocumentRow__ArgProps = new Array<ArgPropType>();
 export type PlasmicDocumentRow__OverridesType = {
   root?: p.Flex<"div">;
   dot?: p.Flex<typeof DoumentRowDot>;
-  text?: p.Flex<"div">;
+  name?: p.Flex<"div">;
 };
 
 export interface DefaultDocumentRowProps {
@@ -95,9 +95,9 @@ function PlasmicDocumentRow__RenderFunc(props: {
       ) : null}
 
       <div
-        data-plasmic-name={"text"}
-        data-plasmic-override={overrides.text}
-        className={classNames(projectcss.all, projectcss.__wab_text, sty.text)}
+        data-plasmic-name={"name"}
+        data-plasmic-override={overrides.name}
+        className={classNames(projectcss.all, projectcss.__wab_text, sty.name)}
       >
         {"document name"}
       </div>
@@ -106,9 +106,9 @@ function PlasmicDocumentRow__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "dot", "text"],
+  root: ["root", "dot", "name"],
   dot: ["dot"],
-  text: ["text"]
+  name: ["name"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -116,7 +116,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   dot: typeof DoumentRowDot;
-  text: "div";
+  name: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -177,7 +177,7 @@ export const PlasmicDocumentRow = Object.assign(
   {
     // Helper components rendering sub-elements
     dot: makeNodeComponent("dot"),
-    text: makeNodeComponent("text"),
+    _name: makeNodeComponent("name"),
 
     // Metadata about props expected for PlasmicDocumentRow
     internalVariantProps: PlasmicDocumentRow__VariantProps,

@@ -27,7 +27,7 @@
   position: relative;
   flex-shrink: 0;
 }
-.text {
+.name {
   position: relative;
   width: 100%;
   height: auto;
