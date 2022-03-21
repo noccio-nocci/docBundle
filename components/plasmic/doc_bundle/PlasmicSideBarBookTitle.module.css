@@ -8,6 +8,7 @@
   position: relative;
   min-width: 0;
   padding: 0px;
+  border-width: 0px;
 }
 .root > :global(.__wab_flex-container) {
   flex-direction: row;
@@ -32,17 +33,34 @@
   color: var(--token-sFgQ8U32E);
   flex-shrink: 0;
 }
+.svgcolor__2 {
+  color: var(--token-T3GnRo1BU);
+}
+.svgcolor__3 {
+  color: var(--token-pXO2MC-WG);
+}
+.svgcolor__4 {
+  color: var(--token-FNB0zy7cz);
+}
+.svgcolor__5 {
+  color: var(--token-wUK8n7raL);
+}
+.svgcolor__6 {
+  color: var(--token-g4Ej4wu_s);
+}
+.svgcolor__7 {
+  color: var(--token-Rz9qV9Zi2);
+}
 .freeBox {
   position: relative;
-  width: 100%;
-  height: 100%;
+  width: auto;
+  height: auto;
   left: auto;
   top: auto;
   overflow: hidden;
   display: flex;
   flex-direction: row;
-  min-width: 0;
-  min-height: 0;
+  align-self: flex-end;
 }
 .slotTargetBundleTitle {
   font-size: 14px;

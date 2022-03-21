@@ -66,7 +66,6 @@ export const PlasmicBook__ArgProps = new Array<ArgPropType>();
 export type PlasmicBook__OverridesType = {
   root?: p.Flex<"button">;
   title?: p.Flex<"div">;
-  text?: p.Flex<"div">;
 };
 
 export interface DefaultBookProps {
@@ -133,19 +132,13 @@ function PlasmicBook__RenderFunc(props: {
         <div
           data-plasmic-name={"title"}
           data-plasmic-override={overrides.title}
-          className={classNames(projectcss.all, sty.title)}
+          className={classNames(
+            projectcss.all,
+            projectcss.__wab_text,
+            sty.title
+          )}
         >
-          <div
-            data-plasmic-name={"text"}
-            data-plasmic-override={overrides.text}
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text
-            )}
-          >
-            {""}
-          </div>
+          {""}
         </div>
       </div>
     </button>
@@ -153,9 +146,8 @@ function PlasmicBook__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "title", "text"],
-  title: ["title", "text"],
-  text: ["text"]
+  root: ["root", "title"],
+  title: ["title"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -163,7 +155,6 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "button";
   title: "div";
-  text: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -224,7 +215,6 @@ export const PlasmicBook = Object.assign(
   {
     // Helper components rendering sub-elements
     title: makeNodeComponent("title"),
-    text: makeNodeComponent("text"),
 
     // Metadata about props expected for PlasmicBook
     internalVariantProps: PlasmicBook__VariantProps,

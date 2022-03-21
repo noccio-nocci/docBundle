@@ -87,10 +87,3 @@
   min-width: 0;
   padding: 8px;
 }
-.title {
-  display: flex;
-  flex-direction: row;
-}
-.text {
-  position: relative;
-}

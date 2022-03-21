@@ -42,12 +42,18 @@ import sty from "./PlasmicSideBarBookTitle.module.css"; // plasmic-import: cpDlP
 
 import FolderIcon from "./icons/PlasmicIcon__Folder"; // plasmic-import: BYuADTFPQ/icon
 
-export type PlasmicSideBarBookTitle__VariantMembers = {};
+export type PlasmicSideBarBookTitle__VariantMembers = {
+  color: "_1" | "_2" | "_3" | "_4" | "_5" | "_6" | "_7";
+};
 
-export type PlasmicSideBarBookTitle__VariantsArgs = {};
+export type PlasmicSideBarBookTitle__VariantsArgs = {
+  color?: SingleChoiceArg<"_1" | "_2" | "_3" | "_4" | "_5" | "_6" | "_7">;
+};
+
 type VariantPropType = keyof PlasmicSideBarBookTitle__VariantsArgs;
-export const PlasmicSideBarBookTitle__VariantProps =
-  new Array<VariantPropType>();
+export const PlasmicSideBarBookTitle__VariantProps = new Array<VariantPropType>(
+  "color"
+);
 
 export type PlasmicSideBarBookTitle__ArgsType = {
   bundleTitle?: React.ReactNode;
@@ -59,13 +65,14 @@ export const PlasmicSideBarBookTitle__ArgProps = new Array<ArgPropType>(
 );
 
 export type PlasmicSideBarBookTitle__OverridesType = {
-  root?: p.Flex<"div">;
+  root?: p.Flex<"button">;
   svg?: p.Flex<"svg">;
   freeBox?: p.Flex<"div">;
 };
 
 export interface DefaultSideBarBookTitleProps {
   bundleTitle?: React.ReactNode;
+  color?: SingleChoiceArg<"_1" | "_2" | "_3" | "_4" | "_5" | "_6" | "_7">;
   className?: string;
 }
 
@@ -80,7 +87,7 @@ function PlasmicSideBarBookTitle__RenderFunc(props: {
 
   return (
     <p.Stack
-      as={"div"}
+      as={"button"}
       data-plasmic-name={"root"}
       data-plasmic-override={overrides.root}
       data-plasmic-root={true}
@@ -88,16 +95,25 @@ function PlasmicSideBarBookTitle__RenderFunc(props: {
       hasGap={true}
       className={classNames(
         projectcss.all,
+        projectcss.button,
         projectcss.root_reset,
         projectcss.plasmic_default_styles,
         projectcss.plasmic_tokens,
-        sty.root
+        sty.root,
+        { [sty.rootcolor__1]: hasVariant(variants, "color", "_1") }
       )}
     >
       <FolderIcon
         data-plasmic-name={"svg"}
         data-plasmic-override={overrides.svg}
-        className={classNames(projectcss.all, sty.svg)}
+        className={classNames(projectcss.all, sty.svg, {
+          [sty.svgcolor__2]: hasVariant(variants, "color", "_2"),
+          [sty.svgcolor__3]: hasVariant(variants, "color", "_3"),
+          [sty.svgcolor__4]: hasVariant(variants, "color", "_4"),
+          [sty.svgcolor__5]: hasVariant(variants, "color", "_5"),
+          [sty.svgcolor__6]: hasVariant(variants, "color", "_6"),
+          [sty.svgcolor__7]: hasVariant(variants, "color", "_7")
+        })}
         role={"img"}
       />
 
@@ -125,7 +141,7 @@ type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   typeof PlasmicDescendants[T][number];
 type NodeDefaultElementType = {
-  root: "div";
+  root: "button";
   svg: "svg";
   freeBox: "div";
 };
