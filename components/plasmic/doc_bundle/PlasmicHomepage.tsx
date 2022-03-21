@@ -67,7 +67,6 @@ export type PlasmicHomepage__OverridesType = {
   sideBarLogo?: p.Flex<typeof SideBarLogo>;
   docsArea?: p.Flex<"div">;
   sideBarBookTitle?: p.Flex<typeof SideBarBookTitle>;
-  docs?: p.Flex<"div">;
   addStock?: p.Flex<typeof AddStock>;
   sideBarLogout?: p.Flex<typeof SideBarLogout>;
   rightPane?: p.Flex<"div">;
@@ -153,10 +152,11 @@ function PlasmicHomepage__RenderFunc(props: {
 
                           <p.Stack
                             as={"div"}
-                            data-plasmic-name={"docs"}
-                            data-plasmic-override={overrides.docs}
                             hasGap={true}
-                            className={classNames(projectcss.all, sty.docs)}
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__oh8GM
+                            )}
                           >
                             {p.renderPlasmicSlot({
                               defaultContents: null,
@@ -289,7 +289,6 @@ const PlasmicDescendants = {
     "sideBarLogo",
     "docsArea",
     "sideBarBookTitle",
-    "docs",
     "addStock",
     "sideBarLogout",
     "rightPane",
@@ -300,9 +299,8 @@ const PlasmicDescendants = {
     "text"
   ],
   sideBarLogo: ["sideBarLogo"],
-  docsArea: ["docsArea", "sideBarBookTitle", "docs", "addStock"],
+  docsArea: ["docsArea", "sideBarBookTitle", "addStock"],
   sideBarBookTitle: ["sideBarBookTitle"],
-  docs: ["docs"],
   addStock: ["addStock"],
   sideBarLogout: ["sideBarLogout"],
   rightPane: [
@@ -327,7 +325,6 @@ type NodeDefaultElementType = {
   sideBarLogo: typeof SideBarLogo;
   docsArea: "div";
   sideBarBookTitle: typeof SideBarBookTitle;
-  docs: "div";
   addStock: typeof AddStock;
   sideBarLogout: typeof SideBarLogout;
   rightPane: "div";
@@ -398,7 +395,6 @@ export const PlasmicHomepage = Object.assign(
     sideBarLogo: makeNodeComponent("sideBarLogo"),
     docsArea: makeNodeComponent("docsArea"),
     sideBarBookTitle: makeNodeComponent("sideBarBookTitle"),
-    docs: makeNodeComponent("docs"),
     addStock: makeNodeComponent("addStock"),
     sideBarLogout: makeNodeComponent("sideBarLogout"),
     rightPane: makeNodeComponent("rightPane"),
