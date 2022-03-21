@@ -65,6 +65,7 @@ export const PlasmicHomepage__ArgProps = new Array<ArgPropType>("docs");
 export type PlasmicHomepage__OverridesType = {
   root?: p.Flex<"div">;
   sideBarLogo?: p.Flex<typeof SideBarLogo>;
+  docsArea?: p.Flex<"div">;
   sideBarBookTitle?: p.Flex<typeof SideBarBookTitle>;
   docs?: p.Flex<"div">;
   addStock?: p.Flex<typeof AddStock>;
@@ -136,11 +137,10 @@ function PlasmicHomepage__RenderFunc(props: {
                       {true ? (
                         <p.Stack
                           as={"div"}
+                          data-plasmic-name={"docsArea"}
+                          data-plasmic-override={overrides.docsArea}
                           hasGap={true}
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__znuqZ
-                          )}
+                          className={classNames(projectcss.all, sty.docsArea)}
                         >
                           <SideBarBookTitle
                             data-plasmic-name={"sideBarBookTitle"}
@@ -287,6 +287,7 @@ const PlasmicDescendants = {
   root: [
     "root",
     "sideBarLogo",
+    "docsArea",
     "sideBarBookTitle",
     "docs",
     "addStock",
@@ -299,6 +300,7 @@ const PlasmicDescendants = {
     "text"
   ],
   sideBarLogo: ["sideBarLogo"],
+  docsArea: ["docsArea", "sideBarBookTitle", "docs", "addStock"],
   sideBarBookTitle: ["sideBarBookTitle"],
   docs: ["docs"],
   addStock: ["addStock"],
@@ -323,6 +325,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   sideBarLogo: typeof SideBarLogo;
+  docsArea: "div";
   sideBarBookTitle: typeof SideBarBookTitle;
   docs: "div";
   addStock: typeof AddStock;
@@ -393,6 +396,7 @@ export const PlasmicHomepage = Object.assign(
   {
     // Helper components rendering sub-elements
     sideBarLogo: makeNodeComponent("sideBarLogo"),
+    docsArea: makeNodeComponent("docsArea"),
     sideBarBookTitle: makeNodeComponent("sideBarBookTitle"),
     docs: makeNodeComponent("docs"),
     addStock: makeNodeComponent("addStock"),
