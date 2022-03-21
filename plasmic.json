@@ -390,6 +390,19 @@
           "cssFilePath": "plasmic/doc_bundle/PlasmicConfirmationModal.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "L8yNVAnNLS",
+          "name": "SideBarDocsArea",
+          "type": "managed",
+          "projectId": "jRkyHyW5xUgunu5SjYQV4L",
+          "renderModuleFilePath": "plasmic/doc_bundle/PlasmicSideBarDocsArea.tsx",
+          "importSpec": {
+            "modulePath": "SideBarDocsArea.tsx"
+          },
+          "cssFilePath": "plasmic/doc_bundle/PlasmicSideBarDocsArea.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
