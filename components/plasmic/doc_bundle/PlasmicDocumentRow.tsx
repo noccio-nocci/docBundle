@@ -47,9 +47,12 @@ export type PlasmicDocumentRow__VariantsArgs = {};
 type VariantPropType = keyof PlasmicDocumentRow__VariantsArgs;
 export const PlasmicDocumentRow__VariantProps = new Array<VariantPropType>();
 
-export type PlasmicDocumentRow__ArgsType = {};
+export type PlasmicDocumentRow__ArgsType = {
+  name?: React.ReactNode;
+};
+
 type ArgPropType = keyof PlasmicDocumentRow__ArgsType;
-export const PlasmicDocumentRow__ArgProps = new Array<ArgPropType>();
+export const PlasmicDocumentRow__ArgProps = new Array<ArgPropType>("name");
 
 export type PlasmicDocumentRow__OverridesType = {
   root?: p.Flex<"div">;
@@ -58,6 +61,7 @@ export type PlasmicDocumentRow__OverridesType = {
 };
 
 export interface DefaultDocumentRowProps {
+  name?: React.ReactNode;
   className?: string;
 }
 
@@ -97,9 +101,13 @@ function PlasmicDocumentRow__RenderFunc(props: {
       <div
         data-plasmic-name={"name"}
         data-plasmic-override={overrides.name}
-        className={classNames(projectcss.all, projectcss.__wab_text, sty.name)}
+        className={classNames(projectcss.all, sty.name)}
       >
-        {"document name"}
+        {p.renderPlasmicSlot({
+          defaultContents: "document name",
+          value: args.name,
+          className: classNames(sty.slotTargetName)
+        })}
       </div>
     </p.Stack>
   ) as React.ReactElement | null;

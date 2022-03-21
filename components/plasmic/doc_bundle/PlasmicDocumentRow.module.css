@@ -32,7 +32,11 @@
   width: 100%;
   height: auto;
   max-width: 800px;
+  display: flex;
+  flex-direction: row;
+  min-width: 0;
+}
+.slotTargetName {
   font-size: 18px;
   color: var(--token-rBjq1hUEq);
-  min-width: 0;
 }
