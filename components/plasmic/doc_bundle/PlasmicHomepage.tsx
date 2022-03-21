@@ -56,17 +56,18 @@ type VariantPropType = keyof PlasmicHomepage__VariantsArgs;
 export const PlasmicHomepage__VariantProps = new Array<VariantPropType>();
 
 export type PlasmicHomepage__ArgsType = {
-  docs?: React.ReactNode;
+  list?: React.ReactNode;
 };
 
 type ArgPropType = keyof PlasmicHomepage__ArgsType;
-export const PlasmicHomepage__ArgProps = new Array<ArgPropType>("docs");
+export const PlasmicHomepage__ArgProps = new Array<ArgPropType>("list");
 
 export type PlasmicHomepage__OverridesType = {
   root?: p.Flex<"div">;
   sideBarLogo?: p.Flex<typeof SideBarLogo>;
   docsArea?: p.Flex<"div">;
   sideBarBookTitle?: p.Flex<typeof SideBarBookTitle>;
+  docs?: p.Flex<"div">;
   addStock?: p.Flex<typeof AddStock>;
   sideBarLogout?: p.Flex<typeof SideBarLogout>;
   rightPane?: p.Flex<"div">;
@@ -152,15 +153,14 @@ function PlasmicHomepage__RenderFunc(props: {
 
                           <p.Stack
                             as={"div"}
+                            data-plasmic-name={"docs"}
+                            data-plasmic-override={overrides.docs}
                             hasGap={true}
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__oh8GM
-                            )}
+                            className={classNames(projectcss.all, sty.docs)}
                           >
                             {p.renderPlasmicSlot({
                               defaultContents: null,
-                              value: args.docs
+                              value: args.list
                             })}
                           </p.Stack>
 
@@ -289,6 +289,7 @@ const PlasmicDescendants = {
     "sideBarLogo",
     "docsArea",
     "sideBarBookTitle",
+    "docs",
     "addStock",
     "sideBarLogout",
     "rightPane",
@@ -299,8 +300,9 @@ const PlasmicDescendants = {
     "text"
   ],
   sideBarLogo: ["sideBarLogo"],
-  docsArea: ["docsArea", "sideBarBookTitle", "addStock"],
+  docsArea: ["docsArea", "sideBarBookTitle", "docs", "addStock"],
   sideBarBookTitle: ["sideBarBookTitle"],
+  docs: ["docs"],
   addStock: ["addStock"],
   sideBarLogout: ["sideBarLogout"],
   rightPane: [
@@ -325,6 +327,7 @@ type NodeDefaultElementType = {
   sideBarLogo: typeof SideBarLogo;
   docsArea: "div";
   sideBarBookTitle: typeof SideBarBookTitle;
+  docs: "div";
   addStock: typeof AddStock;
   sideBarLogout: typeof SideBarLogout;
   rightPane: "div";
@@ -395,6 +398,7 @@ export const PlasmicHomepage = Object.assign(
     sideBarLogo: makeNodeComponent("sideBarLogo"),
     docsArea: makeNodeComponent("docsArea"),
     sideBarBookTitle: makeNodeComponent("sideBarBookTitle"),
+    docs: makeNodeComponent("docs"),
     addStock: makeNodeComponent("addStock"),
     sideBarLogout: makeNodeComponent("sideBarLogout"),
     rightPane: makeNodeComponent("rightPane"),
