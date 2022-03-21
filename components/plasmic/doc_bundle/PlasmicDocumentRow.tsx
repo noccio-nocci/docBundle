@@ -41,11 +41,18 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "./plasmic_doc_bundle.module.css"; // plasmic-import: jRkyHyW5xUgunu5SjYQV4L/projectcss
 import sty from "./PlasmicDocumentRow.module.css"; // plasmic-import: Re5_tLOhF_/css
 
-export type PlasmicDocumentRow__VariantMembers = {};
+export type PlasmicDocumentRow__VariantMembers = {
+  color: "_1" | "_2" | "_3" | "_4" | "_5" | "_6" | "_7";
+};
 
-export type PlasmicDocumentRow__VariantsArgs = {};
+export type PlasmicDocumentRow__VariantsArgs = {
+  color?: SingleChoiceArg<"_1" | "_2" | "_3" | "_4" | "_5" | "_6" | "_7">;
+};
+
 type VariantPropType = keyof PlasmicDocumentRow__VariantsArgs;
-export const PlasmicDocumentRow__VariantProps = new Array<VariantPropType>();
+export const PlasmicDocumentRow__VariantProps = new Array<VariantPropType>(
+  "color"
+);
 
 export type PlasmicDocumentRow__ArgsType = {
   name?: React.ReactNode;
@@ -62,6 +69,7 @@ export type PlasmicDocumentRow__OverridesType = {
 
 export interface DefaultDocumentRowProps {
   name?: React.ReactNode;
+  color?: SingleChoiceArg<"_1" | "_2" | "_3" | "_4" | "_5" | "_6" | "_7">;
   className?: string;
 }
 
@@ -87,14 +95,43 @@ function PlasmicDocumentRow__RenderFunc(props: {
         projectcss.root_reset,
         projectcss.plasmic_default_styles,
         projectcss.plasmic_tokens,
-        sty.root
+        sty.root,
+        {
+          [sty.rootcolor__4]: hasVariant(variants, "color", "_4"),
+          [sty.rootcolor__7]: hasVariant(variants, "color", "_7")
+        }
       )}
     >
       {true ? (
         <DoumentRowDot
           data-plasmic-name={"dot"}
           data-plasmic-override={overrides.dot}
-          className={classNames("__wab_instance", sty.dot)}
+          className={classNames("__wab_instance", sty.dot, {
+            [sty.dotcolor__1]: hasVariant(variants, "color", "_1"),
+            [sty.dotcolor__2]: hasVariant(variants, "color", "_2"),
+            [sty.dotcolor__3]: hasVariant(variants, "color", "_3"),
+            [sty.dotcolor__4]: hasVariant(variants, "color", "_4"),
+            [sty.dotcolor__5]: hasVariant(variants, "color", "_5"),
+            [sty.dotcolor__6]: hasVariant(variants, "color", "_6"),
+            [sty.dotcolor__7]: hasVariant(variants, "color", "_7")
+          })}
+          color={
+            hasVariant(variants, "color", "_7")
+              ? ["_7"]
+              : hasVariant(variants, "color", "_6")
+              ? ["_6"]
+              : hasVariant(variants, "color", "_5")
+              ? ["_5"]
+              : hasVariant(variants, "color", "_4")
+              ? ["_4"]
+              : hasVariant(variants, "color", "_3")
+              ? ["_3"]
+              : hasVariant(variants, "color", "_2")
+              ? ["_2"]
+              : hasVariant(variants, "color", "_1")
+              ? ["_1"]
+              : undefined
+          }
         />
       ) : null}
 

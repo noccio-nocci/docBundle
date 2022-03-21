@@ -27,6 +27,27 @@
   position: relative;
   flex-shrink: 0;
 }
+.dotcolor__1:global(.__wab_instance) {
+  flex-shrink: 0;
+}
+.dotcolor__2:global(.__wab_instance) {
+  flex-shrink: 0;
+}
+.dotcolor__3:global(.__wab_instance) {
+  flex-shrink: 0;
+}
+.dotcolor__4:global(.__wab_instance) {
+  flex-shrink: 0;
+}
+.dotcolor__5:global(.__wab_instance) {
+  flex-shrink: 0;
+}
+.dotcolor__6:global(.__wab_instance) {
+  flex-shrink: 0;
+}
+.dotcolor__7:global(.__wab_instance) {
+  flex-shrink: 0;
+}
 .name {
   position: relative;
   width: 100%;
