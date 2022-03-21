@@ -60,7 +60,10 @@
   overflow: hidden;
   display: flex;
   flex-direction: row;
-  align-self: flex-end;
+  align-self: flex-start;
+  align-items: center;
+  justify-content: flex-start;
+  max-height: 40px;
 }
 .slotTargetBundleTitle {
   font-size: 14px;
