@@ -376,6 +376,16 @@
           "assetId": "jRkyHyW5xUgunu5SjYQV4L",
           "type": "projectCss",
           "checksum": "b92017521edb813d1ad20c1668080636"
+        },
+        {
+          "type": "renderModule",
+          "assetId": "NlJImffK0e",
+          "checksum": "4693c056eb6dfacd04e150f131db2c7b"
+        },
+        {
+          "type": "cssRules",
+          "assetId": "NlJImffK0e",
+          "checksum": "4693c056eb6dfacd04e150f131db2c7b"
         }
       ],
       "codegenVersion": "0.0.1"

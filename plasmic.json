@@ -390,6 +390,19 @@
           "cssFilePath": "plasmic/doc_bundle/PlasmicConfirmationModal.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "NlJImffK0e",
+          "name": "SigninForm2",
+          "type": "managed",
+          "projectId": "jRkyHyW5xUgunu5SjYQV4L",
+          "renderModuleFilePath": "plasmic/doc_bundle/PlasmicSigninForm2.tsx",
+          "importSpec": {
+            "modulePath": "SigninForm2.tsx"
+          },
+          "cssFilePath": "plasmic/doc_bundle/PlasmicSigninForm2.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
