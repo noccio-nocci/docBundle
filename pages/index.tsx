@@ -15,6 +15,7 @@ import { onSnapshot, collection, serverTimestamp, query, where, orderBy, doc, ad
 import Book, {BookProps} from "../components/Book";
 import { Router, useRouter } from "next/router";
 import AddBook from "../components/AddBook";
+import { Interface } from "readline";
 
 export type BookValues = {
   id: string;
@@ -39,7 +40,7 @@ function Homepage() {
     closeOnOverlayClick: false
   });
 
-  const [books, setBooks] = useState([INITIAL_BOOK_VALUE]);
+  const [books, setBooks] = useState([]);
   
   useEffect(() => {
       const booksRef =
@@ -51,14 +52,14 @@ function Homepage() {
         );
       const unSub = onSnapshot(booksRef,
       (querySnapshot) => {
-        setBooks(querySnapshot.docs.map((doc) => ({...doc.data(), id: doc.id})));
+        setBooks(querySnapshot.docs.map((doc) => ({...doc.data(), id:doc.id})));
       });
     return () => unSub();
   }, [domain, isLoading, userId]);
 
   const [book, setBook] = useState<BookValues>(INITIAL_BOOK_VALUE);
 
-  const openEditBookModal = (e) => {
+  const openEditBookModal = (e: BookValues) => {
     setBook({
       id: e.id,
       owner: e.owner,
@@ -124,34 +125,34 @@ function Homepage() {
           render: () => null
         }}
         allList={{
-          list: books?.map((e) => (
+          list: books?.map((book: BookValues) => (
             <Book
-              key={e.id || "NULL"}
-              title={{wrap: () => e.name}}
-              locked={e.isPriv}
-              color={e.color}
-              onClick={() => router.push('/bundles/' + e.id)}
-              onContextMenu={(ev) => {ev.preventDefault();}}
+              key={book.id || "NULL"}
+              title={{wrap: () => book.name}}
+              locked={book.isPriv}
+              color={book.color}
+              onClick={() => router.push('/bundles/' + book.id)}
+              onContextMenu={(ev: React.MouseEvent<HTMLButtonElement>) => {ev.preventDefault();}}
             />
           ))
         }}
         ownList={{
           list: books
-            .filter((e) => e.owner === userId)
-            .map((e) => (
+            .filter((book: BookValues) => book.owner === userId)
+            ?.map((book: BookValues) => (
               <Book
-                key={e.id || "NULL"}
-                title={{wrap: () => e.name}}
-                locked={e.isPriv}
-                color={e.color}
-                onClick={() => router.push('/bundles/' + e.id)}
-                onContextMenu={(ev) => {ev.preventDefault(); openEditBookModal(e);}}
+                key={book.id || "NULL"}
+                title={{wrap: () => book.name}}
+                locked={book.isPriv}
+                color={book.color}
+                onClick={() => router.push('/bundles/' + book.id)}
+                onContextMenu={(ev: React.MouseEvent<HTMLButtonElement>) => {ev.preventDefault(); openEditBookModal(book);}}
                 />
             )).concat((
               <AddBook 
                 key="addbook"
                 onClick={() => openAddBookModal()}
-                onContextMenu={(ev) => {ev.preventDefault(); openAddBookModal();}}
+                onContextMenu={(ev: React.MouseEvent<HTMLButtonElement>) => {ev.preventDefault(); openAddBookModal();}}
               />            
             ))
         }}
@@ -163,7 +164,7 @@ function Homepage() {
           }}
           textarea={{
             value:book.name,
-            onChange: (e) => {setBook({...book, name:e.target.value});}
+            onChange: (e: React.ChangeEvent<HTMLInputElement>) => {setBook({...book, name:e.target.value});}
           }}
           colorPicker={{
             props: {
@@ -187,16 +188,16 @@ function Homepage() {
           isPriv={{
             props: {
               isChecked: book.isPriv,
-              onChange:(e) => {setBook({...book, isPriv:e});}
+              onChange:(e: boolean) => {setBook({...book, isPriv:e});}
             }
           }}
           ok={{
-            onClick:(e) => {saveBook();}
+            onClick:() => {saveBook();}
           }}
           remove={{
-            render: (props, Component) => (book.id==="" ? null : <Component {...props} />),
+            render: (props: any, Component:any) => (book.id==="" ? null : <Component {...props} />),
             props: {
-              onClick:(e)=> {removeBook();}
+              onClick:()=> {removeBook();}
             }
           }}
         />
