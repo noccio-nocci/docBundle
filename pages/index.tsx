@@ -119,8 +119,6 @@ function Homepage() {
   return (
     <>
       <PlasmicHomepage 
-        rightPane={{
-        }}
         docs={{
           render: () => null
         }}
