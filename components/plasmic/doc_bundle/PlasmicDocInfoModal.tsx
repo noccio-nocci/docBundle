@@ -69,7 +69,7 @@ export type PlasmicDocInfoModal__OverridesType = {
   docUrl?: p.Flex<"input">;
   colorPicker?: p.Flex<typeof ColorPicker>;
   ok?: p.Flex<typeof Button>;
-  _delete?: p.Flex<typeof Button>;
+  remove?: p.Flex<typeof Button>;
   closeButton?: p.Flex<typeof CloseButton>;
 };
 
@@ -167,9 +167,9 @@ function PlasmicDocInfoModal__RenderFunc(props: {
             </Button>
 
             <Button
-              data-plasmic-name={"_delete"}
-              data-plasmic-override={overrides._delete}
-              className={classNames("__wab_instance", sty._delete)}
+              data-plasmic-name={"remove"}
+              data-plasmic-override={overrides.remove}
+              className={classNames("__wab_instance", sty.remove)}
               color={"softRed" as const}
               size={"compact" as const}
             >
@@ -195,14 +195,14 @@ const PlasmicDescendants = {
     "docUrl",
     "colorPicker",
     "ok",
-    "_delete",
+    "remove",
     "closeButton"
   ],
   docTitle: ["docTitle"],
   docUrl: ["docUrl"],
   colorPicker: ["colorPicker"],
   ok: ["ok"],
-  _delete: ["_delete"],
+  remove: ["remove"],
   closeButton: ["closeButton"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -214,7 +214,7 @@ type NodeDefaultElementType = {
   docUrl: "input";
   colorPicker: typeof ColorPicker;
   ok: typeof Button;
-  _delete: typeof Button;
+  remove: typeof Button;
   closeButton: typeof CloseButton;
 };
 
@@ -279,7 +279,7 @@ export const PlasmicDocInfoModal = Object.assign(
     docUrl: makeNodeComponent("docUrl"),
     colorPicker: makeNodeComponent("colorPicker"),
     ok: makeNodeComponent("ok"),
-    _delete: makeNodeComponent("_delete"),
+    remove: makeNodeComponent("remove"),
     closeButton: makeNodeComponent("closeButton"),
 
     // Metadata about props expected for PlasmicDocInfoModal
