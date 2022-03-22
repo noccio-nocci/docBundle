@@ -22,6 +22,7 @@ export type BookValues = {
   name: string;
   color: BookProps["color"];
   isPriv: boolean;
+  counter: number;
   docs: list<DocValues>;
 }
 export const INITIAL_BOOK_VALUE: BookValues = {
@@ -30,21 +31,22 @@ export const INITIAL_BOOK_VALUE: BookValues = {
   name: "",
   color: "_1",
   isPriv: true,
+  counter: 0,
   docs: [],
 }
 export type DocValues = {
-  id: string;
+  idx: number;
   name: string;
   url: string;
   color: DoumentRowDotProps["color"];
   docs: list<DocValues>;
 };
 export const INITIAL_DOC_VALUE: DocValues ={
-  id: "",
+  idx: 0,
   name: "",
   url: "",
   color: "_1",
-  docs: []
+  docs: [],
 }
 
 function Homepage() {
@@ -75,13 +77,7 @@ function Homepage() {
   const [book, setBook] = useState<BookValues>(INITIAL_BOOK_VALUE);
 
   const openEditBookModal = (e: BookValues) => {
-    setBook({
-      id: e.id,
-      owner: e.owner,
-      name: e.name,
-      color: e.color,
-      isPriv: e.isPriv
-    });
+    setBook(e);
     open();
   }
   const openAddBookModal = () => {
@@ -107,6 +103,7 @@ function Homepage() {
         name: book.name,
         color: book.color,
         isPriv: book.isPriv,
+        counter: book.counter,
         domain: domain,
         viewKeys: [(book.isPriv ? "PRIV" : "PUB"), userId],
         updated_at: serverTimestamp(),

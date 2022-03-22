@@ -40,7 +40,8 @@ function Bundle() {
 
   const [book, setBook] = useState<BookValues>(INITIAL_BOOK_VALUE);
   const [docs, setDocs] = useState<DocValues>(INITIAL_DOC_VALUE);
-  const [url, setUrl] = React.useState("");
+  const [url, setUrl] = useState("");
+  const [docsRef, setDocsRef] = useState<DocValues>(INITIAL_DOC_VALUE);
 
   useEffect(() => {
     const bookRef = doc(db, 'bundles', id);
@@ -53,6 +54,18 @@ function Bundle() {
 
   const openAddDocModal = () => {
     setDocs(INITIAL_DOC_VALUE);
+    docModalOpen();
+  }
+
+  const openEditDocModal = (e: DocValues) => {
+    setDocsRef(e);
+    setDocs({
+      name: e.name,
+      url: e.url,
+      color: e.color,
+      idx: e.idx,
+      docs: [],
+    });
     docModalOpen();
   }
 
@@ -74,36 +87,51 @@ function Bundle() {
 
   const saveDoc = () => {
     if (!!!docs.name) return;
+
+    const docRef = doc(db, 'bundles', book.id);
     // new
-    if (docs.id===""){
-     if (!!book.docs) {
-        book.docs.push({
-          name: docs.name,
-          color: docs.color,
-          url: docs.url
-        })
-     } else {
-        book.docs=[{
-          name: docs.name,
-          color: docs.color,
-          url: docs.url
-        }];
-     }
-      const docRef = doc(db, 'bundles', book.id);
+    if (docs.idx===0){
+      const data = {
+        idx: book.counter+1,
+        name: docs.name,
+        color: docs.color,
+        url: docs.url
+      };
+      book.counter++;
+      if (!!book.docs) {
+        book.docs.push(data)
+      } else {
+        book.docs=[data];
+      }
       updateDoc(docRef, {
+        counter: book.counter,
         docs: book.docs,
         updated_at: serverTimestamp(),
       });
-  
     }
     // update
     else {
-
+      //book.docs
+      docsRef.name = docs.name;
+      docsRef.url = docs.url;
+      docsRef.color = docs.color;
+      updateDoc(docRef, {
+        counter: book.counter,
+        updated_at: serverTimestamp(),
+        docs: book.docs,
+      });
     }
     docModalClose();
   }
 
   const removeDoc = () => {
+    const docRef = doc(db, 'bundles', book.id);
+    // confirmationmodal出したい
+    const newDocs = book.docs.filter(d => d.idx != docs.idx);
+    updateDoc(docRef, {
+      updated_at: serverTimestamp(),
+      docs: newDocs,
+    });
     docModalClose();
   }
 
@@ -142,11 +170,20 @@ function Bundle() {
                 onClick={(e: React.MouseEvent<HTMLInputElement>) =>{
                   setUrl(doc.url);
                 }}
+                onContextMenu={(ev: React.MouseEvent<HTMLButtonElement>) => {
+                  ev.preventDefault();
+                  openEditDocModal(doc);
+                }}
               />
             ) : (
               <Section 
-                key={doc.name}
+                key={doc.idx}
                 name={doc.name}
+                color={doc.color}
+                onContextMenu={(ev: React.MouseEvent<HTMLButtonElement>) => {
+                  ev.preventDefault();
+                  openEditDocModal(doc);
+                }}
                 list={
                   doc.docs?.map((cdoc: DocValues) => (
                     <DocumentRow 
@@ -156,6 +193,10 @@ function Bundle() {
                       onClick={(e: React.MouseEvent<HTMLInputElement>) =>{
                         setUrl(cdoc.url);
                       }}      
+                      onContextMenu={(ev: React.MouseEvent<HTMLButtonElement>) => {
+                        ev.preventDefault();
+                        openEditDocModal(cdoc);
+                      }}
                     />
                   ))
                 }
@@ -183,7 +224,9 @@ function Bundle() {
           }}
           textarea={{
             value:book.name,
-            onChange: (e: React.ChangeEvent<HTMLInputElement>) => {setBook({...book, name:e.target.value});}
+            onChange: (e: React.ChangeEvent<HTMLInputElement>) => {
+              setBook({...book, name:e.target.value});
+            }
           }}
           colorPicker={{
             props: {
@@ -222,11 +265,20 @@ function Bundle() {
         <DocInfoModal 
           docTitle={{
             value:docs.name,
-            onChange: (e: React.ChangeEvent<HTMLInputElement>) => {setDocs({...docs, name:e.target.value});}
+            onChange: (e: React.ChangeEvent<HTMLInputElement>) => {
+              setDocs({...docs, name:e.target.value});
+            }
           }}
           docUrl={{
-            value:docs.url,
-            onChange: (e: React.ChangeEvent<HTMLInputElement>) => {setDocs({...docs, url:e.target.value});}
+            props:{
+              value:docs.url,
+              onChange: (e: React.ChangeEvent<HTMLInputElement>) => {
+                setDocs({...docs, url:e.target.value});
+              },
+            },
+            render: (props: any, Component:any) => (
+              docs.idx !== 0 && docs.url==="" ? null : <Component {...props} />
+            )
           }}
           colorPicker={{
             props: {
@@ -249,11 +301,17 @@ function Bundle() {
             onClick:() => {saveDoc();}
           }}
           remove={{
+            props: {
+              onClick:()=> {removeDoc();}
+            },
             render: (props: any, Component:any) => (
-              !!docs.id ? <Component {...props} /> : null
-            ),
-            onClick:()=> {removeDoc();}
+              !!docs.idx ? <Component {...props} /> : null
+            )
           }}
+          isSection={
+            (!!docs.name && !!!docs.url) || (docs.idx!==0 && !!!docs.url) ? true : false
+          }
+
         />
       </DocModal>
     </>
