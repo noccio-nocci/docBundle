@@ -68,21 +68,9 @@
   min-width: 0;
   padding: 6px 0px;
 }
-.sectionToggle {
+.toggle:global(.__wab_instance) {
   position: relative;
-  object-fit: cover;
-  max-width: 100%;
   align-self: center;
-  color: var(--token-390KIGu4P);
-  transition-property: transform;
-  transition-duration: 1s;
-  transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
-  width: 1em;
-  flex-shrink: 0;
-  height: 1em;
-}
-.sectionToggleisClose {
-  transform: rotateX(0deg) rotateY(0deg) rotateZ(-180deg);
 }
 .childSection {
   flex-direction: column;

@@ -403,6 +403,19 @@
           "cssFilePath": "plasmic/doc_bundle/PlasmicSideBarDocsArea.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "okur83wpGri",
+          "name": "SectionToggle",
+          "type": "managed",
+          "projectId": "jRkyHyW5xUgunu5SjYQV4L",
+          "renderModuleFilePath": "plasmic/doc_bundle/PlasmicSectionToggle.tsx",
+          "importSpec": {
+            "modulePath": "SectionToggle.tsx"
+          },
+          "cssFilePath": "plasmic/doc_bundle/PlasmicSectionToggle.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [

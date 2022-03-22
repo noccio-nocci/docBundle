@@ -34,13 +34,12 @@ import {
   deriveRenderOpts,
   ensureGlobalVariants
 } from "@plasmicapp/react-web";
+import SectionToggle from "../../SectionToggle"; // plasmic-import: okur83wpGri/component
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import projectcss from "./plasmic_doc_bundle.module.css"; // plasmic-import: jRkyHyW5xUgunu5SjYQV4L/projectcss
 import sty from "./PlasmicSection.module.css"; // plasmic-import: xjiy3g2Skn/css
-
-import SectionFlapIcon from "./icons/PlasmicIcon__SectionFlap"; // plasmic-import: U1mSvVSj2/icon
 
 export type PlasmicSection__VariantMembers = {
   isClose: "isClose";
@@ -68,7 +67,7 @@ export const PlasmicSection__ArgProps = new Array<ArgPropType>("list");
 export type PlasmicSection__OverridesType = {
   root?: p.Flex<"div">;
   name?: p.Flex<"div">;
-  sectionToggle?: p.Flex<"svg">;
+  toggle?: p.Flex<typeof SectionToggle>;
   childSection?: p.Flex<"div">;
 };
 
@@ -168,18 +167,22 @@ function PlasmicSection__RenderFunc(props: {
               {"Section Title"}
             </div>
 
-            <SectionFlapIcon
-              data-plasmic-name={"sectionToggle"}
-              data-plasmic-override={overrides.sectionToggle}
-              className={classNames(projectcss.all, sty.sectionToggle, {
-                [sty.sectionToggleisClose]: hasVariant(
-                  variants,
-                  "isClose",
-                  "isClose"
-                )
-              })}
-              role={"img"}
-            />
+            {true ? (
+              <SectionToggle
+                data-plasmic-name={"toggle"}
+                data-plasmic-override={overrides.toggle}
+                className={classNames("__wab_instance", sty.toggle, {
+                  [sty.toggleisClose]: hasVariant(
+                    variants,
+                    "isClose",
+                    "isClose"
+                  )
+                })}
+                isClose={
+                  hasVariant(variants, "isClose", "isClose") ? true : undefined
+                }
+              />
+            ) : null}
           </div>
         </div>
       ) : null}
@@ -203,9 +206,9 @@ function PlasmicSection__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "name", "sectionToggle", "childSection"],
+  root: ["root", "name", "toggle", "childSection"],
   name: ["name"],
-  sectionToggle: ["sectionToggle"],
+  toggle: ["toggle"],
   childSection: ["childSection"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -214,7 +217,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   name: "div";
-  sectionToggle: "svg";
+  toggle: typeof SectionToggle;
   childSection: "div";
 };
 
@@ -276,7 +279,7 @@ export const PlasmicSection = Object.assign(
   {
     // Helper components rendering sub-elements
     _name: makeNodeComponent("name"),
-    sectionToggle: makeNodeComponent("sectionToggle"),
+    toggle: makeNodeComponent("toggle"),
     childSection: makeNodeComponent("childSection"),
 
     // Metadata about props expected for PlasmicSection
