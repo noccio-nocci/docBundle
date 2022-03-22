@@ -15,7 +15,6 @@ import { onSnapshot, collection, serverTimestamp, query, where, orderBy, doc, ad
 import Book, {BookProps} from "../components/Book";
 import { Router, useRouter } from "next/router";
 import AddBook from "../components/AddBook";
-import { Interface } from "readline";
 
 export type BookValues = {
   id: string;
@@ -23,13 +22,29 @@ export type BookValues = {
   name: string;
   color: BookProps["color"];
   isPriv: boolean;
+  docs: list<DocValues>;
 }
-const INITIAL_BOOK_VALUE: BookValues = {
+export const INITIAL_BOOK_VALUE: BookValues = {
   id: "",
   owner: "",
   name: "",
   color: "_1",
-  isPriv: true
+  isPriv: true,
+  docs: [],
+}
+export type DocValues = {
+  id: string;
+  name: string;
+  url: string;
+  color: DoumentRowDotProps["color"];
+  docs: list<DocValues>;
+};
+export const INITIAL_DOC_VALUE: DocValues ={
+  id: "",
+  name: "",
+  url: "",
+  color: "_1",
+  docs: []
 }
 
 function Homepage() {
@@ -40,7 +55,7 @@ function Homepage() {
     closeOnOverlayClick: false
   });
 
-  const [books, setBooks] = useState([]);
+  const [books, setBooks] = useState<BookValues[]>([]);
   
   useEffect(() => {
       const booksRef =
@@ -72,10 +87,6 @@ function Homepage() {
   const openAddBookModal = () => {
     setBook(INITIAL_BOOK_VALUE);
     open();
-  }
-  const closeAddBookModal = () => {
-    setBook(INITIAL_BOOK_VALUE);
-    close();
   }
   const removeBook = () => {
     if (!!book.id) {
@@ -119,7 +130,7 @@ function Homepage() {
   return (
     <>
       <PlasmicHomepage 
-        docs={{
+        sideBarDocsArea={{
           render: () => null
         }}
         allList={{
@@ -158,7 +169,7 @@ function Homepage() {
       <Modal>
         <BookInfoModal 
           closeButton={{
-            onClick: () => {closeAddBookModal();}
+            onClick: () => {close();}
           }}
           textarea={{
             value:book.name,

@@ -9,40 +9,70 @@ import { useAuthState } from "../../hooks/useAuthState";
 
 import { PlasmicHomepage } from "../../components/plasmic/doc_bundle/PlasmicHomepage";
 import DocumentFrame from "../../components/DocumentFrame";
-import { PlasmicDocInfoModal } from "../../components/plasmic/doc_bundle/PlasmicDocInfoModal"
-import { DoumentRowDotProps } from "../../components/DoumentRowDot";
+import BookInfoModal from "../../components/BookInfoModal"
+import DocInfoModal from "../../components/DocInfoModal";
+
+import DocumentRow from "../../components/DocumentRow";
+import Section from "../../components/Section";
 
 // index同様の悩み。どこに置くべき？
 import { onSnapshot, collection, serverTimestamp, query, where, orderBy, doc, addDoc, updateDoc, deleteDoc } from 'firebase/firestore';
 
 // TODO: 編集権限をownerに留めるか、みんなにするか。　それを選ばせるか？isPrivの下にチェックを追加。
 
-import { BookValues } from "../index";
-export type DocValues = {
-  id: string;
-  name: string;
-  url: string;
-  color: DoumentRowDotProps["color"];
-  isPriv: boolean;
-};
+import { BookValues, INITIAL_BOOK_VALUE, DocValues, INITIAL_DOC_VALUE } from "../index";
+import BookshelfIcon from "../../components/plasmic/doc_bundle/icons/PlasmicIcon__Bookshelf";
 
 function Bundle() {
   const { userId, domain, isLoading } = useAuthState();
   const router = useRouter();
+  const [BookModal, bookModalOpen, bookModalClose, bookModalIsOpen] = useModal('__next', {
+    preventScroll: true,
+    closeOnOverlayClick: false
+  });
+  const [DocModal, docModalOpen, docModalClose, docModalIsOpen] = useModal('__next', {
+    preventScroll: true,
+    closeOnOverlayClick: false
+  });
+
   const id = router.query.id as string;
 
-  const [book, setBook] = useState();
-  const [docs, setDocs] = useState([]);
+  const [book, setBook] = useState<BookValues>(INITIAL_BOOK_VALUE);
   const [url, setUrl] = React.useState("")
 
   useEffect(() => {
-    const bookRef = collection(db, 'bundles', id);
+    const bookRef = doc(db, 'bundles', id);
     const unSub = onSnapshot(bookRef,
     (querySnapshot) => {
-      setBook(querySnapshot.docs.map((doc) => ({...doc.data(), id:doc.id})));
+      setBook({...querySnapshot.data(), id: id});
     });
     return () => unSub();
-  }, []);
+  }, [id]);
+
+  // 一旦index.tsxからコピペ！！　どこかにまとめる。
+  const saveBook = () => {
+    if (!!!book.name) {
+      return;
+    }
+    const docRef = doc(db, 'bundles', book.id);
+    updateDoc(docRef, {
+      name: book.name,
+      color: book.color,
+      isPriv: book.isPriv,
+      viewKeys: [(book.isPriv ? "PRIV" : "PUB"), userId],
+      updated_at: serverTimestamp(),
+      docs:[
+        {name:"aaa",url:"aaa",color:"_1",docs:[]},
+        {name:"bbb",url:"aaa",color:"_2",docs:[]},
+        {name:"ccc",url:"",color:"_7",docs:[
+          {name:"c1",url:"aaa",color:"_3",docs:[]},
+          {name:"c2",url:"aaa",color:"_5",docs:[]},  
+        ]},
+        {name:"ddd",url:"aaa",color:"_4",docs:[]},
+      ]
+    });
+    bookModalClose();
+  }
 
   return (
     <>
@@ -53,8 +83,39 @@ function Bundle() {
         sideBarLogo={{
           onClick: () => router.push('/')
         }}
-        sideBarBookTitle={{
-          bundleTitle: "あいうえおあいうえお\nあいうえおあいう\nえおあいうえおあいうえおあいうえお"
+        sideBarDocsArea={{
+          sideBarBookTitle:{
+            bundleTitle: book?.name,
+            color: book?.color,
+            onClick: (e: React.MouseEvent<HTMLInputElement>) => {
+              if (book.owner == userId) {
+                bookModalOpen();
+              } else {
+                e.preventDefault();
+              }
+            }
+          },
+          list: book?.docs.map((doc: DocValues) => (
+            doc.url ? (
+              <DocumentRow 
+                key={doc.url}
+                name={doc.name}
+              />
+            ) : (
+              <Section 
+                key={doc.name}
+                name={doc.name}
+                childSection={{
+                  list: doc.docs?.map((cdoc: DocValues) => (
+                    <DocumentRow 
+                      key={cdoc.url}
+                      name={cdoc.name}
+                    />
+                  ))
+                }}
+              />
+            )
+          ))
         }}
         rightPane={{
           wrapChildren: (children) => (
@@ -69,6 +130,51 @@ function Bundle() {
           )
         }}
       />
+      <BookModal>
+        <BookInfoModal 
+          closeButton={{
+            onClick: () => {bookModalClose();}
+          }}
+          textarea={{
+            value:book.name,
+            onChange: (e: React.ChangeEvent<HTMLInputElement>) => {setBook({...book, name:e.target.value});}
+          }}
+          colorPicker={{
+            props: {
+              color: book.color,
+              // クリックされた子コンポーネントのpropsを勝手にセットしたいし、
+              // 子コンポーネント追加するたびに、こちらのコードも追加するのが気持ち悪い。
+              dot1: {onClick:()=>{setBook({...book, color:'_1'})}},
+              dot2: {onClick:()=>{setBook({...book, color:'_2'})}},
+              dot3: {onClick:()=>{setBook({...book, color:'_3'})}},
+              dot4: {onClick:()=>{setBook({...book, color:'_4'})}},
+              dot5: {onClick:()=>{setBook({...book, color:'_5'})}},
+              dot6: {onClick:()=>{setBook({...book, color:'_6'})}},
+              dot7: {onClick:()=>{setBook({...book, color:'_7'})}},
+            }
+          }}
+          bookIconOnly={{
+            props: {
+              color: book.color
+            }
+          }}
+          isPriv={{
+            props: {
+              isChecked: book.isPriv,
+              onChange:(e: boolean) => {setBook({...book, isPriv:e});}
+            }
+          }}
+          ok={{
+            onClick:() => {saveBook();}
+          }}
+          remove={{
+            render: () => null,
+          }}
+        />
+      </BookModal>
+      <DocModal>
+        <DocInfoModal />
+      </DocModal>
     </>
   );
 }

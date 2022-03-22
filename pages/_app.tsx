@@ -5,7 +5,9 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
 
+// TODO: PlasmicSigninForm呼ばなきゃいけないのが気持ち悪い・・・・
 import SigninForm from "../components/SigninForm";
+import PlasmicSigninForm from "../components/plasmic/doc_bundle/PlasmicSigninForm";
 import { useAuthState } from "../hooks/useAuthState";
 import { signIn, signOut } from "../utils/firebase/auth";
 
@@ -21,7 +23,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                 <></>
             ):!isSignedIn ? (
                 <PlasmicRootProvider>
-                    <SigninForm
+                    <PlasmicSigninForm
                         signinWithGoogleButton={{
                             props: { onClick: () => signIn()}
                         }}
