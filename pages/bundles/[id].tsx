@@ -22,6 +22,7 @@ import { onSnapshot, collection, serverTimestamp, query, where, orderBy, doc, ad
 
 import { BookValues, INITIAL_BOOK_VALUE, DocValues, INITIAL_DOC_VALUE } from "../index";
 import BookshelfIcon from "../../components/plasmic/doc_bundle/icons/PlasmicIcon__Bookshelf";
+import { ChildProcess } from "child_process";
 
 function Bundle() {
   const { userId, domain, isLoading } = useAuthState();
@@ -38,7 +39,8 @@ function Bundle() {
   const id = router.query.id as string;
 
   const [book, setBook] = useState<BookValues>(INITIAL_BOOK_VALUE);
-  const [url, setUrl] = React.useState("")
+  const [docs, setDocs] = useState<DocValues>(INITIAL_DOC_VALUE);
+  const [url, setUrl] = React.useState("");
 
   useEffect(() => {
     const bookRef = doc(db, 'bundles', id);
@@ -48,6 +50,11 @@ function Bundle() {
     });
     return () => unSub();
   }, [id]);
+
+  const openAddDocModal = () => {
+    setDocs(INITIAL_DOC_VALUE);
+    docModalOpen();
+  }
 
   // 一旦index.tsxからコピペ！！　どこかにまとめる。
   const saveBook = () => {
@@ -61,22 +68,48 @@ function Bundle() {
       isPriv: book.isPriv,
       viewKeys: [(book.isPriv ? "PRIV" : "PUB"), userId],
       updated_at: serverTimestamp(),
-      docs:[
-        {name:"aaa",url:"aaa",color:"_1",docs:[]},
-        {name:"bbb",url:"aaa",color:"_2",docs:[]},
-        {name:"ccc",url:"",color:"_7",docs:[
-          {name:"c1",url:"aaa",color:"_3",docs:[]},
-          {name:"c2",url:"aaa",color:"_5",docs:[]},  
-        ]},
-        {name:"ddd",url:"aaa",color:"_4",docs:[]},
-      ]
     });
     bookModalClose();
   }
 
+  const saveDoc = () => {
+    if (!!!docs.name) return;
+    // new
+    if (docs.id===""){
+     if (!!book.docs) {
+        book.docs.push({
+          name: docs.name,
+          color: docs.color,
+          url: docs.url
+        })
+     } else {
+        book.docs=[{
+          name: docs.name,
+          color: docs.color,
+          url: docs.url
+        }];
+     }
+      const docRef = doc(db, 'bundles', book.id);
+      updateDoc(docRef, {
+        docs: book.docs,
+        updated_at: serverTimestamp(),
+      });
+  
+    }
+    // update
+    else {
+
+    }
+    docModalClose();
+  }
+
+  const removeDoc = () => {
+    docModalClose();
+  }
+
   return (
     <>
-      <PlasmicHomepage
+      <PlasmicHomepage 
         bundlesList={{
           render: () => null
         }}
@@ -84,6 +117,11 @@ function Bundle() {
           onClick: () => router.push('/')
         }}
         sideBarDocsArea={{
+          addStock: {
+            onClick: () => {
+              openAddDocModal();
+            }
+          },
           sideBarBookTitle:{
             bundleTitle: book?.name,
             color: book?.color,
@@ -95,34 +133,42 @@ function Bundle() {
               }
             }
           },
-          list: book?.docs.map((doc: DocValues) => (
+          list: book?.docs?.map((doc: DocValues) => (
             doc.url ? (
               <DocumentRow 
                 key={doc.url}
+                color={doc.color}
                 name={doc.name}
+                onClick={(e: React.MouseEvent<HTMLInputElement>) =>{
+                  setUrl(doc.url);
+                }}
               />
             ) : (
               <Section 
                 key={doc.name}
                 name={doc.name}
-                childSection={{
-                  list: doc.docs?.map((cdoc: DocValues) => (
+                list={
+                  doc.docs?.map((cdoc: DocValues) => (
                     <DocumentRow 
                       key={cdoc.url}
+                      color={cdoc.color}
                       name={cdoc.name}
+                      onClick={(e: React.MouseEvent<HTMLInputElement>) =>{
+                        setUrl(cdoc.url);
+                      }}      
                     />
                   ))
-                }}
+                }
               />
-            )
-          ))
+            ))
+          )
         }}
         rightPane={{
           wrapChildren: (children) => (
             <>
               {children}
               {url ? (
-                <DocumentFrame src="https://docs.google.com/document/d/1SbHw9hZ-_K50q0VJsPW-MsVqdfRmSZRnkb2OtZKX3dY/edit?usp=sharing" />
+                <DocumentFrame src={url} />
               ) : (
                 <></>
               )}
@@ -173,7 +219,42 @@ function Bundle() {
         />
       </BookModal>
       <DocModal>
-        <DocInfoModal />
+        <DocInfoModal 
+          docTitle={{
+            value:docs.name,
+            onChange: (e: React.ChangeEvent<HTMLInputElement>) => {setDocs({...docs, name:e.target.value});}
+          }}
+          docUrl={{
+            value:docs.url,
+            onChange: (e: React.ChangeEvent<HTMLInputElement>) => {setDocs({...docs, url:e.target.value});}
+          }}
+          colorPicker={{
+            props: {
+              color: docs.color,
+              // クリックされた子コンポーネントのpropsを勝手にセットしたいし、
+              // 子コンポーネント追加するたびに、こちらのコードも追加するのが気持ち悪い。
+              dot1: {onClick:()=>{setDocs({...docs, color:'_1'})}},
+              dot2: {onClick:()=>{setDocs({...docs, color:'_2'})}},
+              dot3: {onClick:()=>{setDocs({...docs, color:'_3'})}},
+              dot4: {onClick:()=>{setDocs({...docs, color:'_4'})}},
+              dot5: {onClick:()=>{setDocs({...docs, color:'_5'})}},
+              dot6: {onClick:()=>{setDocs({...docs, color:'_6'})}},
+              dot7: {onClick:()=>{setDocs({...docs, color:'_7'})}},
+            }
+          }}
+          closeButton={{
+            onClick: () => {docModalClose();}
+          }}
+          ok={{
+            onClick:() => {saveDoc();}
+          }}
+          remove={{
+            render: (props: any, Component:any) => (
+              !!docs.id ? <Component {...props} /> : null
+            ),
+            onClick:()=> {removeDoc();}
+          }}
+        />
       </DocModal>
     </>
   );
