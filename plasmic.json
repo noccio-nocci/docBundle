@@ -416,6 +416,19 @@
           "cssFilePath": "plasmic/doc_bundle/PlasmicSectionToggle.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "HEFfXcuvQk",
+          "name": "SideBarDocsAreaD",
+          "type": "managed",
+          "projectId": "jRkyHyW5xUgunu5SjYQV4L",
+          "renderModuleFilePath": "plasmic/doc_bundle/PlasmicSideBarDocsAreaD.tsx",
+          "importSpec": {
+            "modulePath": "SideBarDocsAreaD.tsx"
+          },
+          "cssFilePath": "plasmic/doc_bundle/PlasmicSideBarDocsAreaD.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -514,7 +527,13 @@
       ],
       "indirect": false,
       "globalContextsFilePath": "",
-      "codeComponents": []
+      "codeComponents": [
+        {
+          "id": "U9leoS5f8M",
+          "name": "DragListView",
+          "componentImportPath": "../components/DragListView"
+        }
+      ]
     }
   ],
   "globalVariants": {
