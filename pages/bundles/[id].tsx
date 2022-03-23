@@ -4,6 +4,7 @@ import * as React from "react";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { useModal } from "react-hooks-use-modal"
+
 import { db } from "../../utils/firebase/firebase"
 import { useAuthState } from "../../hooks/useAuthState";
 
@@ -11,9 +12,9 @@ import { PlasmicHomepage } from "../../components/plasmic/doc_bundle/PlasmicHome
 import DocumentFrame from "../../components/DocumentFrame";
 import BookInfoModal from "../../components/BookInfoModal"
 import DocInfoModal from "../../components/DocInfoModal";
-
 import DocumentRow from "../../components/DocumentRow";
 import Section from "../../components/Section";
+import DragListView from "../../components/DragListView";
 
 // index同様の悩み。どこに置くべき？
 import { onSnapshot, collection, serverTimestamp, query, where, orderBy, doc, addDoc, updateDoc, deleteDoc } from 'firebase/firestore';
@@ -161,6 +162,13 @@ function Bundle() {
               }
             }
           },
+          overrides:{
+            list: {
+              wrap: (content) => {(
+                <div>{content}</div>
+              )}
+            }
+          },
           list: book?.docs?.map((doc: DocValues) => (
             doc.url ? (
               <DocumentRow 
@@ -202,7 +210,7 @@ function Bundle() {
                 }
               />
             ))
-          )
+          ),
         }}
         rightPane={{
           wrapChildren: (children) => (
