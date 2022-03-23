@@ -416,19 +416,6 @@
           "cssFilePath": "plasmic/doc_bundle/PlasmicSectionToggle.module.css",
           "scheme": "blackbox",
           "componentType": "component"
-        },
-        {
-          "id": "HEFfXcuvQk",
-          "name": "SideBarDocsAreaD",
-          "type": "managed",
-          "projectId": "jRkyHyW5xUgunu5SjYQV4L",
-          "renderModuleFilePath": "plasmic/doc_bundle/PlasmicSideBarDocsAreaD.tsx",
-          "importSpec": {
-            "modulePath": "SideBarDocsAreaD.tsx"
-          },
-          "cssFilePath": "plasmic/doc_bundle/PlasmicSideBarDocsAreaD.module.css",
-          "scheme": "blackbox",
-          "componentType": "component"
         }
       ],
       "icons": [
@@ -552,9 +539,10 @@
       }
     ]
   },
+  "wrapPagesWithGlobalContexts": true,
   "nextjsConfig": {
     "pagesDir": "../pages"
   },
-  "cliVersion": "0.1.174",
-  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.174/dist/plasmic.schema.json"
+  "cliVersion": "0.1.175",
+  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.175/dist/plasmic.schema.json"
 }
