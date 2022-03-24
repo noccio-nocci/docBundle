@@ -14,7 +14,6 @@ import BookInfoModal from "../../components/BookInfoModal"
 import DocInfoModal from "../../components/DocInfoModal";
 import DocumentRow from "../../components/DocumentRow";
 import Section from "../../components/Section";
-import DragListView from "../../components/DragListView";
 
 // index同様の悩み。どこに置くべき？
 import { onSnapshot, collection, serverTimestamp, query, where, orderBy, doc, addDoc, updateDoc, deleteDoc } from 'firebase/firestore';
@@ -24,6 +23,10 @@ import { onSnapshot, collection, serverTimestamp, query, where, orderBy, doc, ad
 import { BookValues, INITIAL_BOOK_VALUE, DocValues, INITIAL_DOC_VALUE } from "../index";
 import BookshelfIcon from "../../components/plasmic/doc_bundle/icons/PlasmicIcon__Bookshelf";
 import { ChildProcess } from "child_process";
+import { classNames } from "@plasmicapp/react-web";
+import DragListView from "../../components/DragListView";
+
+
 
 function Bundle() {
   const { userId, domain, isLoading } = useAuthState();
@@ -162,55 +165,68 @@ function Bundle() {
               }
             }
           },
-          overrides:{
-            list: {
-              wrap: (content) => {(
-                <div>{content}</div>
-              )}
-            }
-          },
-          list: book?.docs?.map((doc: DocValues) => (
-            doc.url ? (
-              <DocumentRow 
-                key={doc.url}
-                color={doc.color}
-                name={doc.name}
-                onClick={(e: React.MouseEvent<HTMLInputElement>) =>{
-                  setUrl(doc.url);
-                }}
-                onContextMenu={(ev: React.MouseEvent<HTMLButtonElement>) => {
-                  ev.preventDefault();
-                  openEditDocModal(doc);
-                }}
-              />
-            ) : (
-              <Section 
-                key={doc.idx}
-                name={doc.name}
-                color={doc.color}
-                onContextMenu={(ev: React.MouseEvent<HTMLButtonElement>) => {
-                  ev.preventDefault();
-                  openEditDocModal(doc);
-                }}
-                list={
-                  doc.docs?.map((cdoc: DocValues) => (
-                    <DocumentRow 
-                      key={cdoc.url}
-                      color={cdoc.color}
-                      name={cdoc.name}
-                      onClick={(e: React.MouseEvent<HTMLInputElement>) =>{
-                        setUrl(cdoc.url);
-                      }}      
-                      onContextMenu={(ev: React.MouseEvent<HTMLButtonElement>) => {
-                        ev.preventDefault();
-                        openEditDocModal(cdoc);
-                      }}
-                    />
-                  ))
-                }
-              />
-            ))
-          ),
+          list: 
+            book?.docs?.map((doc: DocValues) => (
+              doc.url ? (
+                <DocumentRow 
+                  key={doc.url}
+                  color={doc.color}
+                  name={doc.name}
+                  className={'draggable'}
+                  onClick={(e: React.MouseEvent<HTMLInputElement>) =>{
+                    setUrl(doc.url);
+                  }}
+                  onContextMenu={(ev: React.MouseEvent<HTMLButtonElement>) => {
+                    ev.preventDefault();
+                    openEditDocModal(doc);
+                  }}
+                />
+              ) : (
+                <Section 
+                  key={doc.idx}
+                  name={doc.name}
+                  color={doc.color}
+                  className={'draggable'}
+                  onContextMenu={(ev: React.MouseEvent<HTMLButtonElement>) => {
+                    ev.preventDefault();
+                    openEditDocModal(doc);
+                  }}
+                  list={
+                    doc.docs?.map((cdoc: DocValues) => (
+                      <DocumentRow 
+                        key={cdoc.url}
+                        color={cdoc.color}
+                        name={cdoc.name}
+                        className={'draggable'}
+                        onClick={(e: React.MouseEvent<HTMLInputElement>) =>{
+                          setUrl(cdoc.url);
+                        }}      
+                        onContextMenu={(ev: React.MouseEvent<HTMLButtonElement>) => {
+                          ev.preventDefault();
+                          openEditDocModal(cdoc);
+                        }}
+                      />
+                    ))
+                  }
+                />
+              ))
+            ),
+            overrides:{
+              list: {
+                wrapChildren: (children: any) => (
+                  <DragListView
+                    nodeSelector="button"
+                    handleSelector="button"
+                    onDragEnd={(fromIndex: number, toIndex: number) =>{
+                      alert(fromIndex + ' to ' + toIndex);
+                    }}
+                  >
+                    {children} 
+                  </DragListView>
+                )
+              }
+            },
+
         }}
         rightPane={{
           wrapChildren: (children) => (
