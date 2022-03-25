@@ -68,10 +68,6 @@
   padding: 0px 8px;
   margin: 12px 0px;
 }
-.sideBarDocsAreaD:global(.__wab_instance) {
-  max-width: 100%;
-  position: relative;
-}
 .freeBox___1AlMz {
   display: flex;
   position: relative;

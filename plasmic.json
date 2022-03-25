@@ -531,7 +531,7 @@
         {
           "id": "weFnPwWswI",
           "name": "DragListView",
-          "componentImportPath": "../components/DragListView"
+          "componentImportPath": "DragListView"
         }
       ]
     }

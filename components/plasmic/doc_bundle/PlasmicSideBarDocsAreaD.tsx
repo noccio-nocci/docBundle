@@ -35,7 +35,7 @@ import {
   ensureGlobalVariants
 } from "@plasmicapp/react-web";
 import SideBarBookTitle from "../../SideBarBookTitle"; // plasmic-import: cpDlPT0ZyV/component
-import { DragListView } from "../../../../components/DragListView"; // plasmic-import: weFnPwWswI/codeComponent
+import { DragListView } from "DragListView"; // plasmic-import: weFnPwWswI/codeComponent
 import AddStock from "../../AddStock"; // plasmic-import: -k3H9wKgmJ/component
 
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -57,7 +57,7 @@ export const PlasmicSideBarDocsAreaD__ArgProps = new Array<ArgPropType>();
 export type PlasmicSideBarDocsAreaD__OverridesType = {
   root?: p.Flex<"div">;
   sideBarBookTitle?: p.Flex<typeof SideBarBookTitle>;
-  dragListView?: p.Flex<typeof DragListView>;
+  list?: p.Flex<typeof DragListView>;
   addStock?: p.Flex<typeof AddStock>;
 };
 
@@ -97,9 +97,9 @@ function PlasmicSideBarDocsAreaD__RenderFunc(props: {
         />
 
         <DragListView
-          data-plasmic-name={"dragListView"}
-          data-plasmic-override={overrides.dragListView}
-          className={classNames("__wab_instance", sty.dragListView)}
+          data-plasmic-name={"list"}
+          data-plasmic-override={overrides.list}
+          className={classNames("__wab_instance", sty.list)}
         >
           {null}
         </DragListView>
@@ -117,9 +117,9 @@ function PlasmicSideBarDocsAreaD__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "sideBarBookTitle", "dragListView", "addStock"],
+  root: ["root", "sideBarBookTitle", "list", "addStock"],
   sideBarBookTitle: ["sideBarBookTitle"],
-  dragListView: ["dragListView"],
+  list: ["list"],
   addStock: ["addStock"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -128,7 +128,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   sideBarBookTitle: typeof SideBarBookTitle;
-  dragListView: typeof DragListView;
+  list: typeof DragListView;
   addStock: typeof AddStock;
 };
 
@@ -190,7 +190,7 @@ export const PlasmicSideBarDocsAreaD = Object.assign(
   {
     // Helper components rendering sub-elements
     sideBarBookTitle: makeNodeComponent("sideBarBookTitle"),
-    dragListView: makeNodeComponent("dragListView"),
+    list: makeNodeComponent("list"),
     addStock: makeNodeComponent("addStock"),
 
     // Metadata about props expected for PlasmicSideBarDocsAreaD
