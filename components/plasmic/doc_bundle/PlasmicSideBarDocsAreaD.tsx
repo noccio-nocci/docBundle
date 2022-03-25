@@ -36,6 +36,7 @@ import {
 } from "@plasmicapp/react-web";
 import SideBarBookTitle from "../../SideBarBookTitle"; // plasmic-import: cpDlPT0ZyV/component
 import { DragListView } from "../../../../../DragListView"; // plasmic-import: weFnPwWswI/codeComponent
+import DocumentRow from "../../DocumentRow"; // plasmic-import: Re5_tLOhF_/component
 import AddStock from "../../AddStock"; // plasmic-import: -k3H9wKgmJ/component
 
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -100,7 +101,31 @@ function PlasmicSideBarDocsAreaD__RenderFunc(props: {
           data-plasmic-name={"list"}
           data-plasmic-override={overrides.list}
           className={classNames("__wab_instance", sty.list)}
-        />
+        >
+          <DocumentRow
+            className={classNames("__wab_instance", sty.documentRow___7Pt2W)}
+          />
+
+          <DocumentRow
+            className={classNames("__wab_instance", sty.documentRow__lhjk5)}
+          />
+
+          <DocumentRow
+            className={classNames("__wab_instance", sty.documentRow__yLnqZ)}
+          />
+
+          <DocumentRow
+            className={classNames("__wab_instance", sty.documentRow__qxn8X)}
+          />
+
+          <DocumentRow
+            className={classNames("__wab_instance", sty.documentRow___3IjUt)}
+          />
+
+          <DocumentRow
+            className={classNames("__wab_instance", sty.documentRow__iZdxf)}
+          />
+        </DragListView>
 
         {true ? (
           <AddStock
