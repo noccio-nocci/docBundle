@@ -35,7 +35,7 @@ import {
   ensureGlobalVariants
 } from "@plasmicapp/react-web";
 import SideBarLogo from "../../SideBarLogo"; // plasmic-import: QxLaN1qoTo/component
-import SideBarDocsArea from "../../SideBarDocsArea"; // plasmic-import: L8yNVAnNLS/component
+import SideBarDocsAreaD from "../../SideBarDocsAreaD"; // plasmic-import: sp9sQOJfZkb/component
 import SideBarLogout from "../../SideBarLogout"; // plasmic-import: 1WJG8XuDtI/component
 import BookList from "../../BookList"; // plasmic-import: JSMOwwEprH/component
 
@@ -54,17 +54,14 @@ export type PlasmicHomepage__VariantsArgs = {};
 type VariantPropType = keyof PlasmicHomepage__VariantsArgs;
 export const PlasmicHomepage__VariantProps = new Array<VariantPropType>();
 
-export type PlasmicHomepage__ArgsType = {
-  list?: React.ReactNode;
-};
-
+export type PlasmicHomepage__ArgsType = {};
 type ArgPropType = keyof PlasmicHomepage__ArgsType;
-export const PlasmicHomepage__ArgProps = new Array<ArgPropType>("list");
+export const PlasmicHomepage__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicHomepage__OverridesType = {
   root?: p.Flex<"div">;
   sideBarLogo?: p.Flex<typeof SideBarLogo>;
-  sideBarDocsArea?: p.Flex<typeof SideBarDocsArea>;
+  sideBarDocsAreaD?: p.Flex<typeof SideBarDocsAreaD>;
   sideBarLogout?: p.Flex<typeof SideBarLogout>;
   rightPane?: p.Flex<"div">;
   bundlesList?: p.Flex<"div">;
@@ -131,20 +128,14 @@ function PlasmicHomepage__RenderFunc(props: {
                         sty.freeBox___3LwNx
                       )}
                     >
-                      {true ? (
-                        <SideBarDocsArea
-                          data-plasmic-name={"sideBarDocsArea"}
-                          data-plasmic-override={overrides.sideBarDocsArea}
-                          className={classNames(
-                            "__wab_instance",
-                            sty.sideBarDocsArea
-                          )}
-                          list={p.renderPlasmicSlot({
-                            defaultContents: null,
-                            value: args.list
-                          })}
-                        />
-                      ) : null}
+                      <SideBarDocsAreaD
+                        data-plasmic-name={"sideBarDocsAreaD"}
+                        data-plasmic-override={overrides.sideBarDocsAreaD}
+                        className={classNames(
+                          "__wab_instance",
+                          sty.sideBarDocsAreaD
+                        )}
+                      />
                     </div>
                   ) : null}
                   {true ? (
@@ -256,7 +247,7 @@ const PlasmicDescendants = {
   root: [
     "root",
     "sideBarLogo",
-    "sideBarDocsArea",
+    "sideBarDocsAreaD",
     "sideBarLogout",
     "rightPane",
     "bundlesList",
@@ -266,7 +257,7 @@ const PlasmicDescendants = {
     "text"
   ],
   sideBarLogo: ["sideBarLogo"],
-  sideBarDocsArea: ["sideBarDocsArea"],
+  sideBarDocsAreaD: ["sideBarDocsAreaD"],
   sideBarLogout: ["sideBarLogout"],
   rightPane: [
     "rightPane",
@@ -288,7 +279,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   sideBarLogo: typeof SideBarLogo;
-  sideBarDocsArea: typeof SideBarDocsArea;
+  sideBarDocsAreaD: typeof SideBarDocsAreaD;
   sideBarLogout: typeof SideBarLogout;
   rightPane: "div";
   bundlesList: "div";
@@ -356,7 +347,7 @@ export const PlasmicHomepage = Object.assign(
   {
     // Helper components rendering sub-elements
     sideBarLogo: makeNodeComponent("sideBarLogo"),
-    sideBarDocsArea: makeNodeComponent("sideBarDocsArea"),
+    sideBarDocsAreaD: makeNodeComponent("sideBarDocsAreaD"),
     sideBarLogout: makeNodeComponent("sideBarLogout"),
     rightPane: makeNodeComponent("rightPane"),
     bundlesList: makeNodeComponent("bundlesList"),

@@ -30,6 +30,10 @@
   position: relative;
   flex-shrink: 0;
 }
+.dragListView:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}
 .list {
   flex-direction: column;
   display: flex;
