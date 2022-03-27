@@ -50,9 +50,10 @@ function Bundle() {
   useEffect(() => {
     const bookRef = doc(db, 'bundles', id);
     const unSub = onSnapshot(bookRef,
-    (querySnapshot) => {
-      setBook({...querySnapshot.data(), id: id});
-    });
+      (querySnapshot) => {
+        const data = {...querySnapshot.data() as BookValues, id:  id};
+        setBook(data);
+      });
     return () => unSub();
   }, [id]);
 
@@ -99,7 +100,8 @@ function Bundle() {
         idx: book.counter+1,
         name: docs.name,
         color: docs.color,
-        url: docs.url
+        url: docs.url,
+        docs: []
       };
       book.counter++;
       if (!!book.docs) {

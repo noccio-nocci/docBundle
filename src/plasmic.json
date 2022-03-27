@@ -353,19 +353,6 @@
           "componentType": "component"
         },
         {
-          "id": "MI7mn027y9",
-          "name": "DoumentRowDot",
-          "type": "managed",
-          "projectId": "jRkyHyW5xUgunu5SjYQV4L",
-          "renderModuleFilePath": "plasmic/doc_bundle/PlasmicDoumentRowDot.tsx",
-          "importSpec": {
-            "modulePath": "DoumentRowDot.tsx"
-          },
-          "cssFilePath": "plasmic/doc_bundle/PlasmicDoumentRowDot.module.css",
-          "scheme": "blackbox",
-          "componentType": "component"
-        },
-        {
           "id": "IV-WZpF1r4d",
           "name": "DocInfoModal",
           "type": "managed",
@@ -418,15 +405,15 @@
           "componentType": "component"
         },
         {
-          "id": "sp9sQOJfZkb",
-          "name": "SideBarDocsAreaD",
+          "id": "MI7mn027y9",
+          "name": "DocumentRowDot",
           "type": "managed",
           "projectId": "jRkyHyW5xUgunu5SjYQV4L",
-          "renderModuleFilePath": "plasmic/doc_bundle/PlasmicSideBarDocsAreaD.tsx",
+          "renderModuleFilePath": "plasmic/doc_bundle/PlasmicDocumentRowDot.tsx",
           "importSpec": {
-            "modulePath": "SideBarDocsAreaD.tsx"
+            "modulePath": "DocumentRowDot.tsx"
           },
-          "cssFilePath": "plasmic/doc_bundle/PlasmicSideBarDocsAreaD.module.css",
+          "cssFilePath": "plasmic/doc_bundle/PlasmicDocumentRowDot.module.css",
           "scheme": "blackbox",
           "componentType": "component"
         }

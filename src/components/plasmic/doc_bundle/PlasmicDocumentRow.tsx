@@ -34,7 +34,7 @@ import {
   deriveRenderOpts,
   ensureGlobalVariants
 } from "@plasmicapp/react-web";
-import DoumentRowDot from "../../DoumentRowDot"; // plasmic-import: MI7mn027y9/component
+import DocumentRowDot from "../../DocumentRowDot"; // plasmic-import: MI7mn027y9/component
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -63,7 +63,7 @@ export const PlasmicDocumentRow__ArgProps = new Array<ArgPropType>("name");
 
 export type PlasmicDocumentRow__OverridesType = {
   root?: p.Flex<"button">;
-  dot?: p.Flex<typeof DoumentRowDot>;
+  dot?: p.Flex<typeof DocumentRowDot>;
   name?: p.Flex<"div">;
 };
 
@@ -105,7 +105,7 @@ function PlasmicDocumentRow__RenderFunc(props: {
       )}
     >
       {true ? (
-        <DoumentRowDot
+        <DocumentRowDot
           data-plasmic-name={"dot"}
           data-plasmic-override={overrides.dot}
           className={classNames("__wab_instance", sty.dot, {
@@ -119,19 +119,19 @@ function PlasmicDocumentRow__RenderFunc(props: {
           })}
           color={
             hasVariant(variants, "color", "_7")
-              ? ["_7"]
+              ? ("_7" as const)
               : hasVariant(variants, "color", "_6")
-              ? ["_6"]
+              ? ("_6" as const)
               : hasVariant(variants, "color", "_5")
-              ? ["_5"]
+              ? ("_5" as const)
               : hasVariant(variants, "color", "_4")
-              ? ["_4"]
+              ? ("_4" as const)
               : hasVariant(variants, "color", "_3")
-              ? ["_3"]
+              ? ("_3" as const)
               : hasVariant(variants, "color", "_2")
-              ? ["_2"]
+              ? ("_2" as const)
               : hasVariant(variants, "color", "_1")
-              ? ["_1"]
+              ? ("_1" as const)
               : undefined
           }
         />
@@ -162,7 +162,7 @@ type DescendantsType<T extends NodeNameType> =
   typeof PlasmicDescendants[T][number];
 type NodeDefaultElementType = {
   root: "button";
-  dot: typeof DoumentRowDot;
+  dot: typeof DocumentRowDot;
   name: "div";
 };
 

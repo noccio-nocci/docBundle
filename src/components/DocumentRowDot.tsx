@@ -2,9 +2,9 @@
 // This file is owned by you, feel free to edit as you see fit.
 import * as React from "react";
 import {
-  PlasmicSideBarDocsAreaD,
-  DefaultSideBarDocsAreaDProps
-} from "./plasmic/doc_bundle/PlasmicSideBarDocsAreaD";
+  PlasmicDocumentRowDot,
+  DefaultDocumentRowDotProps
+} from "./plasmic/doc_bundle/PlasmicDocumentRowDot";
 import { HTMLElementRefOf } from "@plasmicapp/react-web";
 
 // Your component props start with props for variants and slots you defined
@@ -14,35 +14,35 @@ import { HTMLElementRefOf } from "@plasmicapp/react-web";
 // If you don't want to expose certain variants or slots as a prop, you can use
 // Omit to hide them:
 //
-// interface SideBarDocsAreaDProps extends Omit<DefaultSideBarDocsAreaDProps, "hideProps1"|"hideProp2"> {
+// interface DocumentRowDotProps extends Omit<DefaultDocumentRowDotProps, "hideProps1"|"hideProp2"> {
 //   // etc.
 // }
 //
-// You can also stop extending from DefaultSideBarDocsAreaDProps altogether and have
+// You can also stop extending from DefaultDocumentRowDotProps altogether and have
 // total control over the props for your component.
-export interface SideBarDocsAreaDProps extends DefaultSideBarDocsAreaDProps {}
+export interface DocumentRowDotProps extends DefaultDocumentRowDotProps {}
 
-function SideBarDocsAreaD_(
-  props: SideBarDocsAreaDProps,
+function DocumentRowDot_(
+  props: DocumentRowDotProps,
   ref: HTMLElementRefOf<"div">
 ) {
-  // Use PlasmicSideBarDocsAreaD to render this component as it was
+  // Use PlasmicDocumentRowDot to render this component as it was
   // designed in Plasmic, by activating the appropriate variants,
   // attaching the appropriate event handlers, etc.  You
   // can also install whatever React hooks you need here to manage state or
   // fetch data.
   //
-  // Props you can pass into PlasmicSideBarDocsAreaD are:
+  // Props you can pass into PlasmicDocumentRowDot are:
   // 1. Variants you want to activate,
   // 2. Contents for slots you want to fill,
   // 3. Overrides for any named node in the component to attach behavior and data,
   // 4. Props to set on the root node.
   //
-  // By default, we are just piping all SideBarDocsAreaDProps here, but feel free
+  // By default, we are just piping all DocumentRowDotProps here, but feel free
   // to do whatever works for you.
 
-  return <PlasmicSideBarDocsAreaD root={{ ref }} {...props} />;
+  return <PlasmicDocumentRowDot root={{ ref }} {...props} />;
 }
 
-const SideBarDocsAreaD = React.forwardRef(SideBarDocsAreaD_);
-export default SideBarDocsAreaD;
+const DocumentRowDot = React.forwardRef(DocumentRowDot_);
+export default DocumentRowDot;

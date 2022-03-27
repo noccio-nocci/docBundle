@@ -22,7 +22,7 @@ import { HTMLElementRefOf } from "@plasmicapp/react-web";
 // total control over the props for your component.
 export interface SideBarLogoProps extends DefaultSideBarLogoProps {}
 
-function SideBarLogo_(props: SideBarLogoProps, ref: HTMLElementRefOf<"div">) {
+function SideBarLogo_(props: SideBarLogoProps, ref: HTMLElementRefOf<"button">) {
   // Use PlasmicSideBarLogo to render this component as it was
   // designed in Plasmic, by activating the appropriate variants,
   // attaching the appropriate event handlers, etc.  You

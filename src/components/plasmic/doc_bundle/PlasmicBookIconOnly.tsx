@@ -47,7 +47,7 @@ export type PlasmicBookIconOnly__VariantMembers = {
 };
 
 export type PlasmicBookIconOnly__VariantsArgs = {
-  color?: MultiChoiceArg<"_1" | "_2" | "_3" | "_4" | "_5" | "_6" | "_7">;
+  color?: SingleChoiceArg<"_1" | "_2" | "_3" | "_4" | "_5" | "_6" | "_7">;
 };
 
 type VariantPropType = keyof PlasmicBookIconOnly__VariantsArgs;
@@ -64,7 +64,7 @@ export type PlasmicBookIconOnly__OverridesType = {
 };
 
 export interface DefaultBookIconOnlyProps {
-  color?: MultiChoiceArg<"_1" | "_2" | "_3" | "_4" | "_5" | "_6" | "_7">;
+  color?: SingleChoiceArg<"_1" | "_2" | "_3" | "_4" | "_5" | "_6" | "_7">;
   className?: string;
 }
 

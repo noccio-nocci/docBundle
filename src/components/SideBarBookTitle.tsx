@@ -24,7 +24,7 @@ export interface SideBarBookTitleProps extends DefaultSideBarBookTitleProps {}
 
 function SideBarBookTitle_(
   props: SideBarBookTitleProps,
-  ref: HTMLElementRefOf<"div">
+  ref: HTMLElementRefOf<"button">
 ) {
   // Use PlasmicSideBarBookTitle to render this component as it was
   // designed in Plasmic, by activating the appropriate variants,

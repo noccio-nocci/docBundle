@@ -8,25 +8,27 @@ import { useAuthState } from "../hooks/useAuthState";
 
 import { PlasmicHomepage } from "../components/plasmic/doc_bundle/PlasmicHomepage";
 import BookInfoModal from "../components/BookInfoModal"
-
-
-// model関係はどこにまとめるのがよいのか？　一旦ここに書いておこう
-import { onSnapshot, collection, serverTimestamp, query, where, orderBy, doc, addDoc, updateDoc, deleteDoc } from 'firebase/firestore';
 import Book, {BookProps} from "../components/Book";
-import { Router, useRouter } from "next/router";
+import { DocumentRowProps } from "../components/DocumentRow";
 import AddBook from "../components/AddBook";
+
+// books関係はどこにまとめるのがよいのか？　一旦ここに書いておこう
+import { onSnapshot, collection, serverTimestamp, query, where, orderBy, doc, addDoc, updateDoc, deleteDoc } from 'firebase/firestore';
+import { Router, useRouter } from "next/router";
 
 export type BookValues = {
   id: string;
+  domain: string;
   owner: string;
   name: string;
   color: BookProps["color"];
   isPriv: boolean;
   counter: number;
-  docs: list<DocValues>;
+  docs: DocValues[];
 }
 export const INITIAL_BOOK_VALUE: BookValues = {
   id: "",
+  domain: "",
   owner: "",
   name: "",
   color: "_1",
@@ -38,8 +40,8 @@ export type DocValues = {
   idx: number;
   name: string;
   url: string;
-  color: DoumentRowDotProps["color"];
-  docs: list<DocValues>;
+  color: DocumentRowProps["color"];
+  docs: DocValues[];
 };
 export const INITIAL_DOC_VALUE: DocValues ={
   idx: 0,
@@ -69,7 +71,7 @@ function Homepage() {
         );
       const unSub = onSnapshot(booksRef,
       (querySnapshot) => {
-        setBooks(querySnapshot.docs.map((doc) => ({...doc.data(), id:doc.id})));
+        setBooks(querySnapshot.docs.map((doc) => ({...doc.data() as BookValues, id:doc.id})));
       });
     return () => unSub();
   }, [domain, isLoading, userId]);
@@ -134,7 +136,7 @@ function Homepage() {
           list: books?.map((book: BookValues) => (
             <Book
               key={book.id || "NULL"}
-              title={{wrap: () => book.name}}
+              title={book.name}
               locked={book.isPriv}
               color={book.color}
               onClick={() => router.push('/bundles/' + book.id)}
@@ -148,7 +150,7 @@ function Homepage() {
             ?.map((book: BookValues) => (
               <Book
                 key={book.id || "NULL"}
-                title={{wrap: () => book.name}}
+                title={book.name}
                 locked={book.isPriv}
                 color={book.color}
                 onClick={() => router.push('/bundles/' + book.id)}

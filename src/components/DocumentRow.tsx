@@ -22,7 +22,7 @@ import { HTMLElementRefOf } from "@plasmicapp/react-web";
 // total control over the props for your component.
 export interface DocumentRowProps extends DefaultDocumentRowProps {}
 
-function DocumentRow_(props: DocumentRowProps, ref: HTMLElementRefOf<"div">) {
+function DocumentRow_(props: DocumentRowProps, ref: HTMLElementRefOf<"button">) {
   // Use PlasmicDocumentRow to render this component as it was
   // designed in Plasmic, by activating the appropriate variants,
   // attaching the appropriate event handlers, etc.  You
