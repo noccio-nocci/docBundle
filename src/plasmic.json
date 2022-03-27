@@ -527,13 +527,7 @@
       ],
       "indirect": false,
       "globalContextsFilePath": "",
-      "codeComponents": [
-        {
-          "id": "weFnPwWswI",
-          "name": "DragListView",
-          "componentImportPath": "../../DragListView"
-        }
-      ]
+      "codeComponents": []
     }
   ],
   "globalVariants": {
