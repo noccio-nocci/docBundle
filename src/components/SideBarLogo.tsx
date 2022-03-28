@@ -3,7 +3,7 @@
 import * as React from "react";
 import {
   PlasmicSideBarLogo,
-  DefaultSideBarLogoProps
+  DefaultSideBarLogoProps,
 } from "./plasmic/doc_bundle/PlasmicSideBarLogo";
 import { HTMLElementRefOf } from "@plasmicapp/react-web";
 
@@ -20,9 +20,14 @@ import { HTMLElementRefOf } from "@plasmicapp/react-web";
 //
 // You can also stop extending from DefaultSideBarLogoProps altogether and have
 // total control over the props for your component.
-export interface SideBarLogoProps extends DefaultSideBarLogoProps {}
+export interface SideBarLogoProps extends DefaultSideBarLogoProps {
+  onClick?: () => void;
+}
 
-function SideBarLogo_(props: SideBarLogoProps, ref: HTMLElementRefOf<"button">) {
+function SideBarLogo_(
+  props: SideBarLogoProps,
+  ref: HTMLElementRefOf<"button">
+) {
   // Use PlasmicSideBarLogo to render this component as it was
   // designed in Plasmic, by activating the appropriate variants,
   // attaching the appropriate event handlers, etc.  You

@@ -3,7 +3,7 @@
 import * as React from "react";
 import {
   PlasmicSideBarBookTitle,
-  DefaultSideBarBookTitleProps
+  DefaultSideBarBookTitleProps,
 } from "./plasmic/doc_bundle/PlasmicSideBarBookTitle";
 import { HTMLElementRefOf } from "@plasmicapp/react-web";
 

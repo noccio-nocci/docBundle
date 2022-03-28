@@ -3,7 +3,7 @@
 import * as React from "react";
 import {
   PlasmicBookInfoModal,
-  DefaultBookInfoModalProps
+  DefaultBookInfoModalProps,
 } from "./plasmic/doc_bundle/PlasmicBookInfoModal";
 import { HTMLElementRefOf } from "@plasmicapp/react-web";
 
@@ -26,21 +26,6 @@ function BookInfoModal_(
   props: BookInfoModalProps,
   ref: HTMLElementRefOf<"div">
 ) {
-  // Use PlasmicBookInfoModal to render this component as it was
-  // designed in Plasmic, by activating the appropriate variants,
-  // attaching the appropriate event handlers, etc.  You
-  // can also install whatever React hooks you need here to manage state or
-  // fetch data.
-  //
-  // Props you can pass into PlasmicBookInfoModal are:
-  // 1. Variants you want to activate,
-  // 2. Contents for slots you want to fill,
-  // 3. Overrides for any named node in the component to attach behavior and data,
-  // 4. Props to set on the root node.
-  //
-  // By default, we are just piping all BookInfoModalProps here, but feel free
-  // to do whatever works for you.
-
   return <PlasmicBookInfoModal root={{ ref }} {...props} />;
 }
 

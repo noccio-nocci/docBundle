@@ -39,49 +39,54 @@ import SectionToggle from "../../SectionToggle"; // plasmic-import: okur83wpGri/
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import projectcss from "./plasmic_doc_bundle.module.css"; // plasmic-import: jRkyHyW5xUgunu5SjYQV4L/projectcss
-import sty from "./PlasmicSection.module.css"; // plasmic-import: xjiy3g2Skn/css
+import sty from "./PlasmicDocumentSection.module.css"; // plasmic-import: xjiy3g2Skn/css
 
-export type PlasmicSection__VariantMembers = {
+export type PlasmicDocumentSection__VariantMembers = {
   isClose: "isClose";
   color: "_1" | "_2" | "_3" | "_4" | "_5" | "_6" | "_7";
 };
 
-export type PlasmicSection__VariantsArgs = {
+export type PlasmicDocumentSection__VariantsArgs = {
   isClose?: SingleBooleanChoiceArg<"isClose">;
   color?: SingleChoiceArg<"_1" | "_2" | "_3" | "_4" | "_5" | "_6" | "_7">;
 };
 
-type VariantPropType = keyof PlasmicSection__VariantsArgs;
-export const PlasmicSection__VariantProps = new Array<VariantPropType>(
+type VariantPropType = keyof PlasmicDocumentSection__VariantsArgs;
+export const PlasmicDocumentSection__VariantProps = new Array<VariantPropType>(
   "isClose",
   "color"
 );
 
-export type PlasmicSection__ArgsType = {
+export type PlasmicDocumentSection__ArgsType = {
   list?: React.ReactNode;
+  name?: React.ReactNode;
 };
 
-type ArgPropType = keyof PlasmicSection__ArgsType;
-export const PlasmicSection__ArgProps = new Array<ArgPropType>("list");
+type ArgPropType = keyof PlasmicDocumentSection__ArgsType;
+export const PlasmicDocumentSection__ArgProps = new Array<ArgPropType>(
+  "list",
+  "name"
+);
 
-export type PlasmicSection__OverridesType = {
+export type PlasmicDocumentSection__OverridesType = {
   root?: p.Flex<"div">;
   name?: p.Flex<"div">;
   toggle?: p.Flex<typeof SectionToggle>;
   childSection?: p.Flex<"div">;
 };
 
-export interface DefaultSectionProps {
+export interface DefaultDocumentSectionProps {
   list?: React.ReactNode;
+  name?: React.ReactNode;
   isClose?: SingleBooleanChoiceArg<"isClose">;
   color?: SingleChoiceArg<"_1" | "_2" | "_3" | "_4" | "_5" | "_6" | "_7">;
   className?: string;
 }
 
-function PlasmicSection__RenderFunc(props: {
-  variants: PlasmicSection__VariantsArgs;
-  args: PlasmicSection__ArgsType;
-  overrides: PlasmicSection__OverridesType;
+function PlasmicDocumentSection__RenderFunc(props: {
+  variants: PlasmicDocumentSection__VariantsArgs;
+  args: PlasmicDocumentSection__ArgsType;
+  overrides: PlasmicDocumentSection__OverridesType;
 
   forNode?: string;
 }) {
@@ -155,17 +160,27 @@ function PlasmicSection__RenderFunc(props: {
             <div
               data-plasmic-name={"name"}
               data-plasmic-override={overrides.name}
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.name,
-                {
-                  [sty.namecolor__2]: hasVariant(variants, "color", "_2"),
-                  [sty.nameisClose]: hasVariant(variants, "isClose", "isClose")
-                }
-              )}
+              className={classNames(projectcss.all, sty.name, {
+                [sty.namecolor__2]: hasVariant(variants, "color", "_2"),
+                [sty.nameisClose]: hasVariant(variants, "isClose", "isClose")
+              })}
             >
-              {"Section Title"}
+              {p.renderPlasmicSlot({
+                defaultContents: "Section Title",
+                value: args.name,
+                className: classNames(sty.slotTargetName, {
+                  [sty.slotTargetNamecolor__2]: hasVariant(
+                    variants,
+                    "color",
+                    "_2"
+                  ),
+                  [sty.slotTargetNameisClose]: hasVariant(
+                    variants,
+                    "isClose",
+                    "isClose"
+                  )
+                })
+              })}
             </div>
 
             {true ? (
@@ -224,18 +239,18 @@ type NodeDefaultElementType = {
 
 type ReservedPropsType = "variants" | "args" | "overrides";
 type NodeOverridesType<T extends NodeNameType> = Pick<
-  PlasmicSection__OverridesType,
+  PlasmicDocumentSection__OverridesType,
   DescendantsType<T>
 >;
 type NodeComponentProps<T extends NodeNameType> =
   // Explicitly specify variants, args, and overrides as objects
   {
-    variants?: PlasmicSection__VariantsArgs;
-    args?: PlasmicSection__ArgsType;
+    variants?: PlasmicDocumentSection__VariantsArgs;
+    args?: PlasmicDocumentSection__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicSection__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } & Omit<PlasmicDocumentSection__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
     // Specify args directly as props
-    Omit<PlasmicSection__ArgsType, ReservedPropsType> &
+    Omit<PlasmicDocumentSection__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props
     Omit<
       NodeOverridesType<T>,
@@ -255,11 +270,11 @@ function makeNodeComponent<NodeName extends NodeNameType>(nodeName: NodeName) {
     const { variants, args, overrides } = deriveRenderOpts(props, {
       name: nodeName,
       descendantNames: [...PlasmicDescendants[nodeName]],
-      internalArgPropNames: PlasmicSection__ArgProps,
-      internalVariantPropNames: PlasmicSection__VariantProps
+      internalArgPropNames: PlasmicDocumentSection__ArgProps,
+      internalVariantPropNames: PlasmicDocumentSection__VariantProps
     });
 
-    return PlasmicSection__RenderFunc({
+    return PlasmicDocumentSection__RenderFunc({
       variants,
       args,
       overrides,
@@ -267,15 +282,15 @@ function makeNodeComponent<NodeName extends NodeNameType>(nodeName: NodeName) {
     });
   };
   if (nodeName === "root") {
-    func.displayName = "PlasmicSection";
+    func.displayName = "PlasmicDocumentSection";
   } else {
-    func.displayName = `PlasmicSection.${nodeName}`;
+    func.displayName = `PlasmicDocumentSection.${nodeName}`;
   }
   return func;
 }
 
-export const PlasmicSection = Object.assign(
-  // Top-level PlasmicSection renders the root element
+export const PlasmicDocumentSection = Object.assign(
+  // Top-level PlasmicDocumentSection renders the root element
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
@@ -283,11 +298,11 @@ export const PlasmicSection = Object.assign(
     toggle: makeNodeComponent("toggle"),
     childSection: makeNodeComponent("childSection"),
 
-    // Metadata about props expected for PlasmicSection
-    internalVariantProps: PlasmicSection__VariantProps,
-    internalArgProps: PlasmicSection__ArgProps
+    // Metadata about props expected for PlasmicDocumentSection
+    internalVariantProps: PlasmicDocumentSection__VariantProps,
+    internalArgProps: PlasmicDocumentSection__ArgProps
   }
 );
 
-export default PlasmicSection;
+export default PlasmicDocumentSection;
 /* prettier-ignore-end */

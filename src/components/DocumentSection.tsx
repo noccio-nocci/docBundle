@@ -2,9 +2,9 @@
 // This file is owned by you, feel free to edit as you see fit.
 import * as React from "react";
 import {
-  PlasmicSection,
-  DefaultSectionProps
-} from "./plasmic/doc_bundle/PlasmicSection";
+  PlasmicDocumentSection,
+  DefaultDocumentSectionProps,
+} from "./plasmic/doc_bundle/PlasmicDocumentSection";
 import { HTMLElementRefOf } from "@plasmicapp/react-web";
 
 // Your component props start with props for variants and slots you defined
@@ -14,32 +14,37 @@ import { HTMLElementRefOf } from "@plasmicapp/react-web";
 // If you don't want to expose certain variants or slots as a prop, you can use
 // Omit to hide them:
 //
-// interface SectionProps extends Omit<DefaultSectionProps, "hideProps1"|"hideProp2"> {
+// interface DocumentSectionProps extends Omit<DefaultDocumentSectionProps, "hideProps1"|"hideProp2"> {
 //   // etc.
 // }
 //
-// You can also stop extending from DefaultSectionProps altogether and have
+// You can also stop extending from DefaultDocumentSectionProps altogether and have
 // total control over the props for your component.
-export interface SectionProps extends DefaultSectionProps {}
+export interface DocumentSectionProps extends DefaultDocumentSectionProps {
+  onContextMenu?: (e: React.MouseEvent<HTMLDivElement>) => void;
+}
 
-function Section_(props: SectionProps, ref: HTMLElementRefOf<"div">) {
-  // Use PlasmicSection to render this component as it was
+function DocumentSection_(
+  props: DocumentSectionProps,
+  ref: HTMLElementRefOf<"div">
+) {
+  // Use PlasmicDocumentSection to render this component as it was
   // designed in Plasmic, by activating the appropriate variants,
   // attaching the appropriate event handlers, etc.  You
   // can also install whatever React hooks you need here to manage state or
   // fetch data.
   //
-  // Props you can pass into PlasmicSection are:
+  // Props you can pass into PlasmicDocumentSection are:
   // 1. Variants you want to activate,
   // 2. Contents for slots you want to fill,
   // 3. Overrides for any named node in the component to attach behavior and data,
   // 4. Props to set on the root node.
   //
-  // By default, we are just piping all SectionProps here, but feel free
+  // By default, we are just piping all DocumentSectionProps here, but feel free
   // to do whatever works for you.
 
-  return <PlasmicSection root={{ ref }} {...props} />;
+  return <PlasmicDocumentSection root={{ ref }} {...props} />;
 }
 
-const Section = React.forwardRef(Section_);
-export default Section;
+const DocumentSection = React.forwardRef(DocumentSection_);
+export default DocumentSection;

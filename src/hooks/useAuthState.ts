@@ -1,20 +1,20 @@
-import { useEffect, useState } from 'react'
-import { getAuth, onAuthStateChanged } from 'firebase/auth'
+import { useEffect, useState } from "react";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
-import '../utils/firebase/firebase'
+import "../utils/firebase/firebase";
 
 /**
  * useAuthState フックの戻り値の型。
  */
 export type AuthState = {
-  isSignedIn: boolean
-  isLoading: boolean
-  userId: string | undefined
-  userName: string | undefined
-  avatarUrl: string | undefined
-  email: string | undefined
-  domain: string | undefined
-}
+  isSignedIn: boolean;
+  isLoading: boolean;
+  userId: string | undefined;
+  userName: string | undefined;
+  avatarUrl: string | undefined;
+  email: string | undefined;
+  domain: string | undefined;
+};
 
 /**
  * useAuthState が返す初期値。
@@ -27,14 +27,14 @@ const INITIAL_AUTH_STATE: AuthState = {
   userName: undefined,
   avatarUrl: undefined,
   email: undefined,
-  domain: undefined
-}
+  domain: undefined,
+};
 
 /**
  * ユーザーのサインイン状態を取得するためのカスタムフック。
  */
 export function useAuthState(): AuthState {
-  const [authState, setAuthState] = useState(INITIAL_AUTH_STATE)
+  const [authState, setAuthState] = useState(INITIAL_AUTH_STATE);
 
   // サインイン状態の変化を監視する
   useEffect(() => {
@@ -47,15 +47,15 @@ export function useAuthState(): AuthState {
           userName: user.displayName || undefined,
           avatarUrl: user.photoURL || undefined,
           email: user.email || undefined,
-          domain: user.email?.split("@")[1]
-        })
+          domain: user.email?.split("@")[1],
+        });
       } else {
-        setAuthState({ ...INITIAL_AUTH_STATE, isLoading: false })
+        setAuthState({ ...INITIAL_AUTH_STATE, isLoading: false });
       }
-    })
+    });
 
     // ページ遷移時にサインイン状態の監視を解除
-    return () => unSub()
+    return () => unSub();
   }, []);
 
   return authState;

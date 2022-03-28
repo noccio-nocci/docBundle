@@ -3,7 +3,7 @@
 import * as React from "react";
 import {
   PlasmicAddBook,
-  DefaultAddBookProps
+  DefaultAddBookProps,
 } from "./plasmic/doc_bundle/PlasmicAddBook";
 import { HTMLElementRefOf } from "@plasmicapp/react-web";
 
@@ -20,7 +20,10 @@ import { HTMLElementRefOf } from "@plasmicapp/react-web";
 //
 // You can also stop extending from DefaultAddBookProps altogether and have
 // total control over the props for your component.
-export interface AddBookProps extends DefaultAddBookProps {}
+export interface AddBookProps extends DefaultAddBookProps {
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  onContextMenu?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+}
 
 function AddBook_(props: AddBookProps, ref: HTMLElementRefOf<"button">) {
   // Use PlasmicAddBook to render this component as it was

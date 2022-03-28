@@ -3,7 +3,7 @@
 import * as React from "react";
 import {
   PlasmicAddStock,
-  DefaultAddStockProps
+  DefaultAddStockProps,
 } from "./plasmic/doc_bundle/PlasmicAddStock";
 import { HTMLElementRefOf } from "@plasmicapp/react-web";
 
@@ -20,7 +20,9 @@ import { HTMLElementRefOf } from "@plasmicapp/react-web";
 //
 // You can also stop extending from DefaultAddStockProps altogether and have
 // total control over the props for your component.
-export interface AddStockProps extends DefaultAddStockProps {}
+export interface AddStockProps extends DefaultAddStockProps {
+  onClick?: (ev: React.MouseEvent<HTMLButtonElement>) => void;
+}
 
 function AddStock_(props: AddStockProps, ref: HTMLElementRefOf<"button">) {
   // Use PlasmicAddStock to render this component as it was

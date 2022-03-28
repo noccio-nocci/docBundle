@@ -47,15 +47,19 @@ export type PlasmicDocumentFrame__VariantsArgs = {};
 type VariantPropType = keyof PlasmicDocumentFrame__VariantsArgs;
 export const PlasmicDocumentFrame__VariantProps = new Array<VariantPropType>();
 
-export type PlasmicDocumentFrame__ArgsType = {};
+export type PlasmicDocumentFrame__ArgsType = {
+  src?: string;
+};
+
 type ArgPropType = keyof PlasmicDocumentFrame__ArgsType;
-export const PlasmicDocumentFrame__ArgProps = new Array<ArgPropType>();
+export const PlasmicDocumentFrame__ArgProps = new Array<ArgPropType>("src");
 
 export type PlasmicDocumentFrame__OverridesType = {
   root?: p.Flex<typeof Iframe>;
 };
 
 export interface DefaultDocumentFrameProps {
+  src?: string;
   className?: string;
 }
 
@@ -77,9 +81,7 @@ function PlasmicDocumentFrame__RenderFunc(props: {
         data-plasmic-for-node={forNode}
         className={classNames("__wab_instance", sty.root)}
         preview={true}
-        src={
-          "https://docs.google.com/document/d/1SbHw9hZ-_K50q0VJsPW-MsVqdfRmSZRnkb2OtZKX3dY/edit?usp=sharing" as const
-        }
+        src={args.src !== undefined ? args.src : ("" as const)}
       />
     ) : null
   ) as React.ReactElement | null;

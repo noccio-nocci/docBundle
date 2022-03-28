@@ -3,7 +3,7 @@
 import * as React from "react";
 import {
   PlasmicCloseButton,
-  DefaultCloseButtonProps
+  DefaultCloseButtonProps,
 } from "./plasmic/doc_bundle/PlasmicCloseButton";
 import { HTMLElementRefOf } from "@plasmicapp/react-web";
 
@@ -20,9 +20,14 @@ import { HTMLElementRefOf } from "@plasmicapp/react-web";
 //
 // You can also stop extending from DefaultCloseButtonProps altogether and have
 // total control over the props for your component.
-export interface CloseButtonProps extends DefaultCloseButtonProps {}
+export interface CloseButtonProps extends DefaultCloseButtonProps {
+  onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
+}
 
-function CloseButton_(props: CloseButtonProps, ref: HTMLElementRefOf<"button">) {
+function CloseButton_(
+  props: CloseButtonProps,
+  ref: HTMLElementRefOf<"button">
+) {
   // Use PlasmicCloseButton to render this component as it was
   // designed in Plasmic, by activating the appropriate variants,
   // attaching the appropriate event handlers, etc.  You

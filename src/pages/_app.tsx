@@ -12,29 +12,29 @@ import { useAuthState } from "../hooks/useAuthState";
 import { signIn, signOut } from "../utils/firebase/auth";
 
 function MyApp({ Component, pageProps }: AppProps) {
-    const { isSignedIn, isLoading } = useAuthState();
-      
-    return (
-        <>
-            <Head>
-                <title>docBundle</title>
-            </Head>
-            {isLoading ? (
-                <></>
-            ):!isSignedIn ? (
-                <PlasmicRootProvider>
-                    <PlasmicSigninForm
-                        signinWithGoogleButton={{
-                            props: { onClick: () => signIn()}
-                        }}
-                    />
-                </PlasmicRootProvider>
-            ):(
-                <PlasmicRootProvider>
-                    <Component {...pageProps} />
-                </PlasmicRootProvider>
-            )}
-        </>
-    );
+  const { isSignedIn, isLoading } = useAuthState();
+
+  return (
+    <>
+      <Head>
+        <title>docBundle</title>
+      </Head>
+      {isLoading ? (
+        <></>
+      ) : !isSignedIn ? (
+        <PlasmicRootProvider>
+          <PlasmicSigninForm
+            signinWithGoogleButton={{
+              props: { onClick: () => signIn() },
+            }}
+          />
+        </PlasmicRootProvider>
+      ) : (
+        <PlasmicRootProvider>
+          <Component {...pageProps} />
+        </PlasmicRootProvider>
+      )}
+    </>
+  );
 }
 export default MyApp;

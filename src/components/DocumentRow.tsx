@@ -3,7 +3,7 @@
 import * as React from "react";
 import {
   PlasmicDocumentRow,
-  DefaultDocumentRowProps
+  DefaultDocumentRowProps,
 } from "./plasmic/doc_bundle/PlasmicDocumentRow";
 import { HTMLElementRefOf } from "@plasmicapp/react-web";
 
@@ -20,9 +20,15 @@ import { HTMLElementRefOf } from "@plasmicapp/react-web";
 //
 // You can also stop extending from DefaultDocumentRowProps altogether and have
 // total control over the props for your component.
-export interface DocumentRowProps extends DefaultDocumentRowProps {}
+export interface DocumentRowProps extends DefaultDocumentRowProps {
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  onContextMenu?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+}
 
-function DocumentRow_(props: DocumentRowProps, ref: HTMLElementRefOf<"button">) {
+function DocumentRow_(
+  props: DocumentRowProps,
+  ref: HTMLElementRefOf<"button">
+) {
   // Use PlasmicDocumentRow to render this component as it was
   // designed in Plasmic, by activating the appropriate variants,
   // attaching the appropriate event handlers, etc.  You

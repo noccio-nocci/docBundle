@@ -143,19 +143,6 @@
           "componentType": "component"
         },
         {
-          "id": "xjiy3g2Skn",
-          "name": "Section",
-          "type": "managed",
-          "projectId": "jRkyHyW5xUgunu5SjYQV4L",
-          "renderModuleFilePath": "plasmic/doc_bundle/PlasmicSection.tsx",
-          "importSpec": {
-            "modulePath": "Section.tsx"
-          },
-          "cssFilePath": "plasmic/doc_bundle/PlasmicSection.module.css",
-          "scheme": "blackbox",
-          "componentType": "component"
-        },
-        {
           "id": "CWMxFnAAun",
           "name": "DocumentFrame",
           "type": "managed",
@@ -414,6 +401,19 @@
             "modulePath": "DocumentRowDot.tsx"
           },
           "cssFilePath": "plasmic/doc_bundle/PlasmicDocumentRowDot.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "xjiy3g2Skn",
+          "name": "DocumentSection",
+          "type": "managed",
+          "projectId": "jRkyHyW5xUgunu5SjYQV4L",
+          "renderModuleFilePath": "plasmic/doc_bundle/PlasmicDocumentSection.tsx",
+          "importSpec": {
+            "modulePath": "DocumentSection.tsx"
+          },
+          "cssFilePath": "plasmic/doc_bundle/PlasmicDocumentSection.module.css",
           "scheme": "blackbox",
           "componentType": "component"
         }
