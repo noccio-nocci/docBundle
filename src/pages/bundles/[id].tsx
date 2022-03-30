@@ -16,6 +16,9 @@ import DocumentRow from "../../components/DocumentRow";
 import DraggableListView from "../../components/DraggableListView";
 import DocumentSection from "../../components/DocumentSection";
 
+import SideBarDocsArea from "../../components/SideBarDocsArea";
+import AddStock from "../../components/AddStock";
+
 // index同様の悩み。どこに置くべき？
 import {
   onSnapshot,
@@ -226,21 +229,6 @@ function Bundle() {
               />
             )
           ),
-          overrides: {
-            list: {
-              wrapChildren: (children: any) => (
-                <DraggableListView
-                  nodeSelector="button"
-                  handleSelector="button"
-                  onDragEnd={(fromIndex: number, toIndex: number) => {
-                    alert(fromIndex + " to " + toIndex);
-                  }}
-                >
-                  {children}
-                </DraggableListView>
-              ),
-            },
-          },
         }}
         rightPane={{
           wrapChildren: (children) => (
@@ -252,7 +240,7 @@ function Bundle() {
         }}
       />
       <BookModal>
-        <PlasmicBookInfoModal
+        <BookInfoModal
           closeButton={{
             onClick: () => {
               bookModalClose();

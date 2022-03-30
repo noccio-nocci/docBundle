@@ -54,22 +54,39 @@ export type PlasmicBookInfoModal__VariantsArgs = {};
 type VariantPropType = keyof PlasmicBookInfoModal__VariantsArgs;
 export const PlasmicBookInfoModal__VariantProps = new Array<VariantPropType>();
 
-export type PlasmicBookInfoModal__ArgsType = {};
+export type PlasmicBookInfoModal__ArgsType = {
+  closeButton?: React.ReactNode;
+  textarea?: React.ReactNode;
+  colorPicker?: React.ReactNode;
+  bookIconOnly?: React.ReactNode;
+  isPriv?: React.ReactNode;
+  remove?: React.ReactNode;
+  ok?: React.ReactNode;
+};
+
 type ArgPropType = keyof PlasmicBookInfoModal__ArgsType;
-export const PlasmicBookInfoModal__ArgProps = new Array<ArgPropType>();
+export const PlasmicBookInfoModal__ArgProps = new Array<ArgPropType>(
+  "closeButton",
+  "textarea",
+  "colorPicker",
+  "bookIconOnly",
+  "isPriv",
+  "remove",
+  "ok"
+);
 
 export type PlasmicBookInfoModal__OverridesType = {
   root?: p.Flex<"div">;
-  bookIconOnly?: p.Flex<typeof BookIconOnly>;
-  textarea?: p.Flex<"textarea">;
-  colorPicker?: p.Flex<typeof ColorPicker>;
-  isPriv?: p.Flex<typeof Switch>;
-  ok?: p.Flex<typeof Button>;
-  remove?: p.Flex<typeof Button>;
-  closeButton?: p.Flex<typeof CloseButton>;
 };
 
 export interface DefaultBookInfoModalProps {
+  closeButton?: React.ReactNode;
+  textarea?: React.ReactNode;
+  colorPicker?: React.ReactNode;
+  bookIconOnly?: React.ReactNode;
+  isPriv?: React.ReactNode;
+  remove?: React.ReactNode;
+  ok?: React.ReactNode;
   className?: string;
 }
 
@@ -105,41 +122,61 @@ function PlasmicBookInfoModal__RenderFunc(props: {
           hasGap={true}
           className={classNames(projectcss.all, sty.freeBox__wvJq)}
         >
-          <BookIconOnly
-            data-plasmic-name={"bookIconOnly"}
-            data-plasmic-override={overrides.bookIconOnly}
-            className={classNames("__wab_instance", sty.bookIconOnly)}
-          />
+          {p.renderPlasmicSlot({
+            defaultContents: (
+              <BookIconOnly
+                className={classNames(
+                  "__wab_instance",
+                  sty.bookIconOnly__z13OQ
+                )}
+              />
+            ),
 
-          <textarea
-            data-plasmic-name={"textarea"}
-            data-plasmic-override={overrides.textarea}
-            className={classNames(
-              projectcss.all,
-              projectcss.textarea,
-              sty.textarea
-            )}
-            placeholder={"Input title" as const}
-          />
+            value: args.bookIconOnly
+          })}
+
+          <div className={classNames(projectcss.all, sty.freeBox__qw9D)}>
+            {p.renderPlasmicSlot({
+              defaultContents: (
+                <textarea
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.textarea,
+                    sty.textarea__haLsB
+                  )}
+                  placeholder={"Input title" as const}
+                />
+              ),
+
+              value: args.textarea
+            })}
+          </div>
         </p.Stack>
       ) : null}
+      {p.renderPlasmicSlot({
+        defaultContents: (
+          <ColorPicker
+            className={classNames("__wab_instance", sty.colorPicker__p3Bba)}
+            color={undefined}
+          />
+        ),
 
-      <ColorPicker
-        data-plasmic-name={"colorPicker"}
-        data-plasmic-override={overrides.colorPicker}
-        className={classNames("__wab_instance", sty.colorPicker)}
-        color={undefined}
-      />
+        value: args.colorPicker
+      })}
 
       <div className={classNames(projectcss.all, sty.freeBox__aScgV)}>
-        <Switch
-          data-plasmic-name={"isPriv"}
-          data-plasmic-override={overrides.isPriv}
-          className={classNames("__wab_instance", sty.isPriv)}
-          defaultChecked={true}
-        >
-          {"Priv mode"}
-        </Switch>
+        {p.renderPlasmicSlot({
+          defaultContents: (
+            <Switch
+              className={classNames("__wab_instance", sty._switch__hHhi)}
+              defaultChecked={true}
+            >
+              {"Priv mode"}
+            </Switch>
+          ),
+
+          value: args.isPriv
+        })}
 
         {true ? (
           <p.Stack
@@ -147,69 +184,60 @@ function PlasmicBookInfoModal__RenderFunc(props: {
             hasGap={true}
             className={classNames(projectcss.all, sty.freeBox__bWmsX)}
           >
-            <Button
-              data-plasmic-name={"ok"}
-              data-plasmic-override={overrides.ok}
-              className={classNames("__wab_instance", sty.ok)}
-              color={"softBlue" as const}
-              size={"compact" as const}
-            >
-              {"  O     K  "}
-            </Button>
+            {p.renderPlasmicSlot({
+              defaultContents: (
+                <Button
+                  className={classNames("__wab_instance", sty.button__fnTvM)}
+                  color={"softBlue" as const}
+                  size={"compact" as const}
+                >
+                  {"  O     K  "}
+                </Button>
+              ),
 
-            <Button
-              data-plasmic-name={"remove"}
-              data-plasmic-override={overrides.remove}
-              className={classNames("__wab_instance", sty.remove)}
-              color={"softRed" as const}
-              size={"compact" as const}
-            >
-              {"Remove"}
-            </Button>
+              value: args.ok
+            })}
+
+            {p.renderPlasmicSlot({
+              defaultContents: (
+                <Button
+                  className={classNames("__wab_instance", sty.button__zutPe)}
+                  color={"softRed" as const}
+                  size={"compact" as const}
+                >
+                  {"Remove"}
+                </Button>
+              ),
+
+              value: args.remove
+            })}
           </p.Stack>
         ) : null}
       </div>
 
-      <CloseButton
-        data-plasmic-name={"closeButton"}
-        data-plasmic-override={overrides.closeButton}
-        className={classNames("__wab_instance", sty.closeButton)}
-      />
+      <div className={classNames(projectcss.all, sty.freeBox__iyyig)}>
+        {p.renderPlasmicSlot({
+          defaultContents: (
+            <CloseButton
+              className={classNames("__wab_instance", sty.closeButton__zN4F)}
+            />
+          ),
+
+          value: args.closeButton
+        })}
+      </div>
     </p.Stack>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: [
-    "root",
-    "bookIconOnly",
-    "textarea",
-    "colorPicker",
-    "isPriv",
-    "ok",
-    "remove",
-    "closeButton"
-  ],
-  bookIconOnly: ["bookIconOnly"],
-  textarea: ["textarea"],
-  colorPicker: ["colorPicker"],
-  isPriv: ["isPriv"],
-  ok: ["ok"],
-  remove: ["remove"],
-  closeButton: ["closeButton"]
+  root: ["root"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   typeof PlasmicDescendants[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  bookIconOnly: typeof BookIconOnly;
-  textarea: "textarea";
-  colorPicker: typeof ColorPicker;
-  isPriv: typeof Switch;
-  ok: typeof Button;
-  remove: typeof Button;
-  closeButton: typeof CloseButton;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -269,13 +297,6 @@ export const PlasmicBookInfoModal = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    bookIconOnly: makeNodeComponent("bookIconOnly"),
-    textarea: makeNodeComponent("textarea"),
-    colorPicker: makeNodeComponent("colorPicker"),
-    isPriv: makeNodeComponent("isPriv"),
-    ok: makeNodeComponent("ok"),
-    remove: makeNodeComponent("remove"),
-    closeButton: makeNodeComponent("closeButton"),
 
     // Metadata about props expected for PlasmicBookInfoModal
     internalVariantProps: PlasmicBookInfoModal__VariantProps,

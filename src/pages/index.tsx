@@ -6,10 +6,7 @@ import { useAuthState } from "../hooks/useAuthState";
 
 import { PlasmicHomepage } from "../components/plasmic/doc_bundle/PlasmicHomepage";
 
-// PlasmicBookInfoModalじゃないとcloseButtonがないとTS的に怒られる（動くが）・・・
 import BookInfoModal from "../components/BookInfoModal";
-import PlasmicBookInfoModal from "../components/plasmic/doc_bundle/PlasmicBookInfoModal";
-
 import Book, { BookProps } from "../components/Book";
 import { DocumentRowProps } from "../components/DocumentRow";
 import AddBook from "../components/AddBook";
@@ -191,7 +188,7 @@ function Homepage() {
         }}
       />
       <Modal>
-        <PlasmicBookInfoModal
+        <BookInfoModal
           closeButton={{
             // なんでPlasmicBookInfoModalじゃないと参照できないんだろう・・・　キモい
             onClick: (e: React.MouseEvent<HTMLButtonElement>) => {

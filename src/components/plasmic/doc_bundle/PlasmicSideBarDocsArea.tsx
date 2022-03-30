@@ -51,20 +51,26 @@ export const PlasmicSideBarDocsArea__VariantProps =
 
 export type PlasmicSideBarDocsArea__ArgsType = {
   list?: React.ReactNode;
+  addStock?: React.ReactNode;
+  sideBarBookTitle?: React.ReactNode;
 };
 
 type ArgPropType = keyof PlasmicSideBarDocsArea__ArgsType;
-export const PlasmicSideBarDocsArea__ArgProps = new Array<ArgPropType>("list");
+export const PlasmicSideBarDocsArea__ArgProps = new Array<ArgPropType>(
+  "list",
+  "addStock",
+  "sideBarBookTitle"
+);
 
 export type PlasmicSideBarDocsArea__OverridesType = {
   root?: p.Flex<"div">;
-  sideBarBookTitle?: p.Flex<typeof SideBarBookTitle>;
   list?: p.Flex<"div">;
-  addStock?: p.Flex<typeof AddStock>;
 };
 
 export interface DefaultSideBarDocsAreaProps {
   list?: React.ReactNode;
+  addStock?: React.ReactNode;
+  sideBarBookTitle?: React.ReactNode;
   className?: string;
 }
 
@@ -95,11 +101,18 @@ function PlasmicSideBarDocsArea__RenderFunc(props: {
           sty.root
         )}
       >
-        <SideBarBookTitle
-          data-plasmic-name={"sideBarBookTitle"}
-          data-plasmic-override={overrides.sideBarBookTitle}
-          className={classNames("__wab_instance", sty.sideBarBookTitle)}
-        />
+        {p.renderPlasmicSlot({
+          defaultContents: (
+            <SideBarBookTitle
+              className={classNames(
+                "__wab_instance",
+                sty.sideBarBookTitle__zAoS
+              )}
+            />
+          ),
+
+          value: args.sideBarBookTitle
+        })}
 
         {true ? (
           <p.Stack
@@ -115,32 +128,30 @@ function PlasmicSideBarDocsArea__RenderFunc(props: {
             })}
           </p.Stack>
         ) : null}
-        {true ? (
-          <AddStock
-            data-plasmic-name={"addStock"}
-            data-plasmic-override={overrides.addStock}
-            className={classNames("__wab_instance", sty.addStock)}
-          />
-        ) : null}
+        {p.renderPlasmicSlot({
+          defaultContents: (
+            <AddStock
+              className={classNames("__wab_instance", sty.addStock__jwPaF)}
+            />
+          ),
+
+          value: args.addStock
+        })}
       </p.Stack>
     ) : null
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "sideBarBookTitle", "list", "addStock"],
-  sideBarBookTitle: ["sideBarBookTitle"],
-  list: ["list"],
-  addStock: ["addStock"]
+  root: ["root", "list"],
+  list: ["list"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   typeof PlasmicDescendants[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  sideBarBookTitle: typeof SideBarBookTitle;
   list: "div";
-  addStock: typeof AddStock;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -200,9 +211,7 @@ export const PlasmicSideBarDocsArea = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    sideBarBookTitle: makeNodeComponent("sideBarBookTitle"),
     list: makeNodeComponent("list"),
-    addStock: makeNodeComponent("addStock"),
 
     // Metadata about props expected for PlasmicSideBarDocsArea
     internalVariantProps: PlasmicSideBarDocsArea__VariantProps,

@@ -6,7 +6,6 @@ import {
   DefaultSideBarDocsAreaProps,
 } from "./plasmic/doc_bundle/PlasmicSideBarDocsArea";
 import { HTMLElementRefOf } from "@plasmicapp/react-web";
-import AddStock from "./AddStock";
 
 // Your component props start with props for variants and slots you defined
 // in Plasmic, but you can add more here, like event handlers that you can
@@ -21,9 +20,7 @@ import AddStock from "./AddStock";
 //
 // You can also stop extending from DefaultSideBarDocsAreaProps altogether and have
 // total control over the props for your component.
-export interface SideBarDocsAreaProps extends DefaultSideBarDocsAreaProps {
-  addStock?: typeof AddStock;
-}
+export interface SideBarDocsAreaProps extends DefaultSideBarDocsAreaProps {}
 
 function SideBarDocsArea_(
   props: SideBarDocsAreaProps,
