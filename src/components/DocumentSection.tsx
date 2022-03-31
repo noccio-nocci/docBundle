@@ -6,6 +6,7 @@ import {
   DefaultDocumentSectionProps,
 } from "./plasmic/doc_bundle/PlasmicDocumentSection";
 import { HTMLElementRefOf } from "@plasmicapp/react-web";
+import SectionToggle from "./SectionToggle";
 
 // Your component props start with props for variants and slots you defined
 // in Plasmic, but you can add more here, like event handlers that you can
@@ -22,6 +23,7 @@ import { HTMLElementRefOf } from "@plasmicapp/react-web";
 // total control over the props for your component.
 export interface DocumentSectionProps extends DefaultDocumentSectionProps {
   onContextMenu?: (e: React.MouseEvent<HTMLDivElement>) => void;
+  toggle?: React.ComponentProps<typeof SectionToggle>;
 }
 
 function DocumentSection_(

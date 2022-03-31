@@ -7,10 +7,12 @@
   height: auto;
   max-width: 100%;
   position: relative;
+  transition-property: all;
+  transition-duration: 0.3s;
   min-width: 0;
   padding: 0px;
 }
-.freeBox__v9Out {
+.section {
   display: flex;
   position: relative;
   flex-direction: row;
@@ -23,25 +25,25 @@
   padding: 0px;
   border-left: 6px solid var(--token-XtQCtoY3H);
 }
-.freeBoxcolor__2__v9OutVps5I {
+.sectioncolor__2 {
   border-left-color: var(--token-tvPf78A1o);
 }
-.freeBoxcolor__3__v9OutnRxbF {
+.sectioncolor__3 {
   border-left-color: var(--token-9Ln8EiLXO);
 }
-.freeBoxcolor__4__v9Out7YaJ {
+.sectioncolor__4 {
   border-left-color: var(--token-FSPpBff3B);
 }
-.freeBoxcolor__5__v9OuttNbLi {
+.sectioncolor__5 {
   border-left-color: var(--token-soBKF9_0w);
 }
-.freeBoxcolor__6__v9OuTk8PHy {
+.sectioncolor__6 {
   border-left-color: var(--token-BZjrPZlQN);
 }
-.freeBoxcolor__7__v9OutPls6A {
+.sectioncolor__7 {
   border-left-color: var(--token-q-bRXcYK6);
 }
-.freeBox__jhOvc {
+.freeBox {
   display: flex;
   flex-direction: row;
   align-items: stretch;
@@ -84,9 +86,10 @@
   height: auto;
   max-width: 100%;
   transition-property: all;
-  transition-duration: 1s;
+  transition-duration: 0.2s;
   overflow: hidden;
   max-height: 100vh;
+  transition-delay: 0.1s;
   min-width: 0;
   padding: 0px 0px 0px 16px;
 }
@@ -110,6 +113,5 @@
 }
 .childSectionisClose {
   height: auto;
-  transform: none;
   max-height: 0vh;
 }

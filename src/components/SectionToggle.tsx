@@ -3,7 +3,7 @@
 import * as React from "react";
 import {
   PlasmicSectionToggle,
-  DefaultSectionToggleProps
+  DefaultSectionToggleProps,
 } from "./plasmic/doc_bundle/PlasmicSectionToggle";
 import { HTMLElementRefOf } from "@plasmicapp/react-web";
 
@@ -20,7 +20,9 @@ import { HTMLElementRefOf } from "@plasmicapp/react-web";
 //
 // You can also stop extending from DefaultSectionToggleProps altogether and have
 // total control over the props for your component.
-export interface SectionToggleProps extends DefaultSectionToggleProps {}
+export interface SectionToggleProps extends DefaultSectionToggleProps {
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+}
 
 function SectionToggle_(
   props: SectionToggleProps,

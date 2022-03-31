@@ -40,7 +40,7 @@ function AddStock_(props: AddStockProps, ref: HTMLElementRefOf<"button">) {
   // By default, we are just piping all AddStockProps here, but feel free
   // to do whatever works for you.
 
-  return <PlasmicAddStock root={{ ref }} {...props} />;
+  return <PlasmicAddStock onClick={props.onClick} root={{ ref }} {...props} />;
 }
 
 const AddStock = React.forwardRef(AddStock_);

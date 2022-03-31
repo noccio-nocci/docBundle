@@ -6,6 +6,11 @@ import {
   DefaultBookInfoModalProps,
 } from "./plasmic/doc_bundle/PlasmicBookInfoModal";
 import { HTMLElementRefOf } from "@plasmicapp/react-web";
+import CloseButton from "./CloseButton";
+import ColorPicker from "./ColorPicker";
+import Button from "./Button";
+import Switch from "./Switch";
+import BookIconOnly from "./BookIconOnly";
 
 // Your component props start with props for variants and slots you defined
 // in Plasmic, but you can add more here, like event handlers that you can
@@ -20,7 +25,15 @@ import { HTMLElementRefOf } from "@plasmicapp/react-web";
 //
 // You can also stop extending from DefaultBookInfoModalProps altogether and have
 // total control over the props for your component.
-export interface BookInfoModalProps extends DefaultBookInfoModalProps {}
+export interface BookInfoModalProps extends DefaultBookInfoModalProps {
+  closeButton?: React.ComponentProps<typeof CloseButton>;
+  colorPicker?: React.ComponentProps<typeof ColorPicker>;
+  bookIconOnly?: React.ComponentProps<typeof BookIconOnly>;
+  textarea?: React.ComponentProps<any>;
+  isPriv?: React.ComponentProps<typeof Switch>;
+  ok?: React.ComponentProps<typeof Button>;
+  remove?: React.ComponentProps<typeof Button>;
+}
 
 function BookInfoModal_(
   props: BookInfoModalProps,

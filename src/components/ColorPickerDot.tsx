@@ -3,7 +3,7 @@
 import * as React from "react";
 import {
   PlasmicColorPickerDot,
-  DefaultColorPickerDotProps
+  DefaultColorPickerDotProps,
 } from "./plasmic/doc_bundle/PlasmicColorPickerDot";
 import { HTMLElementRefOf } from "@plasmicapp/react-web";
 
@@ -20,7 +20,9 @@ import { HTMLElementRefOf } from "@plasmicapp/react-web";
 //
 // You can also stop extending from DefaultColorPickerDotProps altogether and have
 // total control over the props for your component.
-export interface ColorPickerDotProps extends DefaultColorPickerDotProps {}
+export interface ColorPickerDotProps extends DefaultColorPickerDotProps {
+  onClick?: (ev: React.MouseEvent<HTMLButtonElement>) => void;
+}
 
 function ColorPickerDot_(
   props: ColorPickerDotProps,

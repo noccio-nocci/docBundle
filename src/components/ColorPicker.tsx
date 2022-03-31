@@ -3,9 +3,10 @@
 import * as React from "react";
 import {
   PlasmicColorPicker,
-  DefaultColorPickerProps
+  DefaultColorPickerProps,
 } from "./plasmic/doc_bundle/PlasmicColorPicker";
 import { HTMLElementRefOf } from "@plasmicapp/react-web";
+import ColorPickerDot from "./ColorPickerDot";
 
 // Your component props start with props for variants and slots you defined
 // in Plasmic, but you can add more here, like event handlers that you can
@@ -20,7 +21,15 @@ import { HTMLElementRefOf } from "@plasmicapp/react-web";
 //
 // You can also stop extending from DefaultColorPickerProps altogether and have
 // total control over the props for your component.
-export interface ColorPickerProps extends DefaultColorPickerProps {}
+export interface ColorPickerProps extends DefaultColorPickerProps {
+  dot1?: React.ComponentProps<typeof ColorPickerDot>;
+  dot2?: React.ComponentProps<typeof ColorPickerDot>;
+  dot3?: React.ComponentProps<typeof ColorPickerDot>;
+  dot4?: React.ComponentProps<typeof ColorPickerDot>;
+  dot5?: React.ComponentProps<typeof ColorPickerDot>;
+  dot6?: React.ComponentProps<typeof ColorPickerDot>;
+  dot7?: React.ComponentProps<typeof ColorPickerDot>;
+}
 
 function ColorPicker_(props: ColorPickerProps, ref: HTMLElementRefOf<"div">) {
   // Use PlasmicColorPicker to render this component as it was

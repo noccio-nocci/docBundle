@@ -62,7 +62,7 @@ type ArgPropType = keyof PlasmicDocumentRow__ArgsType;
 export const PlasmicDocumentRow__ArgProps = new Array<ArgPropType>("name");
 
 export type PlasmicDocumentRow__OverridesType = {
-  root?: p.Flex<"button">;
+  root?: p.Flex<"div">;
   dot?: p.Flex<typeof DocumentRowDot>;
   name?: p.Flex<"div">;
 };
@@ -84,7 +84,7 @@ function PlasmicDocumentRow__RenderFunc(props: {
 
   return (
     <p.Stack
-      as={"button"}
+      as={"div"}
       data-plasmic-name={"root"}
       data-plasmic-override={overrides.root}
       data-plasmic-root={true}
@@ -92,7 +92,6 @@ function PlasmicDocumentRow__RenderFunc(props: {
       hasGap={true}
       className={classNames(
         projectcss.all,
-        projectcss.button,
         projectcss.root_reset,
         projectcss.plasmic_default_styles,
         projectcss.plasmic_mixins,
@@ -161,7 +160,7 @@ type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   typeof PlasmicDescendants[T][number];
 type NodeDefaultElementType = {
-  root: "button";
+  root: "div";
   dot: typeof DocumentRowDot;
   name: "div";
 };

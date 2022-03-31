@@ -3,7 +3,7 @@
 import * as React from "react";
 import {
   PlasmicDocInfoModal,
-  DefaultDocInfoModalProps
+  DefaultDocInfoModalProps,
 } from "./plasmic/doc_bundle/PlasmicDocInfoModal";
 import { HTMLElementRefOf } from "@plasmicapp/react-web";
 
@@ -20,7 +20,9 @@ import { HTMLElementRefOf } from "@plasmicapp/react-web";
 //
 // You can also stop extending from DefaultDocInfoModalProps altogether and have
 // total control over the props for your component.
-export interface DocInfoModalProps extends DefaultDocInfoModalProps {}
+export interface DocInfoModalProps extends DefaultDocInfoModalProps {
+  docTitle?: React.Component<typeof DocInfoModal>;
+}
 
 function DocInfoModal_(props: DocInfoModalProps, ref: HTMLElementRefOf<"div">) {
   // Use PlasmicDocInfoModal to render this component as it was

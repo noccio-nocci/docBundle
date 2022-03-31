@@ -2,6 +2,7 @@ import * as React from "react";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { useModal } from "react-hooks-use-modal";
+import { useCookies } from "react-cookie";
 
 import { db } from "../../utils/firebase/firebase";
 import { useAuthState } from "../../hooks/useAuthState";
@@ -9,15 +10,16 @@ import { useAuthState } from "../../hooks/useAuthState";
 import { PlasmicHomepage } from "../../components/plasmic/doc_bundle/PlasmicHomepage";
 import DocumentFrame from "../../components/DocumentFrame";
 import BookInfoModal from "../../components/BookInfoModal";
-import PlasmicBookInfoModal from "../../components/plasmic/doc_bundle/PlasmicBookInfoModal";
 import DocInfoModal from "../../components/DocInfoModal";
-import PlasmicDocInfoModal from "../../components/plasmic/doc_bundle/PlasmicDocInfoModal";
 import DocumentRow from "../../components/DocumentRow";
 import DraggableListView from "../../components/DraggableListView";
 import DocumentSection from "../../components/DocumentSection";
-
-import SideBarDocsArea from "../../components/SideBarDocsArea";
 import AddStock from "../../components/AddStock";
+
+// Plasmic***InfoModalにしないとtextareaとかinputの参照がうまく行かない・・・
+// ***InfoModalのPropsに追加したいのだが、typeof HTMLInputElementとかではできなかった・・・
+import PlasmicBookInfoModal from "../../components/plasmic/doc_bundle/PlasmicBookInfoModal";
+import PlasmicDocInfoModal from "../../components/plasmic/doc_bundle/PlasmicDocInfoModal";
 
 // index同様の悩み。どこに置くべき？
 import {
@@ -40,6 +42,7 @@ import {
   DocValues,
   INITIAL_DOC_VALUE,
 } from "../index";
+import Button from "../../components/Button";
 
 function Bundle() {
   const { userId, domain, isLoading } = useAuthState();
@@ -65,6 +68,12 @@ function Bundle() {
   const [docs, setDocs] = useState<DocValues>(INITIAL_DOC_VALUE);
   const [url, setUrl] = useState("");
   const [docsRef, setDocsRef] = useState<DocValues>(INITIAL_DOC_VALUE);
+  const [flipCookie, setFlipCookie, removeFlipCookie] = useCookies();
+
+  type FlipValues = {
+    [name: string]: boolean;
+  };
+  const [flip, setFlip] = useState<FlipValues>({});
 
   useEffect(() => {
     const bookRef = doc(db, "bundles", id);
@@ -74,6 +83,11 @@ function Bundle() {
     });
     return () => unSub();
   }, [id]);
+  useEffect(() => {
+    if (!!book.id) {
+      loadFlipSection();
+    }
+  }, [book]);
 
   const openAddDocModal = () => {
     setDocs(INITIAL_DOC_VALUE);
@@ -159,6 +173,16 @@ function Bundle() {
     docModalClose();
   };
 
+  const flipSection = (docid: string, key: string) => {
+    const nextFlips = { ...flip, [key]: !!!flip[key] };
+    setFlip((prev) => nextFlips);
+    setFlipCookie(docid, nextFlips);
+  };
+
+  const loadFlipSection = () => {
+    setFlip(flipCookie[book.id] || {});
+  };
+
   return (
     <>
       <PlasmicHomepage
@@ -170,8 +194,9 @@ function Bundle() {
         }}
         sideBarDocsArea={{
           addStock: {
-            onClick: (e: React.MouseEvent<HTMLButtonElement>) => alert("a"),
-            //openAddDocModal();
+            onClick: (e: React.MouseEvent<HTMLButtonElement>) => {
+              openAddDocModal();
+            },
           },
           sideBarBookTitle: {
             bundleTitle: book?.name,
@@ -191,10 +216,10 @@ function Bundle() {
                 color={doc.color}
                 name={doc.name}
                 className={"draggable"}
-                onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+                onClick={(e: React.MouseEvent<HTMLDivElement>) => {
                   setUrl(doc.url);
                 }}
-                onContextMenu={(ev: React.MouseEvent<HTMLButtonElement>) => {
+                onContextMenu={(ev: React.MouseEvent<HTMLDivElement>) => {
                   ev.preventDefault();
                   openEditDocModal(doc);
                 }}
@@ -206,21 +231,27 @@ function Bundle() {
                 color={doc.color}
                 className={"draggable"}
                 onContextMenu={(ev: React.MouseEvent<HTMLDivElement>) => {
+                  console.log(ev);
                   ev.preventDefault();
                   openEditDocModal(doc);
                 }}
+                toggle={{
+                  onClick: (e: React.MouseEvent<HTMLButtonElement>) => {
+                    flipSection(book.id, doc.idx.toString());
+                  },
+                }}
+                isClose={!!flip[doc.idx]}
                 list={doc.docs?.map((cdoc: DocValues) => (
                   <DocumentRow
                     key={cdoc.url}
                     color={cdoc.color}
                     name={cdoc.name}
                     className={"draggable"}
-                    onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+                    onClick={(e: React.MouseEvent<HTMLDivElement>) => {
                       setUrl(cdoc.url);
                     }}
-                    onContextMenu={(
-                      ev: React.MouseEvent<HTMLButtonElement>
-                    ) => {
+                    onContextMenu={(ev: React.MouseEvent<HTMLDivElement>) => {
+                      console.log(ev);
                       ev.preventDefault();
                       openEditDocModal(cdoc);
                     }}
@@ -241,8 +272,9 @@ function Bundle() {
       />
       <BookModal>
         <BookInfoModal
+          disableRemove={true}
           closeButton={{
-            onClick: () => {
+            onClick: (e: React.MouseEvent<HTMLButtonElement>) => {
               bookModalClose();
             },
           }}
@@ -253,58 +285,50 @@ function Bundle() {
             },
           }}
           colorPicker={{
-            props: {
-              color: book.color,
-              // クリックされた子コンポーネントのpropsを勝手にセットしたいし、
-              // 子コンポーネント追加するたびに、こちらのコードも追加するのが気持ち悪い。
-              dot1: {
-                onClick: () => {
-                  setBook({ ...book, color: "_1" });
-                },
+            color: book.color,
+            dot1: {
+              onClick: () => {
+                setBook({ ...book, color: "_1" });
               },
-              dot2: {
-                onClick: () => {
-                  setBook({ ...book, color: "_2" });
-                },
+            },
+            dot2: {
+              onClick: () => {
+                setBook({ ...book, color: "_2" });
               },
-              dot3: {
-                onClick: () => {
-                  setBook({ ...book, color: "_3" });
-                },
+            },
+            dot3: {
+              onClick: () => {
+                setBook({ ...book, color: "_3" });
               },
-              dot4: {
-                onClick: () => {
-                  setBook({ ...book, color: "_4" });
-                },
+            },
+            dot4: {
+              onClick: () => {
+                setBook({ ...book, color: "_4" });
               },
-              dot5: {
-                onClick: () => {
-                  setBook({ ...book, color: "_5" });
-                },
+            },
+            dot5: {
+              onClick: () => {
+                setBook({ ...book, color: "_5" });
               },
-              dot6: {
-                onClick: () => {
-                  setBook({ ...book, color: "_6" });
-                },
+            },
+            dot6: {
+              onClick: () => {
+                setBook({ ...book, color: "_6" });
               },
-              dot7: {
-                onClick: () => {
-                  setBook({ ...book, color: "_7" });
-                },
+            },
+            dot7: {
+              onClick: () => {
+                setBook({ ...book, color: "_7" });
               },
             },
           }}
           bookIconOnly={{
-            props: {
-              color: book.color,
-            },
+            color: book.color,
           }}
           isPriv={{
-            props: {
-              isChecked: book.isPriv,
-              onChange: (e: boolean) => {
-                setBook({ ...book, isPriv: e });
-              },
+            isChecked: book.isPriv,
+            onChange: (e: boolean) => {
+              setBook({ ...book, isPriv: e });
             },
           }}
           ok={{
@@ -312,11 +336,9 @@ function Bundle() {
               saveBook();
             },
           }}
-          remove={{
-            render: () => null,
-          }}
         />
       </BookModal>
+
       <DocModal>
         <PlasmicDocInfoModal
           docTitle={{

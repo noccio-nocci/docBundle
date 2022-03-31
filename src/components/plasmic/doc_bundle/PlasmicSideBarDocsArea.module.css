@@ -26,7 +26,7 @@
 .root > :global(.__wab_flex-container) > :global(.__wab_slot) > picture > img {
   margin-top: 4px;
 }
-.sideBarBookTitle__zAoS:global(.__wab_instance) {
+.sideBarBookTitle:global(.__wab_instance) {
   position: relative;
   flex-shrink: 0;
 }
@@ -54,7 +54,7 @@
 .list > :global(.__wab_flex-container) > :global(.__wab_slot) > picture > img {
   margin-top: 4px;
 }
-.addStock__jwPaF:global(.__wab_instance) {
+.addStock:global(.__wab_instance) {
   position: relative;
   display: flex;
 }

@@ -3,9 +3,10 @@
 import * as React from "react";
 import {
   PlasmicSigninForm,
-  DefaultSigninFormProps
+  DefaultSigninFormProps,
 } from "./plasmic/doc_bundle/PlasmicSigninForm";
 import { HTMLElementRefOf } from "@plasmicapp/react-web";
+import Button from "./Button";
 
 // Your component props start with props for variants and slots you defined
 // in Plasmic, but you can add more here, like event handlers that you can
@@ -20,7 +21,9 @@ import { HTMLElementRefOf } from "@plasmicapp/react-web";
 //
 // You can also stop extending from DefaultSigninFormProps altogether and have
 // total control over the props for your component.
-export interface SigninFormProps extends DefaultSigninFormProps {}
+export interface SigninFormProps extends DefaultSigninFormProps {
+  signinWithGoogleButton?: React.Component<typeof Button>;
+}
 
 function SigninForm_(props: SigninFormProps, ref: HTMLElementRefOf<"div">) {
   // Use PlasmicSigninForm to render this component as it was

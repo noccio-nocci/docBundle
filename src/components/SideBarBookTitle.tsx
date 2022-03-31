@@ -20,7 +20,9 @@ import { HTMLElementRefOf } from "@plasmicapp/react-web";
 //
 // You can also stop extending from DefaultSideBarBookTitleProps altogether and have
 // total control over the props for your component.
-export interface SideBarBookTitleProps extends DefaultSideBarBookTitleProps {}
+export interface SideBarBookTitleProps extends DefaultSideBarBookTitleProps {
+  onClick?: (ev: React.MouseEvent<HTMLButtonElement>) => void;
+}
 
 function SideBarBookTitle_(
   props: SideBarBookTitleProps,

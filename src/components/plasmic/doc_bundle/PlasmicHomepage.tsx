@@ -36,8 +36,6 @@ import {
 } from "@plasmicapp/react-web";
 import SideBarLogo from "../../SideBarLogo"; // plasmic-import: QxLaN1qoTo/component
 import SideBarDocsArea from "../../SideBarDocsArea"; // plasmic-import: L8yNVAnNLS/component
-import AddStock from "../../AddStock"; // plasmic-import: -k3H9wKgmJ/component
-import SideBarBookTitle from "../../SideBarBookTitle"; // plasmic-import: cpDlPT0ZyV/component
 import SideBarLogout from "../../SideBarLogout"; // plasmic-import: 1WJG8XuDtI/component
 import BookList from "../../BookList"; // plasmic-import: JSMOwwEprH/component
 
@@ -89,9 +87,7 @@ function PlasmicHomepage__RenderFunc(props: {
 
   return (
     <React.Fragment>
-      <Head>
-        <meta name="twitter:card" content="summary" />
-      </Head>
+      {}
 
       <style>{`
         body {

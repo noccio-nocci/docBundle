@@ -70,6 +70,8 @@ export const PlasmicDocumentSection__ArgProps = new Array<ArgPropType>(
 
 export type PlasmicDocumentSection__OverridesType = {
   root?: p.Flex<"div">;
+  section?: p.Flex<"div">;
+  freeBox?: p.Flex<"div">;
   name?: p.Flex<"div">;
   toggle?: p.Flex<typeof SectionToggle>;
   childSection?: p.Flex<"div">;
@@ -110,51 +112,23 @@ function PlasmicDocumentSection__RenderFunc(props: {
     >
       {true ? (
         <div
-          className={classNames(projectcss.all, sty.freeBox__v9Out, {
-            [sty.freeBoxcolor__2__v9OutVps5I]: hasVariant(
-              variants,
-              "color",
-              "_2"
-            ),
-            [sty.freeBoxcolor__3__v9OutnRxbF]: hasVariant(
-              variants,
-              "color",
-              "_3"
-            ),
-            [sty.freeBoxcolor__4__v9Out7YaJ]: hasVariant(
-              variants,
-              "color",
-              "_4"
-            ),
-            [sty.freeBoxcolor__5__v9OuttNbLi]: hasVariant(
-              variants,
-              "color",
-              "_5"
-            ),
-            [sty.freeBoxcolor__6__v9OuTk8PHy]: hasVariant(
-              variants,
-              "color",
-              "_6"
-            ),
-            [sty.freeBoxcolor__7__v9OutPls6A]: hasVariant(
-              variants,
-              "color",
-              "_7"
-            )
+          data-plasmic-name={"section"}
+          data-plasmic-override={overrides.section}
+          className={classNames(projectcss.all, sty.section, {
+            [sty.sectioncolor__2]: hasVariant(variants, "color", "_2"),
+            [sty.sectioncolor__3]: hasVariant(variants, "color", "_3"),
+            [sty.sectioncolor__4]: hasVariant(variants, "color", "_4"),
+            [sty.sectioncolor__5]: hasVariant(variants, "color", "_5"),
+            [sty.sectioncolor__6]: hasVariant(variants, "color", "_6"),
+            [sty.sectioncolor__7]: hasVariant(variants, "color", "_7")
           })}
         >
           <div
-            className={classNames(projectcss.all, sty.freeBox__jhOvc, {
-              [sty.freeBoxcolor__6__jhOvck8PHy]: hasVariant(
-                variants,
-                "color",
-                "_6"
-              ),
-              [sty.freeBoxisClose__jhOvcewf9R]: hasVariant(
-                variants,
-                "isClose",
-                "isClose"
-              )
+            data-plasmic-name={"freeBox"}
+            data-plasmic-override={overrides.freeBox}
+            className={classNames(projectcss.all, sty.freeBox, {
+              [sty.freeBoxcolor__6]: hasVariant(variants, "color", "_6"),
+              [sty.freeBoxisClose]: hasVariant(variants, "isClose", "isClose")
             })}
           >
             <div
@@ -222,7 +196,9 @@ function PlasmicDocumentSection__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "name", "toggle", "childSection"],
+  root: ["root", "section", "freeBox", "name", "toggle", "childSection"],
+  section: ["section", "freeBox", "name", "toggle"],
+  freeBox: ["freeBox", "name", "toggle"],
   name: ["name"],
   toggle: ["toggle"],
   childSection: ["childSection"]
@@ -232,6 +208,8 @@ type DescendantsType<T extends NodeNameType> =
   typeof PlasmicDescendants[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  section: "div";
+  freeBox: "div";
   name: "div";
   toggle: typeof SectionToggle;
   childSection: "div";
@@ -294,6 +272,8 @@ export const PlasmicDocumentSection = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    section: makeNodeComponent("section"),
+    freeBox: makeNodeComponent("freeBox"),
     _name: makeNodeComponent("name"),
     toggle: makeNodeComponent("toggle"),
     childSection: makeNodeComponent("childSection"),

@@ -11,6 +11,10 @@ import Book, { BookProps } from "../components/Book";
 import { DocumentRowProps } from "../components/DocumentRow";
 import AddBook from "../components/AddBook";
 
+// Plasmic***InfoModalにしないとtextareaとかinputの参照がうまく行かない・・・
+// ***InfoModalのPropsに追加したいのだが、typeof HTMLInputElementとかではできなかった・・・
+import PlasmicBookInfoModal from "../components/plasmic/doc_bundle/PlasmicBookInfoModal";
+
 // books関係はどこにまとめるのがよいのか？　一旦ここに書いておこう
 import {
   onSnapshot,
@@ -188,7 +192,8 @@ function Homepage() {
         }}
       />
       <Modal>
-        <BookInfoModal
+        <PlasmicBookInfoModal
+          disableRemove={book.id === "" ? true : false}
           closeButton={{
             // なんでPlasmicBookInfoModalじゃないと参照できないんだろう・・・　キモい
             onClick: (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -202,58 +207,52 @@ function Homepage() {
             },
           }}
           colorPicker={{
-            props: {
-              color: book.color,
-              // クリックされた子コンポーネントのpropsを勝手にセットしたいし、
-              // 子コンポーネント追加するたびに、こちらのコードも追加するのが気持ち悪い。
-              dot1: {
-                onClick: () => {
-                  setBook({ ...book, color: "_1" });
-                },
+            color: book.color,
+            // クリックされた子コンポーネントのpropsを勝手にセットしたいし、
+            // 子コンポーネント追加するたびに、こちらのコードも追加するのが気持ち悪い。
+            dot1: {
+              onClick: () => {
+                setBook({ ...book, color: "_1" });
               },
-              dot2: {
-                onClick: () => {
-                  setBook({ ...book, color: "_2" });
-                },
+            },
+            dot2: {
+              onClick: () => {
+                setBook({ ...book, color: "_2" });
               },
-              dot3: {
-                onClick: () => {
-                  setBook({ ...book, color: "_3" });
-                },
+            },
+            dot3: {
+              onClick: () => {
+                setBook({ ...book, color: "_3" });
               },
-              dot4: {
-                onClick: () => {
-                  setBook({ ...book, color: "_4" });
-                },
+            },
+            dot4: {
+              onClick: () => {
+                setBook({ ...book, color: "_4" });
               },
-              dot5: {
-                onClick: () => {
-                  setBook({ ...book, color: "_5" });
-                },
+            },
+            dot5: {
+              onClick: () => {
+                setBook({ ...book, color: "_5" });
               },
-              dot6: {
-                onClick: () => {
-                  setBook({ ...book, color: "_6" });
-                },
+            },
+            dot6: {
+              onClick: () => {
+                setBook({ ...book, color: "_6" });
               },
-              dot7: {
-                onClick: () => {
-                  setBook({ ...book, color: "_7" });
-                },
+            },
+            dot7: {
+              onClick: () => {
+                setBook({ ...book, color: "_7" });
               },
             },
           }}
           bookIconOnly={{
-            props: {
-              color: book.color,
-            },
+            color: book.color,
           }}
           isPriv={{
-            props: {
-              isChecked: book.isPriv,
-              onChange: (e: boolean) => {
-                setBook({ ...book, isPriv: e });
-              },
+            isChecked: book.isPriv,
+            onChange: (e: boolean) => {
+              setBook({ ...book, isPriv: e });
             },
           }}
           ok={{
@@ -262,12 +261,8 @@ function Homepage() {
             },
           }}
           remove={{
-            render: (props: any, Component: any) =>
-              book.id === "" ? null : <Component {...props} />,
-            props: {
-              onClick: () => {
-                removeBook();
-              },
+            onClick: () => {
+              removeBook();
             },
           }}
         />

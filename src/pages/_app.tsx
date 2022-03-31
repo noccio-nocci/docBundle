@@ -1,11 +1,12 @@
 import "../styles/globals.css";
 import { PlasmicRootProvider } from "@plasmicapp/react-web";
 import type { AppProps } from "next/app";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { useRouter } from "next/router";
+import { CookiesProvider } from "react-cookie";
 import Head from "next/head";
 
-// TODO: PlasmicSigninForm呼ばなきゃいけないのが気持ち悪い・・・・
+// TODO: PlasmicSigninForm呼ばないとsigninWithGooglebuttonのonClickが取れなかった・・・なぜ？気持ち悪い・・・・
 import SigninForm from "../components/SigninForm";
 import PlasmicSigninForm from "../components/plasmic/doc_bundle/PlasmicSigninForm";
 import { useAuthState } from "../hooks/useAuthState";
@@ -16,24 +17,26 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <>
-      <Head>
-        <title>docBundle</title>
-      </Head>
-      {isLoading ? (
-        <></>
-      ) : !isSignedIn ? (
-        <PlasmicRootProvider>
-          <PlasmicSigninForm
-            signinWithGoogleButton={{
-              props: { onClick: () => signIn() },
-            }}
-          />
-        </PlasmicRootProvider>
-      ) : (
-        <PlasmicRootProvider>
-          <Component {...pageProps} />
-        </PlasmicRootProvider>
-      )}
+      <CookiesProvider>
+        <Head>
+          <title>docBundle</title>
+        </Head>
+        {isLoading ? (
+          <></>
+        ) : !isSignedIn ? (
+          <PlasmicRootProvider>
+            <PlasmicSigninForm
+              signinWithGoogleButton={{
+                onClick: () => signIn(),
+              }}
+            />
+          </PlasmicRootProvider>
+        ) : (
+          <PlasmicRootProvider>
+            <Component {...pageProps} />
+          </PlasmicRootProvider>
+        )}
+      </CookiesProvider>
     </>
   );
 }
