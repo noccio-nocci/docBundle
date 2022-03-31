@@ -14,11 +14,11 @@ import { signIn, signOut } from "../utils/firebase/auth";
 
 const allowPages = ["/plasmic-host"];
 
-const isAllowPage = () => {
-  return !!!allowPages.indexOf(document.location.pathname);
+const isAllowPage = (pathname: string) => {
+  return !!!allowPages.indexOf(pathname);
 };
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps, router }: AppProps) {
   const { isSignedIn, isLoading } = useAuthState();
 
   return (
@@ -27,7 +27,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <Head>
           <title>docBundle</title>
         </Head>
-        {isAllowPage() ? (
+        {isAllowPage(router.pathname) ? (
           <PlasmicRootProvider>
             <Component {...pageProps} />
           </PlasmicRootProvider>
