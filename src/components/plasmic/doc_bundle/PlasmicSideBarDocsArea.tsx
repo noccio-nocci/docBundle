@@ -32,9 +32,10 @@ import {
   useTrigger,
   StrictProps,
   deriveRenderOpts,
-  ensureGlobalVariants
+  ensureGlobalVariants,
 } from "@plasmicapp/react-web";
 import SideBarBookTitle from "../../SideBarBookTitle"; // plasmic-import: cpDlPT0ZyV/component
+import DraggableListView from "../../code_components/DraggableListView"; // plasmic-import: npy4_r1HuA/codeComponent
 import AddStock from "../../AddStock"; // plasmic-import: -k3H9wKgmJ/component
 
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -50,21 +51,22 @@ export const PlasmicSideBarDocsArea__VariantProps =
   new Array<VariantPropType>();
 
 export type PlasmicSideBarDocsArea__ArgsType = {
-  list?: React.ReactNode;
+  list2?: React.ReactNode;
 };
 
 type ArgPropType = keyof PlasmicSideBarDocsArea__ArgsType;
-export const PlasmicSideBarDocsArea__ArgProps = new Array<ArgPropType>("list");
+export const PlasmicSideBarDocsArea__ArgProps = new Array<ArgPropType>("list2");
 
 export type PlasmicSideBarDocsArea__OverridesType = {
   root?: p.Flex<"div">;
   sideBarBookTitle?: p.Flex<typeof SideBarBookTitle>;
-  list?: p.Flex<"div">;
+  list?: p.Flex<typeof DraggableListView>;
   addStock?: p.Flex<typeof AddStock>;
+  freeBox?: p.Flex<"div">;
 };
 
 export interface DefaultSideBarDocsAreaProps {
-  list?: React.ReactNode;
+  list2?: React.ReactNode;
   className?: string;
 }
 
@@ -101,36 +103,41 @@ function PlasmicSideBarDocsArea__RenderFunc(props: {
           className={classNames("__wab_instance", sty.sideBarBookTitle)}
         />
 
-        {true ? (
-          <p.Stack
-            as={"div"}
-            data-plasmic-name={"list"}
-            data-plasmic-override={overrides.list}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.list)}
-          >
-            {p.renderPlasmicSlot({
-              defaultContents: null,
-              value: args.list
-            })}
-          </p.Stack>
-        ) : null}
+        <DraggableListView
+          data-plasmic-name={"list"}
+          data-plasmic-override={overrides.list}
+          className={classNames("__wab_instance", sty.list)}
+          handleSelector={".draggable" as const}
+          nodeSelector={".draggable" as const}
+        />
 
         <AddStock
           data-plasmic-name={"addStock"}
           data-plasmic-override={overrides.addStock}
           className={classNames("__wab_instance", sty.addStock)}
         />
+
+        <div
+          data-plasmic-name={"freeBox"}
+          data-plasmic-override={overrides.freeBox}
+          className={classNames(projectcss.all, sty.freeBox)}
+        >
+          {p.renderPlasmicSlot({
+            defaultContents: null,
+            value: args.list2,
+          })}
+        </div>
       </p.Stack>
     ) : null
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "sideBarBookTitle", "list", "addStock"],
+  root: ["root", "sideBarBookTitle", "list", "addStock", "freeBox"],
   sideBarBookTitle: ["sideBarBookTitle"],
   list: ["list"],
-  addStock: ["addStock"]
+  addStock: ["addStock"],
+  freeBox: ["freeBox"],
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -138,8 +145,9 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   sideBarBookTitle: typeof SideBarBookTitle;
-  list: "div";
+  list: typeof DraggableListView;
   addStock: typeof AddStock;
+  freeBox: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -176,14 +184,14 @@ function makeNodeComponent<NodeName extends NodeNameType>(nodeName: NodeName) {
       name: nodeName,
       descendantNames: [...PlasmicDescendants[nodeName]],
       internalArgPropNames: PlasmicSideBarDocsArea__ArgProps,
-      internalVariantPropNames: PlasmicSideBarDocsArea__VariantProps
+      internalVariantPropNames: PlasmicSideBarDocsArea__VariantProps,
     });
 
     return PlasmicSideBarDocsArea__RenderFunc({
       variants,
       args,
       overrides,
-      forNode: nodeName
+      forNode: nodeName,
     });
   };
   if (nodeName === "root") {
@@ -202,10 +210,11 @@ export const PlasmicSideBarDocsArea = Object.assign(
     sideBarBookTitle: makeNodeComponent("sideBarBookTitle"),
     list: makeNodeComponent("list"),
     addStock: makeNodeComponent("addStock"),
+    freeBox: makeNodeComponent("freeBox"),
 
     // Metadata about props expected for PlasmicSideBarDocsArea
     internalVariantProps: PlasmicSideBarDocsArea__VariantProps,
-    internalArgProps: PlasmicSideBarDocsArea__ArgProps
+    internalArgProps: PlasmicSideBarDocsArea__ArgProps,
   }
 );
 

@@ -8,36 +8,10 @@ import App from "next/app";
 import DraggableListView, {
   DraggableListViewMeta,
 } from "../components/code_components/DraggableListView";
-import Iframe, { iframeMeta } from "../components/code_components/Iframe";
 
-registerComponent(DraggableListView, {
-  name: "DraggableListView",
-  displayName: "DraggableListView",
-  importName: "DraggableListView",
-  importPath: "../components/code_components/DraggableListView",
-  props: {
-    children: "slot",
-  },
-  defaultStyles: {
-    width: "strech",
-    height: "hug content",
-  },
-});
-registerComponent(Iframe, iframeMeta);
+registerComponent(DraggableListView, DraggableListViewMeta);
 
-export default function PlasmicHost() {
-  return (
-    <div>
-      <Script
-        src="https://static1.plasmic.app/preamble.js"
-        strategy="beforeInteractive"
-      />
-      <PlasmicCanvasHost />
-    </div>
-  );
-}
-
-const PlasmicHost2 = () => {
+const PlasmicHost = () => {
   return (
     PLASMIC && (
       <div>
@@ -51,4 +25,4 @@ const PlasmicHost2 = () => {
   );
 };
 
-//export default PlasmicHost;
+export default PlasmicHost;

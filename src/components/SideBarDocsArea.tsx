@@ -8,6 +8,7 @@ import {
 import { HTMLElementRefOf } from "@plasmicapp/react-web";
 import AddStock from "./AddStock";
 import SideBarBookTitle from "./SideBarBookTitle";
+import DraggableListView from "./code_components/DraggableListView";
 
 // Your component props start with props for variants and slots you defined
 // in Plasmic, but you can add more here, like event handlers that you can
@@ -25,6 +26,7 @@ import SideBarBookTitle from "./SideBarBookTitle";
 export interface SideBarDocsAreaProps extends DefaultSideBarDocsAreaProps {
   addStock?: React.ComponentProps<typeof AddStock>;
   sideBarBookTitle?: React.ComponentProps<typeof SideBarBookTitle>;
+  list?: React.ComponentProps<typeof DraggableListView>;
 }
 
 function SideBarDocsArea_(

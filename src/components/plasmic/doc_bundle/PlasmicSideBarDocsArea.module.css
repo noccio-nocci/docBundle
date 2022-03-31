@@ -30,31 +30,26 @@
   position: relative;
   flex-shrink: 0;
 }
-.list {
-  flex-direction: column;
-  display: flex;
-  position: relative;
+.list:global(.__wab_instance) {
   width: 100%;
-  height: auto;
+  height: hug content;
   max-width: 100%;
+  position: relative;
   min-width: 0;
-  padding: 0px;
-}
-.list > :global(.__wab_flex-container) {
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  min-width: 0;
-  margin-top: calc(0px - 4px);
-  height: calc(100% + 4px);
-}
-.list > :global(.__wab_flex-container) > *,
-.list > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.list > :global(.__wab_flex-container) > picture > img,
-.list > :global(.__wab_flex-container) > :global(.__wab_slot) > picture > img {
-  margin-top: 4px;
 }
 .addStock:global(.__wab_instance) {
   position: relative;
   display: flex;
+}
+.freeBox {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
 }

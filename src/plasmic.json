@@ -366,19 +366,6 @@
           "componentType": "component"
         },
         {
-          "id": "L8yNVAnNLS",
-          "name": "SideBarDocsArea",
-          "type": "managed",
-          "projectId": "jRkyHyW5xUgunu5SjYQV4L",
-          "renderModuleFilePath": "plasmic/doc_bundle/PlasmicSideBarDocsArea.tsx",
-          "importSpec": {
-            "modulePath": "SideBarDocsArea.tsx"
-          },
-          "cssFilePath": "plasmic/doc_bundle/PlasmicSideBarDocsArea.module.css",
-          "scheme": "blackbox",
-          "componentType": "component"
-        },
-        {
           "id": "okur83wpGri",
           "name": "SectionToggle",
           "type": "managed",
@@ -414,6 +401,19 @@
             "modulePath": "DocumentSection.tsx"
           },
           "cssFilePath": "plasmic/doc_bundle/PlasmicDocumentSection.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "L8yNVAnNLS",
+          "name": "SideBarDocsArea",
+          "type": "managed",
+          "projectId": "jRkyHyW5xUgunu5SjYQV4L",
+          "renderModuleFilePath": "plasmic/doc_bundle/PlasmicSideBarDocsArea.tsx",
+          "importSpec": {
+            "modulePath": "SideBarDocsArea.tsx"
+          },
+          "cssFilePath": "plasmic/doc_bundle/PlasmicSideBarDocsArea.module.css",
           "scheme": "blackbox",
           "componentType": "component"
         }
@@ -514,7 +514,18 @@
       ],
       "indirect": false,
       "globalContextsFilePath": "",
-      "codeComponents": []
+      "codeComponents": [
+        {
+          "id": "npy4_r1HuA",
+          "name": "DraggableListView",
+          "componentImportPath": "./components/code_components/DraggableListView"
+        },
+        {
+          "id": "vqUzGOEWA-",
+          "name": "Iframe",
+          "componentImportPath": "../components/code_components/plasmic-basic-components"
+        }
+      ]
     }
   ],
   "globalVariants": {

@@ -211,59 +211,64 @@ function Bundle() {
               }
             },
           },
-          list: book?.docs?.map((doc: DocValues) =>
-            doc.url ? (
-              <DocumentRow
-                key={doc.url}
-                color={doc.color}
-                name={doc.name}
-                className={"draggable"}
-                onClick={(e: React.MouseEvent<HTMLDivElement>) => {
-                  setUrl(doc.url);
-                }}
-                onContextMenu={(ev: React.MouseEvent<HTMLDivElement>) => {
-                  ev.preventDefault();
-                  openEditDocModal(doc);
-                }}
-              />
-            ) : (
-              <DocumentSection
-                key={doc.idx}
-                name={doc.name}
-                color={doc.color}
-                className={"draggable"}
-                section={{
-                  onContextMenu: (ev: React.MouseEvent<HTMLDivElement>) => {
-                    console.log(ev);
+          list: {
+            onDragEnd: (fromIndex: number, toIndex: number) => {
+              alert(fromIndex + ":" + toIndex);
+            },
+            list: book?.docs?.map((doc: DocValues) =>
+              doc.url ? (
+                <DocumentRow
+                  key={doc.url}
+                  color={doc.color}
+                  name={doc.name}
+                  className={"draggable"}
+                  onClick={(e: React.MouseEvent<HTMLDivElement>) => {
+                    setUrl(doc.url);
+                  }}
+                  onContextMenu={(ev: React.MouseEvent<HTMLDivElement>) => {
                     ev.preventDefault();
                     openEditDocModal(doc);
-                  },
-                }}
-                toggle={{
-                  onClick: (e: React.MouseEvent<HTMLButtonElement>) => {
-                    flipSection(book.id, doc.idx.toString());
-                  },
-                }}
-                isClose={!!flip[doc.idx]}
-                list={doc.docs?.map((cdoc: DocValues) => (
-                  <DocumentRow
-                    key={cdoc.url}
-                    color={cdoc.color}
-                    name={cdoc.name}
-                    className={"draggable"}
-                    onClick={(e: React.MouseEvent<HTMLDivElement>) => {
-                      setUrl(cdoc.url);
-                    }}
-                    onContextMenu={(ev: React.MouseEvent<HTMLDivElement>) => {
+                  }}
+                />
+              ) : (
+                <DocumentSection
+                  key={doc.idx}
+                  name={doc.name}
+                  color={doc.color}
+                  className={"draggable"}
+                  section={{
+                    onContextMenu: (ev: React.MouseEvent<HTMLDivElement>) => {
                       console.log(ev);
                       ev.preventDefault();
-                      openEditDocModal(cdoc);
-                    }}
-                  />
-                ))}
-              />
-            )
-          ),
+                      openEditDocModal(doc);
+                    },
+                  }}
+                  toggle={{
+                    onClick: (e: React.MouseEvent<HTMLButtonElement>) => {
+                      flipSection(book.id, doc.idx.toString());
+                    },
+                  }}
+                  isClose={!!flip[doc.idx]}
+                  list={doc.docs?.map((cdoc: DocValues) => (
+                    <DocumentRow
+                      key={cdoc.url}
+                      color={cdoc.color}
+                      name={cdoc.name}
+                      className={"draggable"}
+                      onClick={(e: React.MouseEvent<HTMLDivElement>) => {
+                        setUrl(cdoc.url);
+                      }}
+                      onContextMenu={(ev: React.MouseEvent<HTMLDivElement>) => {
+                        console.log(ev);
+                        ev.preventDefault();
+                        openEditDocModal(cdoc);
+                      }}
+                    />
+                  ))}
+                />
+              )
+            ),
+          },
         }}
         rightPane={{
           wrapChildren: (children) => (

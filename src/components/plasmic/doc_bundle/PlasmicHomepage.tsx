@@ -54,12 +54,9 @@ export type PlasmicHomepage__VariantsArgs = {};
 type VariantPropType = keyof PlasmicHomepage__VariantsArgs;
 export const PlasmicHomepage__VariantProps = new Array<VariantPropType>();
 
-export type PlasmicHomepage__ArgsType = {
-  list?: React.ReactNode;
-};
-
+export type PlasmicHomepage__ArgsType = {};
 type ArgPropType = keyof PlasmicHomepage__ArgsType;
-export const PlasmicHomepage__ArgProps = new Array<ArgPropType>("list");
+export const PlasmicHomepage__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicHomepage__OverridesType = {
   root?: p.Flex<"div">;
@@ -137,10 +134,6 @@ function PlasmicHomepage__RenderFunc(props: {
                             "__wab_instance",
                             sty.sideBarDocsArea
                           )}
-                          list={p.renderPlasmicSlot({
-                            defaultContents: null,
-                            value: args.list
-                          })}
                         />
                       ) : null}
                     </div>

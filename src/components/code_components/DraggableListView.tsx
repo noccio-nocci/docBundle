@@ -4,18 +4,18 @@ import React, { ReactNode } from "react";
 import ReactDragListView, { DragListViewProps } from "react-drag-listview";
 
 export interface DraggableListProps extends DragListViewProps {
-  children?: ReactNode;
+  list?: ReactNode;
   className?: string;
 }
 
-export default function DraggableListView({ className }: DraggableListProps) {
+const DraggableListView = (props: DraggableListProps) => {
   return (
-    <div className={className}>
-      <ReactDragListView {...props}>{children}</ReactDragListView>
+    <div className={props.className}>
+      <ReactDragListView {...props}>{props.list}</ReactDragListView>
     </div>
   );
-}
-/*
+};
+
 DraggableListView.defaultProps = {
   nodeSelector: "button",
   handleSelector: "button",
@@ -23,21 +23,27 @@ DraggableListView.defaultProps = {
     console.log(fromIndex + " to " + toIndex);
   },
 };
-*/
-export const DraggableListViewMeta = {
+
+export const DraggableListViewMeta: ComponentMeta<DraggableListProps> = {
   name: "DraggableListView",
   displayName: "DraggableListView",
   importName: "DraggableListView",
-  importPath: "../components/code_components/DraggableListView",
+  importPath: "./components/code_components/DraggableListView",
   props: {
-    children: "slot",
+    list: "slot",
     nodeSelector: {
+      type: "string",
+      defaultValue: ".draggable",
+    },
+    handleSelector: {
       type: "string",
       defaultValue: ".draggable",
     },
   },
   defaultStyles: {
-    width: "strech",
+    width: "stretch",
     height: "hug content",
   },
 };
+
+export default DraggableListView;
