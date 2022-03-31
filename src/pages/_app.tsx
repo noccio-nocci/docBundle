@@ -12,6 +12,12 @@ import PlasmicSigninForm from "../components/plasmic/doc_bundle/PlasmicSigninFor
 import { useAuthState } from "../hooks/useAuthState";
 import { signIn, signOut } from "../utils/firebase/auth";
 
+const allowPages = ["PlasmicHost"];
+
+const isAllowPage = (name: string) => {
+  return !!!allowPages.indexOf(name);
+};
+
 function MyApp({ Component, pageProps }: AppProps) {
   const { isSignedIn, isLoading } = useAuthState();
 
@@ -21,7 +27,11 @@ function MyApp({ Component, pageProps }: AppProps) {
         <Head>
           <title>docBundle</title>
         </Head>
-        {isLoading ? (
+        {isAllowPage(Component.name) ? (
+          <PlasmicRootProvider>
+            <Component {...pageProps} />
+          </PlasmicRootProvider>
+        ) : isLoading ? (
           <></>
         ) : !isSignedIn ? (
           <PlasmicRootProvider>
