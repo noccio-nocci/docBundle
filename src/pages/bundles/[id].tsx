@@ -12,7 +12,7 @@ import DocumentFrame from "../../components/DocumentFrame";
 import BookInfoModal from "../../components/BookInfoModal";
 import DocInfoModal from "../../components/DocInfoModal";
 import DocumentRow from "../../components/DocumentRow";
-import DraggableListView from "../../components/DraggableListView";
+import DraggableListView from "../../components/code_components/DraggableListView";
 import DocumentSection from "../../components/DocumentSection";
 import AddStock from "../../components/AddStock";
 

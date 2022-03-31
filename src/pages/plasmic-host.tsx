@@ -5,15 +5,25 @@ import { PLASMIC } from "../plasmic-init";
 import { AppContext } from "next/app";
 import App from "next/app";
 
-import DraggableListView from "../components/DraggableListView";
+import DraggableListView, {
+  DraggableListViewMeta,
+} from "../components/code_components/DraggableListView";
+import Iframe, { iframeMeta } from "../components/code_components/Iframe";
 
 registerComponent(DraggableListView, {
   name: "DraggableListView",
-  importPath: "../components/DragListView",
+  displayName: "DraggableListView",
+  importName: "DraggableListView",
+  importPath: "../components/code_components/DraggableListView",
   props: {
     children: "slot",
   },
+  defaultStyles: {
+    width: "strech",
+    height: "hug content",
+  },
 });
+registerComponent(Iframe, iframeMeta);
 
 export default function PlasmicHost() {
   return (
