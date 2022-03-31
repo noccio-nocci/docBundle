@@ -21,6 +21,8 @@ import AddStock from "../../components/AddStock";
 import PlasmicBookInfoModal from "../../components/plasmic/doc_bundle/PlasmicBookInfoModal";
 import PlasmicDocInfoModal from "../../components/plasmic/doc_bundle/PlasmicDocInfoModal";
 
+// TODO: DocumentRowの中のDocumentSectionのマウスイベントのバブリングがpriventDefault効いてない・・・
+
 // index同様の悩み。どこに置くべき？
 import {
   onSnapshot,
@@ -230,10 +232,12 @@ function Bundle() {
                 name={doc.name}
                 color={doc.color}
                 className={"draggable"}
-                onContextMenu={(ev: React.MouseEvent<HTMLDivElement>) => {
-                  console.log(ev);
-                  ev.preventDefault();
-                  openEditDocModal(doc);
+                section={{
+                  onContextMenu: (ev: React.MouseEvent<HTMLDivElement>) => {
+                    console.log(ev);
+                    ev.preventDefault();
+                    openEditDocModal(doc);
+                  },
                 }}
                 toggle={{
                   onClick: (e: React.MouseEvent<HTMLButtonElement>) => {

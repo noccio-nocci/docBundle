@@ -24,6 +24,7 @@ import SectionToggle from "./SectionToggle";
 export interface DocumentSectionProps extends DefaultDocumentSectionProps {
   onContextMenu?: (e: React.MouseEvent<HTMLDivElement>) => void;
   toggle?: React.ComponentProps<typeof SectionToggle>;
+  section?: React.ComponentProps<any>;
 }
 
 function DocumentSection_(
