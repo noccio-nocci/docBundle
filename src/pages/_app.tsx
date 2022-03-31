@@ -12,10 +12,10 @@ import PlasmicSigninForm from "../components/plasmic/doc_bundle/PlasmicSigninFor
 import { useAuthState } from "../hooks/useAuthState";
 import { signIn, signOut } from "../utils/firebase/auth";
 
-const allowPages = ["PlasmicHost"];
+const allowPages = ["/plasmic-host"];
 
-const isAllowPage = (name: string) => {
-  return !!!allowPages.indexOf(name);
+const isAllowPage = () => {
+  return !!!allowPages.indexOf(document.location.pathname);
 };
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -27,7 +27,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <Head>
           <title>docBundle</title>
         </Head>
-        {isAllowPage(Component.name) ? (
+        {isAllowPage() ? (
           <PlasmicRootProvider>
             <Component {...pageProps} />
           </PlasmicRootProvider>
