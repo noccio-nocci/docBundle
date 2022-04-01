@@ -68,7 +68,9 @@ function Bundle() {
 
   const [book, setBook] = useState<BookValues>(INITIAL_BOOK_VALUE);
   const [docs, setDocs] = useState<DocValues>(INITIAL_DOC_VALUE);
-  const [url, setUrl] = useState("");
+  const [url, setUrl] = useState(
+    "https://docs.google.com/presentation/d/e/2PACX-1vTPLALgBNjnVZ_uJfdT7dVFVrSB2IuNStf4SmJTSE9DlibIsVZ2EFp-_v8qB9wrrzNKB9d620Q0YlXS/embed"
+  );
   const [docsRef, setDocsRef] = useState<DocValues>(INITIAL_DOC_VALUE);
   const [flipCookie, setFlipCookie, removeFlipCookie] = useCookies();
 
@@ -129,7 +131,7 @@ function Bundle() {
 
     const docRef = doc(db, "bundles", book.id);
     // new
-    if (docs.idx === 0) {
+    if (docs.idx === -1) {
       const data = {
         idx: book.counter + 1,
         name: docs.name,
@@ -167,6 +169,7 @@ function Bundle() {
   const removeDoc = () => {
     const docRef = doc(db, "bundles", book.id);
     // confirmationmodal出したい
+    // TODO：子階層のやつこれじゃきえないじゃないか・・・
     const newDocs = book.docs.filter((d) => d.idx != docs.idx);
     updateDoc(docRef, {
       updated_at: serverTimestamp(),
@@ -183,6 +186,17 @@ function Bundle() {
 
   const loadFlipSection = () => {
     setFlip(flipCookie[book.id] || {});
+  };
+
+  const swapDocs = (from: number, to: number) => {
+    const docRef = doc(db, "bundles", book.id);
+
+    book.docs.splice(to, 0, book.docs.splice(from, 1)[0]);
+    const newDocs = book.docs;
+    updateDoc(docRef, {
+      updated_at: serverTimestamp(),
+      docs: newDocs,
+    });
   };
 
   return (
@@ -213,7 +227,7 @@ function Bundle() {
           },
           list: {
             onDragEnd: (fromIndex: number, toIndex: number) => {
-              alert(fromIndex + ":" + toIndex);
+              swapDocs(fromIndex, toIndex);
             },
             list: book?.docs?.map((doc: DocValues) =>
               doc.url ? (
@@ -238,7 +252,6 @@ function Bundle() {
                   className={"draggable"}
                   section={{
                     onContextMenu: (ev: React.MouseEvent<HTMLDivElement>) => {
-                      console.log(ev);
                       ev.preventDefault();
                       openEditDocModal(doc);
                     },
@@ -259,7 +272,6 @@ function Bundle() {
                         setUrl(cdoc.url);
                       }}
                       onContextMenu={(ev: React.MouseEvent<HTMLDivElement>) => {
-                        console.log(ev);
                         ev.preventDefault();
                         openEditDocModal(cdoc);
                       }}
@@ -364,7 +376,7 @@ function Bundle() {
               },
             },
             render: (props: any, Component: any) =>
-              docs.idx !== 0 && docs.url === "" ? null : (
+              docs.idx !== -1 && !!!docs.docs && docs.url === "" ? null : (
                 <Component {...props} />
               ),
           }}

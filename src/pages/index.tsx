@@ -58,7 +58,7 @@ export type DocValues = {
   docs: DocValues[];
 };
 export const INITIAL_DOC_VALUE: DocValues = {
-  idx: 0,
+  idx: -1,
   name: "",
   url: "",
   color: "_1",
